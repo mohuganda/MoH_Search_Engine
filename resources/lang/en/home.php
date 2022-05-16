@@ -1,7 +1,8 @@
 <?php
 return [
 
-    "message"=>"Message"
+    "message"=>"Message",
+    "Search_Dashboards"=>"Search Dashboards"
 
 ]
 

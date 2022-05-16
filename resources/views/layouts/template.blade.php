@@ -1,12 +1,12 @@
 
-@include('partials.header')
-@include('partials/nav')
+@include('layouts.partials.header')
+
 
 <body>
-
+    @include('layouts.partials.nav')
     @yield('content')
 
-    @include('partials.footer')
+    @include('layouts.partials.footer')
 
 </body>
 
