@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('theme/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('theme/css/ionicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('theme/css/A.animate.css%2bflaticon.css%2btiny-slider.css%2bglightbox.min.css%2baos.css%2bstyle.css%2cMcc.UgmKpvvBTJ.css.pagespeed.cf.xhAIVbA-KH.css')}}" />
-    
+    <div id="google_translate_element"></div>
 <script type="text/javascript">
         function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');

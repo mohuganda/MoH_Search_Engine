@@ -2,7 +2,7 @@
 @section('content')
 
 
-<section class="hero-wrap">
+<section class="hero-wrap" style="background-image:url({{asset('theme/images/xbg_1.jpg.pagespeed.ic.i5e7MoQ72I.jpg')}})">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -19,8 +19,8 @@
                         <div class="col-md-9 d-flex">
                             <div class="form-group p-3">
                                 <div class="form-field">
-                                    <div class="icon"><span class="ion-ios-search"></span></div>
-                                    <input type="text" class="form-control" placeholder="Search Resources">
+                                    <div class="icon"><span class="ion-ios-pin"></span></div>
+                                    <input type="text" class="form-control" placeholder="Search Location">
                                 </div>
                             </div>
                         </div>

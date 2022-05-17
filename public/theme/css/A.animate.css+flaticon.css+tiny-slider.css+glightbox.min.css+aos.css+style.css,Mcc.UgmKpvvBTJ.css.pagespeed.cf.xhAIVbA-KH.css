@@ -5692,11 +5692,11 @@ textarea.form-control {
 
 body {
   font-family: "Nunito Sans", Arial, sans-serif;
-  background: rgb(8 8 8 / 32%);
+  background: #fff;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #FFFF;
+  color: #999
 }
 
 a,
@@ -6304,10 +6304,10 @@ textarea.form-control {
 .services {
   width: 100%;
   background: #fff;
-  padding: 18px;
+  padding: 30px;
   position: relative;
   overflow: hidden;
-  border-radius: 100px;
+  border-radius: 4px;
   -moz-transition: all .3s ease;
   -o-transition: all .3s ease;
   -webkit-transition: all .3s ease;
@@ -6782,7 +6782,7 @@ textarea.form-control {
 
 .ftco-footer {
   padding: 7em 0 0 0;
-  background: #182641;
+  background: #10151c;
   color: rgba(255, 255, 255, .7)
 }
 

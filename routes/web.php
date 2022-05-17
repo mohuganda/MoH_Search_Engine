@@ -23,7 +23,7 @@ Route::get('/', [HomeController::class,'index']);
 //     return view('welcome');
 // });
 
-Route::resource('/search', HomeController::class);
+//Route::resource('/subjects', HomeController::class);
 
 Route::group(['prefix'=>'subjects'],function(){
 

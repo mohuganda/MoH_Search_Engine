@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg  ftco-navbar-light">
     <div class="container-xl">
-    <div id="google_translate_element"></div>
     <div id="my-signin2"></div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- <ul class="navbar-nav m-auto mb-2 mb-lg-0">

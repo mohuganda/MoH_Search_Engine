@@ -6,109 +6,109 @@
                 <div class="row g-3">
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-food-and-drink"></span></div>
                             <div class="text">
                                 <h2>Community Health</h2>
-                                <p class="list"><span>103</span> Results</p>
+                                <p class="list"><span>103</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                        <a href="#" class="services active">
+                            <div class="icon"><span class="flaticon-review"></span></div>
                             <div class="text">
-                                <h2>HIV</h2>
-                                <p class="list"><span>40</span> Results</p>
+                                <h2>Hotels</h2>
+                                <p class="list"><span>40</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-online-shopping"></span></div>
                             <div class="text">
-                                <h2>Malaria</h2>
-                                <p class="list"><span>100</span> Results</p>
+                                <h2>Shopping</h2>
+                                <p class="list"><span>100</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-cream"></span></div>
                             <div class="text">
-                                <h2>Covid 19</h2>
-                                <p class="list"><span>36</span> Results</p>
+                                <h2>Beauty</h2>
+                                <p class="list"><span>36</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-diet"></span></div>
                             <div class="text">
-                                <h2>Supply Chain</h2>
-                                <p class="list"><span>30</span> Results</p>
+                                <h2>Fitness</h2>
+                                <p class="list"><span>30</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-night-club"></span></div>
                             <div class="text">
-                                <h2>Commodities</h2>
-                                <p class="list"><span>12</span> Results</p>
+                                <h2>Bar &amp; Club</h2>
+                                <p class="list"><span>12</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-joystick"></span></div>
                             <div class="text">
-                                <h2>RMCH</h2>
-                                <p class="list"><span>103</span> Results</p>
+                                <h2>Games</h2>
+                                <p class="list"><span>103</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-meeting-point"></span></div>
                             <div class="text">
-                                <h2>Human Resource</h2>
-                                <p class="list"><span>40</span> Results</p>
+                                <h2>Places</h2>
+                                <p class="list"><span>40</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-amusement-park"></span></div>
                             <div class="text">
-                                <h2>Infrastructure</h2>
-                                <p class="list"><span>100</span> Results</p>
+                                <h2>Circus</h2>
+                                <p class="list"><span>100</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-cinema"></span></div>
                             <div class="text">
-                                <h2>Management & Administration</h2>
-                                <p class="list"><span>36</span> Results</p>
+                                <h2>Theater</h2>
+                                <p class="list"><span>36</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-sport"></span></div>
                             <div class="text">
-                                <h2>General Knowledge</h2>
-                                <p class="list"><span>30</span> Results </p>
+                                <h2>Sports</h2>
+                                <p class="list"><span>30</span> Listings</p>
                             </div>
                         </a>
                     </div>
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <a href="#" class="services">
-                            <div class="icon"><span class="ion-ios-search"></span></div>
+                            <div class="icon"><span class="flaticon-healthy-food"></span></div>
                             <div class="text">
-                                <h2>Tuberclosis</h2>
-                                <p class="list"><span>12</span> Results</p>
+                                <h2>Health</h2>
+                                <p class="list"><span>12</span> Listings</p>
                             </div>
                         </a>
                     </div>
