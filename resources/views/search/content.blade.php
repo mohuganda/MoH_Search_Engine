@@ -4,7 +4,7 @@
         <div class="col-md-3 col-lg-12">
             <div class="ftco-footer-widget mb-4">
                 <h2 class="ftco-heading-2">Dashboards</h2>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled navigation-search">
 
                     <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community</a><span> </span></li>
                     <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>HIV</a><span> </span></li>
@@ -22,13 +22,13 @@
             </div>
             <div class="ftco-footer-widget mb-4">
                 <h2 class="ftco-heading-2">Top Searched Dashboards</h2>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled navigation-search">
 
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community Health</a><span> 200 searches</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Covid 19</a><span> 190 searches</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Family Connect</a><span> 100 searches</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Product Registry</a><span> 90 searches</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>E-Library</a><span> 80 searches</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community Health</a><span> (200 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Covid 19</a><span> (190 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Family Connect</a><span> (100 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Product Registry</a><span> (90 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>E-Library</a><span> (80 searches)</span></li>
                 </ul>
             </div>
         </div>
