@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubjectsController;
-use phpDocumentor\Reflection\Types\Resource_;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Route::get('/', [HomeController::class,'index']);
 //     return view('welcome');
 // });
 
-//Route::resource('/subjects', HomeController::class);
+Route::any('/search', [SearchController::class,'search']);
 
 Route::group(['prefix'=>'subjects'],function(){
 
@@ -36,4 +36,4 @@ Route::group(['prefix'=>'subjects'],function(){
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('topsearches',[HomeController::class,'topsearches'])->name('searches');
+// Route::get('topsearches',[HomeController::class,'topsearches'])->name('searches');

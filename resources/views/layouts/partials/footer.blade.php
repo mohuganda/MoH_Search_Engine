@@ -19,37 +19,39 @@
                 </div>
                 <div class="col-md-6 col-lg-2">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Explore</h2>
+                        <h2 class="ftco-heading-2">Frequently Accessed Dashboards</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About Us</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Account</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Listing</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Pricing Packages</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Pricing Packages</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community Health</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Malaria</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>HIV</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Reproductive and Maternal Child Health</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Performance Management</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-2">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Quick Links</h2>
+                        <h2 class="ftco-heading-2">Frequently Accessed Systems</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact Us</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Terms &amp; Conditions</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Privacy</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Feedbacks</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>DHIS2</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>iHRIS Manage</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>EPIVAC</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Family Connect</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Product Registry</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>E-Library</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-2">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Categories</h2>
+                        <h2 class="ftco-heading-2">New Resources</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Food &amp; Drinks</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Hotels</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Shopping</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Beauty</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Fitness</a></li>
-                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Bar &amp; Club</a></li>
+                  
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Health Workers Registry</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>EPIVAC</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Family Connect</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Product Registry</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>E-Library</a></li>
                         </ul>
                     </div>
                 </div>
@@ -58,9 +60,9 @@
                         <h2 class="ftco-heading-2">Have a Questions?</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text"><span class="__cf_email__" data-cfemail="f0999e969fb0899f8582949f9d91999ede939f9d">[email&#160;protected]</span></span></a></li>
+                                <li><span class="icon fa fa-map marker"></span><span class="text">Ministry of Health Plot 6, Lourdel Road, Nakasero P.O Box 7272, Kampala Uganda</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text"> +256 417 712260</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text"><span class="__cf_email__" data-cfemail=" info@health.go.ug">info@health.go.ug</span></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -74,7 +76,7 @@
                         <p class="mb-0" style="color: rgba(255,255,255,.5); font-size: 13px;">Copyright &copy;<script></script>
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://health.go.ug/" target="_blank" rel="nofollow noopener">Ministry of Health</a>
+                            </script> All rights reserved  by <a href="https://health.go.ug/" target="_blank" rel="nofollow noopener">Ministry of Health</a>
                     </div>
                 </div>
             </div>

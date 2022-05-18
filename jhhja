@@ -1,0 +1,31 @@
+[33mcommit 5c6ad19ddd28987e676ac1bc84e3b200b6e4e836[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Agaba Andrew <agabaandre@gmail.com>
+Date:   Tue May 17 17:30:11 2022 +0300
+
+    Revert "search view"
+    
+    This reverts commit 433697a3ab8dd9131459d5ca810a5a57862faad9.
+
+[33mcommit 433697a3ab8dd9131459d5ca810a5a57862faad9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Agaba Andrew <agabaandre@gmail.com>
+Date:   Tue May 17 15:40:08 2022 +0300
+
+    search view
+
+[33mcommit ceffe420389255b382a866ac6ccbcde8401598c2[m
+Author: Agaba Andrew <agabaandre@gmail.com>
+Date:   Mon May 16 23:25:26 2022 +0300
+
+    themed
+
+[33mcommit af5f474a0be0d87c66f4cc48d542e2b502620d26[m
+Author: Agaba Andrew <agabaandre@gmail.com>
+Date:   Mon May 16 19:48:09 2022 +0300
+
+    in
+
+[33mcommit 81244be2cd4fe318b7f1f917a1ffeccbfc077cc0[m
+Author: Agaba Andre <agabaandre@gmail.com>
+Date:   Mon May 16 19:42:09 2022 +0300
+
+    Initial commit
