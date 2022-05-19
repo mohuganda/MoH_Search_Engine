@@ -3,10 +3,10 @@
             <div class="row mb-5 pb-5 justify-content-between">
                 <div class="col-md-6 col-lg">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2 logo d-flex">
+                        <h2 class="ftco-heading-2 d-flex">
                             <a class="navbar-brand align-items-center" href="https://health.go.ug">
-                                <img src="{{asset('theme/images/moh.png')}}" style="width:50%; height:60%">
-                                <span><small>Ministry of Health</small></span>
+                                <img src="{{asset('theme/images/moh.png')}}" style="width:30%">
+                                <span style="font-size:9px !important; "><small>Ministry of Health</small></span>
                             </a>
                         </h2>
                         <p></p>

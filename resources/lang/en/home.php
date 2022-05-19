@@ -2,8 +2,8 @@
 return [
 
     "message"=>"Message",
-    "Search_Dashboards"=>"Search Dashboards",
-    "Search_Results"=>"Search Results"
+    "Search_Dashboards"=>"Search for dashboards in the Health Sector",
+    "Search_Results"=>"Your Search Results"
 
 ]
 

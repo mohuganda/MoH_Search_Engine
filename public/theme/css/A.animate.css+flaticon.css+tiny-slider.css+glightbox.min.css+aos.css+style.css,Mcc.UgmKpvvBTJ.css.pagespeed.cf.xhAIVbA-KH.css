@@ -277,7 +277,7 @@ input {
 }
 
   .search-text {
-       color:#1f4580;
+       color:#121c2b;
        font-size: 1.5rem;
   }
   .description {
@@ -2663,6 +2663,17 @@ input {
 
 .flaticon-compass:before {
   content: "\f10c"
+}
+
+.flaticon-hiv:before {
+  content: "\f10c"
+}
+
+.icon-hiv {
+  background-image: url("../images/hiv.png");
+}
+.icon-community {
+  background-image: url("../images/community.png");
 }
 
 .tns-outer {
@@ -5821,7 +5832,7 @@ h5,
 .ftco-navbar-light {
   background: transparent !important;
   position: absolute;
-  top: 51px;
+  top: 20px;
   left: 0;
   right: 0;
   z-index: 3;
@@ -5830,7 +5841,7 @@ h5,
 
 @media (max-width:991.98px) {
   .ftco-navbar-light {
-    background: #151c26 !important;
+    background: #7b7b7b !important;
     position: relative;
     top: 0;
     padding: 7px 0
@@ -5989,8 +6000,8 @@ h5,
 }
 
 .hero-wrap {
-  height: 65vh;
-  min-height: 380px;
+
+  min-height: 80vh;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6328,7 +6339,7 @@ textarea.form-control {
   padding: 18px;
   position: relative;
   overflow: hidden;
-  border-radius: 100px;
+  border-radius:;
   -moz-transition: all .3s ease;
   -o-transition: all .3s ease;
   -webkit-transition: all .3s ease;
@@ -6816,8 +6827,8 @@ textarea.form-control {
 .ftco-footer .ftco-footer-widget .h2 {
   color: #fff;
   margin-bottom: 40px;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: bold;
   font-family: "Nunito Sans", Arial, sans-serif
 }
 

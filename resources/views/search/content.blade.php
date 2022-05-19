@@ -1,37 +1,7 @@
 <div class="container">
     <div class="row">
   
-        <div class="col-md-3 col-lg-12">
-            <div class="ftco-footer-widget mb-4">
-                <h2 class="ftco-heading-2">Dashboards</h2>
-                <ul class="list-unstyled navigation-search">
-
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>HIV</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Malaria</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Covid 19</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>TB</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Supply Chain</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Maternal Child Health</a><span> </span></li>
-                    
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Human Resource</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Planning</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Infrastructure</a><span> </span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>General Knowledge</a><span></span></li>
-                </ul>
-            </div>
-            <div class="ftco-footer-widget mb-4">
-                <h2 class="ftco-heading-2">Top Searched Dashboards</h2>
-                <ul class="list-unstyled navigation-search">
-
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community Health</a><span> (200 searches)</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Covid 19</a><span> (190 searches)</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Family Connect</a><span> (100 searches)</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Product Registry</a><span> (90 searches)</span></li>
-                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>E-Library</a><span> (80 searches)</span></li>
-                </ul>
-            </div>
-        </div>
+        
         
         <div class="col-md-9 offset-2">
             <p class="search-results-count">About 1000 results in {{(microtime(true) - LARAVEL_START) }}</p>
@@ -56,9 +26,10 @@
                             </div>
                           
                             <div class="info-wrap2 align-items-center description">
-                                <p class="review"><span class="rev">Access Method: <small>Valid username and Password</small></span>
-                                <p class="review"><span class="rev">Category: <small>Community Health</small></span> 
-                                <p class="review"><span class="rev">Request Access <small><a href="mailto:agabaandre@gmail.com">Request Access</a></small></span>
+                                <p class="review"><span class="rev">Theme: <small>Community Health</small></span> 
+                                <p class="review"><span class="rev">Access: <small>Private (Requires Login)</small></span>
+                                <p class="review"><span class="rev"><small><a href="mailto:agabaandre@gmail.com">Request Access</a></small></span>
+                                
 
                             </div>
                             <div class="info-wrap2 align-items-center description">
@@ -83,7 +54,10 @@
                             <div class="info-wrap2 align-items-center description">
                                 <p class="review"><span class="rev">Access Method: <small>Valid username and Password</small></span>
                                 <p class="review"><span class="rev">Category: <small>Reproductive Health</small></span> 
-                                <p class="review"><span class="rev">Request Access <small><a href="mailto:agabaandre@gmail.com">Request Access</a></small></span>
+                                <p class="review"><span class="rev">For details on how to access this dashboard click 
+                                    <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                Access
+                                    </a></small></span>
 
                             </div>
                             <div class="info-wrap2 align-items-center description">
@@ -133,6 +107,60 @@
             </div>
         </div>
         </section>
+
+        <div class="col-md-3 col-lg-12 align-items-stretch aos-init aos-animate">
+            <div class="ftco-footer-widget mb-4">
+                <h5 class="ftco-heading-2 bold mt-5">Thematic Areas</h5>
+                
+                <ul class="list-unstyled navigation-search">
+
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>HIV</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Malaria</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Covid 19</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>TB</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Supply Chain</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Maternal Child Health</a><span> </span></li>
+                    
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Human Resource</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Planning</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Infrastructure</a><span> </span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>General Knowledge</a><span></span></li>
+                </ul>
+            </div>
+            <div class="ftco-footer-widget mb-4">
+                <h5 class="ftco-heading-2">Top Searches</h5>
+                <ul class="list-unstyled navigation-search">
+
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Community Health</a><span> (200 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Covid 19</a><span> (190 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Family Connect</a><span> (100 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Product Registry</a><span> (90 searches)</span></li>
+                    <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>E-Library</a><span> (80 searches)</span></li>
+                </ul>
+            </div>
+        </div>
+    
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Access Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Responsible Officer: Mr. Mbaka Paul</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
 </div>
 
