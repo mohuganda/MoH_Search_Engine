@@ -1,4 +1,4 @@
-<p align="center"><a href="https://health.go.ug" target="_blank"><img src="https://en.wikipedia.org/wiki/Coat_of_arms_of_Uganda#/media/File:Coat_of_arms_of_Uganda.svg" width="400"></a></p>
+<p align="center"><a href="https://health.go.ug" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Coat_of_arms_of_Uganda.svg" width="400"></a></p>
 
 
 
