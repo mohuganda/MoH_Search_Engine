@@ -25,7 +25,7 @@
                             </div>
                           
                             <div class="info-wrap2 align-items-center description">
-                                <p class="review"><span class="rev">Theme: <small>Community Health</small></span> 
+                                <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
                                 <p class="review"><span class="rev">Access: <small>{{ $result->access_method }}</small></span>
                                 <p class="review"><span class="rev"><small><a href="mailto:agabaandre@gmail.com">Request Access</a></small></span>
                                 
