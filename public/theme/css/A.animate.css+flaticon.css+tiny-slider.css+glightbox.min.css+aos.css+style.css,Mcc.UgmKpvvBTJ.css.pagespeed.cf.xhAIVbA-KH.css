@@ -6001,13 +6001,14 @@ h5,
 
 .hero-wrap {
 
-  min-height: 80vh;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  z-index: 0
+  z-index: 0;
+  min-height:50vh; 
+  padding-bottom: 60px;
 }
 
 .hero-wrap .overlay {
@@ -6370,7 +6371,7 @@ textarea.form-control {
 }
 
 .services .icon span {
-  font-size: 60px;
+  font-size: 30px;
   line-height: 1.2;
   color: #1788b3 
 }
@@ -6381,13 +6382,14 @@ textarea.form-control {
 
 .services .text h2,
 .services .text .h2 {
-  font-size: 20px;
+  font-size: 12pt;
   font-weight: 600;
-  margin-bottom: 2px
+  margin-bottom: 2px;
+  padding-top:20px!important;
 }
 
 .services .text p.list {
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   font-weight: 600;
   color: rgba(0, 0, 0, .5)
@@ -6397,7 +6399,7 @@ textarea.form-control {
   color: #1788b3 ;
   font-weight: 600;
   background: rgba(0, 0, 0, .03);
-  padding: 2px 5px;
+  padding: 2px 2px;
   border-radius: 4px
 }
 
@@ -6427,6 +6429,7 @@ textarea.form-control {
 .services.active .text h2,
 .services.active .text .h2 {
   color: #fff
+  padding-bottom:0px;
 }
 
 .services:hover .text p.list,
@@ -6437,6 +6440,13 @@ textarea.form-control {
 .services:hover .text p.list span,
 .services.active .text p.list span {
   background: #fff
+}
+
+.services-wrap .row .col-lg-2{
+
+  padding-bottom: 0px!important;
+  border-radius: 3px!important;
+
 }
 
 .listing-wrap {

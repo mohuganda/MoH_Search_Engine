@@ -6,9 +6,7 @@
         <div class="col-md-9 offset-2">
             <p class="search-results-count">About 1000 results in {{(microtime(true) - LARAVEL_START) }}</p>
 
-
-
-            <section class="ftco-section ftco-no-pt bg-light">
+            <section class="ftco-section ftco-no-pt">
 
            
             <div class="row">
@@ -32,14 +30,35 @@
                                 
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-md-12 col-lg-12 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                    <div class="listing-wrap">
+
+                        <div class="text text-center">
+                            <div class="d-flex justify-content-left search-text">
+                                <a href="{{url('search')}}">Community Health Dashboard</a>
+                            </div>
+                            <div class="d-flex justify-content-left description ">
+
+                                <p>This an internal MoH Dashboard used to report performance by departments basing on several generated and agreed indicators</p>
+                            </div>
+                          
                             <div class="info-wrap2 align-items-center description">
+                                <p class="review"><span class="rev">Theme: <small>Community Health</small></span> 
+                                <p class="review"><span class="rev">Access: <small>Private (Requires Login)</small></span>
+                                <p class="review"><span class="rev"><small><a href="mailto:agabaandre@gmail.com">Request Access</a></small></span>
+                                
+
                             </div>
                         </div>
                     </div>
                 </div>
 
                 
-                <div class="col-md-12 col-lg-12 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+             <!--    <div class="col-md-12 col-lg-12 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
 
                         <div class="text text-center">
@@ -65,6 +84,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-12 col-lg-12 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
 
@@ -87,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
             <div class="row mt-5">

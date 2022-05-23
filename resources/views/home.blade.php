@@ -2,7 +2,7 @@
 @section('content')
 
 
-<section class="hero-wrap mb-40" >
+<section class="hero-wrap mb-40">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">

@@ -2,11 +2,11 @@
 @section('content')
 
 
-<section class="hero-wrap" style="height: 38vh;">
+<section class="hero-wrap">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-lg-8 text-center pb-5">
+            <div class="col-lg-8 text-center">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div style=" float:left; margin-left:2px;">
@@ -15,19 +15,16 @@
                             </a>
                         </div>
                         <div>
-                            <h3 style="color:#fff;">
-
-
+                            <h3>
                                 {{__('home.Search_Dashboards')}}
                             </h3>
                             <p> Search for dashboards in the Health Sector</p>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
 
-                </div>
                 @php $token = md5(now()); @endphp
+
                 <form action="{{url('search')}}" class="search-property-1 mt-md-5" method="post">
                     @csrf
                     <div class="row g-0">
@@ -78,6 +75,5 @@
     </div>
 </section>
 @include('search.content')
-
 
 @endsection
