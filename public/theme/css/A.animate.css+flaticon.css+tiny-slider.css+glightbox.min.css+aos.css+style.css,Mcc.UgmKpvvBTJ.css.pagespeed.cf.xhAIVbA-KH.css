@@ -4103,7 +4103,7 @@ iframe {
 .container,
 .container-fluid,
 .container-xl {
-  --bs-gutter-x: 1.5rem;
+  --bs-gutter-x: 0.6rem;
   width: 100%;
   padding-right: calc(var(--bs-gutter-x) / 2);
   padding-left: calc(var(--bs-gutter-x) / 2);
@@ -4483,7 +4483,7 @@ textarea.form-control {
   border: 1px solid transparent;
   padding: .375rem .75rem;
   font-size: 1rem;
-  border-radius: .25rem;
+  border-radius: 1px;
   -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
   -o-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;

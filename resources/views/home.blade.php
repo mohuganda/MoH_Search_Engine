@@ -33,19 +33,9 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                         <select name="" id="" class="form-control">
-                                            <option value="">All Thematic Areas</option>
-                                            <option value="">Communnity Health</option>
-                                            <option value="">HIV</option>
-                                            <option value="">Malaria</option>
-                                            <option value="">Covid 19</option>
-                                            <option value="">Supply Chain</option>
-                                            <option value="">Commodities</option>
-                                            <option value="">Reproductive and Maternal Child Health</option>
-                                            <option value="">Human Resource</option>
-                                            <option value="">Infrastructure</option>
-                                            <option value="">Management and Administration</option>
-                                            <option value="">General Knowledge</option>
-                                            <option value="">Tuberclosis</option>
+                                            @foreach($areas as $area)
+                                             <option value="">{{$area->description }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

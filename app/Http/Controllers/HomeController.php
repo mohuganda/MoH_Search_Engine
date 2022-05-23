@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\SearchRepository;
 
 class HomeController extends Controller
 {
+    
+    protected $searchRepo;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(SearchRepository $searchRepo)
     {
        // $this->middleware('auth');
+        $this->searchRepo = $searchRepo;
     }
 
     /**
@@ -23,7 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       
+        $data['results'] = $this->searchRepo->getAllItems();
+        $data['areas'] = $this->searchRepo->getAllThematicAreas();
+        
+        return view('home')->with($data);
     }
 
     public function topsearches()
