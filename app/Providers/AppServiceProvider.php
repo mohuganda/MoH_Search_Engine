@@ -22,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
             return new SearchRepository();
         });
 
+       $this->app->singleton(ItemsRepository::class, function($app)
+        {
+            return new ItemsRepository();
+        });
+
     }
 
     /**

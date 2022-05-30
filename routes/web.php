@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubjectsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,29 +21,17 @@ use App\Http\Controllers\SearchController;
 //default route
 Route::get('/', [HomeController::class,'index']);
 
-// Route::post('/', function () {
-//     return view('welcome');
-// });
-
 Route::any('/search', [SearchController::class,'search']);
-
-Route::group(['prefix'=>'subjects'],function(){
-
-    Route::resource('/',SubjectsController::class);
-    Route::get('/random',[SubjectsController::class,'random']);
-    }
-);
-
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::get('topsearches',[HomeController::class,'topsearches'])->name('searches');
-
-Route::get('/test', function(){
-
-	dd(count_area_records(1));
-
-});
 
 Route::get('/suggestions',[SearchController::class,'getSuggestions']);
+
+Route::group(['prefix'=>'cms'],function(){
+
+  Route::get('/home',[AdminController::class,'index']);
+  Route::resource('/items',ItemsController::class);
+
+});
