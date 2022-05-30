@@ -5,7 +5,7 @@
                 
                 <ul class="list-unstyled navigation-search">
                     @foreach($areas as $area)
-                    <li><a href="{{ url('search?area='.$area->id.'&term='.$term) }}"><span class="fa fa-chevron-right mr-2"></span>{{ $area->description }}</a><span> </span></li>
+                    <li><a href="{{ url('search?area='.$area->id) }}"><span class="fa fa-chevron-right mr-2"></span>{{ $area->description }}</a><span> </span></li>
                     @endforeach
                    
                 </ul>
