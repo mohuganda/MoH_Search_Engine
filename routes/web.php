@@ -37,3 +37,12 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('topsearches',[HomeController::class,'topsearches'])->name('searches');
+
+Route::get('/test', function(){
+
+	return view('cms.index');
+
+});
+
+
+Route::get('/suggestions',[SearchController::class,'getSuggestions']);

@@ -26,10 +26,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-       
-        $data['results'] = $this->searchRepo->getAllItems();
+    public function index(Request $request){
+      
+        $data['term']    = $request->term;
+        $data['results'] = $this->searchRepo->getAllItems($request);
         $data['areas'] = $this->searchRepo->getAllThematicAreas();
         
         return view('home')->with($data);

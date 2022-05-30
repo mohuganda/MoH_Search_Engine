@@ -23,14 +23,21 @@ class SearchController extends Controller
         $this->searchRepo = $searchRepo;
     }
 
-    public function search(){
+    public function search(Request $request){
       
-      $data['results'] = $this->searchRepo->getAllItems();
+      $data['term']    = $request->term;
+
+      $data['results'] = $this->searchRepo->getAllItems($request);
       $data['areas']   = $this->searchRepo->getAllThematicAreas();
+      $data['logs']    = $this->searchRepo->getSearchLog();
        
       return view("search.results")->with($data);
 
     }
+
+     public function getSuggestions(Request $request){
+        return $this->searchRepo->getSearchSuggestions($request);
+     }
 
 
 }

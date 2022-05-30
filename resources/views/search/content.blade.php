@@ -4,7 +4,7 @@
         
         
         <div class="col-md-9 offset-2">
-            <p class="search-results-count">About 1000 results in {{(microtime(true) - LARAVEL_START) }}</p>
+            <h5 class="mt-4">About {{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</h5>
 
             <section class="ftco-section ftco-no-pt">
 
@@ -17,23 +17,41 @@
 
                         <div class="text text-center">
                             <div class="d-flex justify-content-left search-text">
-                                <a href="{{url('search')}}">{{ $result->title }}</a>
+                                <img src="{{ asset($result->image) }}" width="80px" class="rounded mr-2" />
+                                <a href="{{ $result->url_link }}" target="_blank">{{ $result->title }}</a>
+
                             </div>
                             <div class="d-flex justify-content-left description ">
 
                                 <p>{{ $result->description }}</p>
+                                
                             </div>
                           
                             <div class="info-wrap2 align-items-center description">
-                                <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
-                                <p class="review"><span class="rev">Access: <small>{{ $result->access_method }}</small></span>
-                                <p class="review"><span class="rev"><small><a href="mailto:agabaandre@gmail.com">Request Access</a></small></span>
+
+
+                                <p class="review">
+                                    <span class="rev"><small>
+                                    <a href="{{ $result->url_link }}"  target="_blank">{{ $result->url_link }}</a></small>
+                                </span>
+                                </p>
                                 
 
+                                <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
+                                </p>
+                                <p class="review"><span class="rev">Access: <small>{{ $result->access_method }}</small></span>
+                                </p>
+                                <p class="review">
+                                    <span class="rev"><small>
+                                    <a href="#access{{ $result->id }}" data-toggle="modal">Request Access</a></small>
+                                </span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                @include('search.request_access')
 
                 @endforeach
     
@@ -62,23 +80,4 @@
     </div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Access Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Responsible Officer: Mr. Mbaka Paul</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
 

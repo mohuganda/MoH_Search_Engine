@@ -101,5 +101,23 @@
         eval(mod_pagespeed_hLudSOF5YS);
     </script>
 
+     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    
+     
+         <script>
+         $(function() {
+            $("#search" ).autocomplete({
+               source: "{{ url('suggestions') }}",
+               minLength: 2,
+               select: function( event, ui ) {
+                    $( "#search" ).val( ui.item.label);
+                    $("#search_form" ).submit();
+               }
+            });
+         });
+      </script> 
+
+
    
    

@@ -2,7 +2,7 @@
 @include('layouts.partials.header')
 
 
-<body style="background-color: white!important;">
+<body style="background-color: #fcfcfc!important;">
     @include('layouts.partials.nav')
     @yield('content')
 

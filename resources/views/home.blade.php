@@ -2,7 +2,7 @@
 @section('content')
 
 
-<section class="hero-wrap mb-40">
+<section class="hero-wrap mb-40" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 @php $token = md5(now()); @endphp
-                <form action="{{url('search')}}" class="search-property-1 mt-md-5 " method="post" style="margin-bottom:4px !important;">
+                <form action="{{url('search')}}" class="search-property-1 mt-md-5 " method="get" style="margin-bottom:4px !important;" id="search_form">
                     @csrf
                     <div class="row g-0">
 
@@ -22,7 +22,7 @@
                             <div class="form-group p-3">
                                 <div class="form-field">
                                     <div class="icon"><span class="ion-ios-search"></span></div>
-                                    <input type="text" class="form-control" placeholder="What dashboard are you looking for?">
+                                    <input type="text" name="term" id="search" class="form-control text-bold" placeholder="What dashboard are you looking for?" required>
                                 </div>
                             </div>
                         </div>
@@ -32,9 +32,10 @@
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select name="" id="" class="form-control">
+                                        <select name="area" id="" class="form-control">
+                                             <option value="0">All</option>
                                             @foreach($areas as $area)
-                                             <option value="">{{$area->description }}</option>
+                                             <option value="{{$area->id}}">{{$area->description }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -57,4 +58,5 @@
 </section>
 
 @include('home.subjects')
+
 @endsection

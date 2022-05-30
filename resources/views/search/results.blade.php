@@ -2,7 +2,7 @@
 @section('content')
 
 
-<section class="hero-wrap">
+<section class="hero-wrap" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -25,7 +25,7 @@
 
                 @php $token = md5(now()); @endphp
 
-                <form action="{{url('search')}}" class="search-property-1 mt-md-5" method="post">
+                <form action="{{url('search')}}" class="search-property-1 mt-md-5" method="get" id="search_form">
                     @csrf
                     <div class="row g-0">
 
@@ -33,7 +33,7 @@
                             <div class="form-group p-3">
                                 <div class="form-field">
                                     <div class="icon"><span class="ion-ios-search"></span></div>
-                                    <input type="text" class="form-control" placeholder="Search Resources">
+                                    <input type="text" name="term" class="form-control text-bold" placeholder="Search Resources" value="{{ $term }}" required id="search">
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex">
@@ -41,20 +41,11 @@
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">All Thematic Areas</option>
-                                                <option value="">Communnity Health</option>
-                                                <option value="">HIV</option>
-                                                <option value="">Malaria</option>
-                                                <option value="">Covid 19</option>
-                                                <option value="">Supply Chain</option>
-                                                <option value="">Commodities</option>
-                                                <option value="">Reproductive and Maternal Child Health</option>
-                                                <option value="">Human Resource</option>
-                                                <option value="">Infrastructure</option>
-                                                <option value="">Management and Administration</option>
-                                                <option value="">General Knowledge</option>
-                                                <option value="">Tuberclosis</option>
+                                            <select name="area" class="form-control">
+                                                <option value="0">All</option>
+                                            @foreach($areas as $area)
+                                             <option value="{{$area->id}}">{{$area->description }}</option>
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -74,6 +65,7 @@
         </div>
     </div>
 </section>
+
 @include('search.content')
 
 @endsection
