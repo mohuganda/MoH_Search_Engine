@@ -43,7 +43,7 @@
                                 </p>
                                 <p class="review">
                                     <span class="rev"><small>
-                                    <a href="#access{{ $result->id }}" data-toggle="modal">Request Access</a></small>
+                                    <a href="#" data-toggle="modal">Request Access</a></small>
                                 </span>
                                 </p>
                             </div>
