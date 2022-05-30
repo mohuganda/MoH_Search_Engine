@@ -40,9 +40,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/test', function(){
 
-	return view('cms.index');
+	dd(count_area_records(1));
 
 });
-
 
 Route::get('/suggestions',[SearchController::class,'getSuggestions']);

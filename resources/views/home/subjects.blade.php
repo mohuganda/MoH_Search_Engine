@@ -7,11 +7,11 @@
 
                     @foreach( $areas as $area)
                     <div class="col-md-4 col-lg-2 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                        <a href="" target="_blank" class="services">
+                        <a href="{{ url('search?area='.$area->id) }}"  class="services">
                             <div class="icon"><span class="fa-solid {{$area->icon }}"></span></div>
                             <div class="text">
                                 <h2>{{$area->description }}</h2>
-                                <p class="list"><span>103</span> Results</p>
+                                <p class="list"><span>{{ count_area_records($area->id) }}</span> Records</p>
                             </div>
                         </a>
                     </div>
