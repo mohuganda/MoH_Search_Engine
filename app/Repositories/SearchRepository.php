@@ -54,10 +54,16 @@ class SearchRepository
    
    function getSearchSuggestions(Request $request){
 
-   	 return Log::where('search_phrase', 'like',  $request->term . '%')
-   	 		->take(15)
-   	 		->get()
-   	 		->pluck('search_phrase');
+   	$term = $request->term;
+
+   	 return Item::where('title', 'like', '%' . $term . '%')
+					->orWhere('description', 'like', '%' . $term . '%')
+					->orWhere('access_method', 'like', '%' . $term . '%')
+					->orWhere('url_link', 'like', '%' . $term . '%')
+					->orWhere('department', 'like', '%' . $term . '%')
+					->orWhere('hosting_organiation', 'like', '%' . $term . '%')
+					->get()
+   	 		        ->pluck('title');
    }
 
 
