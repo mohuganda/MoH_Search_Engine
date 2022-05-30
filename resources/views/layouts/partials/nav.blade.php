@@ -9,7 +9,7 @@
                                 <img src="{{asset('theme/images/moh.png')}}" width="50px">
                             </a> -->
                 <li class="nav-item"><a class="nav-link" target="_blank" href="https://health.go.ug">About</a></li>
-                <li><div id="google_translate_element"></div></li>
+                <!-- <li class="nav-item" id="google_translate_element"></li> -->
                 
             </ul>
          </div>
