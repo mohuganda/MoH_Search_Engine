@@ -17,7 +17,7 @@ class ItemsController extends Controller
      */
     public function __construct(ItemsRepository $itemsRepo)
     {
-       // $this->middleware('auth');
+        $this->middleware('auth');
         $this->itemsRepo = $itemsRepo;
     }
 

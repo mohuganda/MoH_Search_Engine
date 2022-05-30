@@ -1,11 +1,6 @@
 
 @include('layouts.partials.admin.header')
 
- @include('layouts.partials.admin.topnav')
-<!--start header -->
- @include('layouts.partials.admin.side_nav')
-<!--end header -->
-
 <!--start page wrapper -->
 <div class="page-wrapper">
 	<div class="page-content">
