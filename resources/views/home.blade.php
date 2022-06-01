@@ -5,8 +5,15 @@
 <section class="hero-wrap mb-40" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-lg-8 text-center pb-20">
+        <div class="row no-gutters slider-text">
+            <div class="col-lg-2 text-center align-items-left" style="float:left !important;">
+
+                <a class="navbar-brand" href="{{url('')}}">
+                    <img src="{{asset('theme/images/moh.png')}}" width="100px">
+                    <p style="color:#FFF; text-align:center; font-weight:200; font-size:small;">Ministry of Health</p>
+                </a>
+            </div>
+            <div class="col-lg-8 text-center pb-20 m-l">
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <h2 class="bold white" style="color:#FFF; font-weight:bold; font-size:2rem !important; ">{{__('home.Search_Dashboards')}}</h2>
@@ -33,9 +40,9 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                         <select name="area" id="" class="form-control">
-                                             <option value="0">All</option>
+                                            <option value="0">All</option>
                                             @foreach($areas as $area)
-                                             <option value="{{$area->id}}">{{$area->description }}</option>
+                                            <option value="{{$area->id}}">{{$area->description }}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -24,7 +24,10 @@ class SearchRepository
 					->orWhere('access_method', 'like', '%' . $term . '%')
 					->orWhere('url_link', 'like', '%' . $term . '%')
 					->orWhere('department', 'like', '%' . $term . '%')
-					->orWhere('hosting_organiation', 'like', '%' . $term . '%');
+					->orWhere('hosting_organiation', 'like', '%' . $term . '%')
+					->orWhere('title', 'like', '%' . rephrase($term,5) . '%')
+					->orWhere('description', 'like', '%' . rephrase($term) . '%')
+					->orderBy('title','asc');
 
 		  if(intval($area) >0)
 			$query = $query->where('thematic_area_id',$area);

@@ -18,12 +18,12 @@
                         <div class="text text-center">
                             <div class="d-flex justify-content-left search-text">
                                 <img src="{{ asset($result->image) }}" width="80px" class="rounded mr-2" />
-                                <a href="{{ $result->url_link }}" target="_blank">{{ $result->title }}</a>
+                                <a href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                             </div>
                             <div class="d-flex justify-content-left description ">
 
-                                <p>{{ $result->description }}</p>
+                                <p>{!! highlight($result->description,$term) !!}</p>
                                 
                             </div>
                           
