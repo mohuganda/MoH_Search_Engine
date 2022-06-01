@@ -6825,7 +6825,7 @@ textarea.form-control {
 
 .ftco-footer {
   padding: 0 0 0 0;
-  background: #182641;
+  border-top: 1px solid #bea90a;
   color: rgba(255, 255, 255, .7)
 }
 
