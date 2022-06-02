@@ -26,4 +26,12 @@ if(!function_exists('highlight')){
 	}
 
 }
+
+if(!function_exists('truncate')){
+
+	function truncate($text,$length=10){
+			return ($length<strlen($text))?substr($text, 0,$length)."...":$text;
+	}
+
+}
  

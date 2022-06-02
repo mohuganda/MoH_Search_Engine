@@ -29,9 +29,14 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/suggestions',[SearchController::class,'getSuggestions']);
 
+Route::get('/admin', function(){
+	return redirect( url('/cms/home'));
+});
+
 Route::group(['prefix'=>'cms'],function(){
 
   Route::get('/home',[AdminController::class,'index']);
   Route::resource('/items',ItemsController::class);
+  Route::get('/category',[AdminController::class,'index']);
 
 });
