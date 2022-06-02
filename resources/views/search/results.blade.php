@@ -5,22 +5,25 @@
 <section class="hero-wrap" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="row no-gutters slider-text">
+
+        <div class="col-lg-2 text-center align-items-left" style="float:left !important;">
+
+                <a class="navbar-brand" href="{{url('')}}">
+                    <img src="{{asset('theme/images/moh.png')}}" width="100px">
+                    <p style="color:#FFF; text-align:center; font-weight:200; font-size:small;">Ministry of Health</p>
+                </a>
+            </div>
             <div class="col-lg-8 text-center">
                 <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div style=" float:left; margin-left:2px;">
-                            <a class="navbar-brand align-items-center" href="{{url('')}}">
-                                <img src="{{asset('theme/images/moh.png')}}" style="width:10%; height:10%;">
-                            </a>
-                        </div>
+                
                         <div>
                             <h3>
                                 {{__('home.Search_Dashboards')}}
                             </h3>
                             <p> Search for dashboards in the Health Sector</p>
                         </div>
-                    </div>
+                    
                 </div>
 
                 @php $token = md5(now()); @endphp
