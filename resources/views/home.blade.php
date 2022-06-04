@@ -2,7 +2,7 @@
 @section('content')
 
 
-<section class="hero-wrap mb-40" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class="hero-wrap mb-40" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;  border-bottom: 50px solid #000;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text">
