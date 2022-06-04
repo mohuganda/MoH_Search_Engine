@@ -6,10 +6,10 @@
 		<div class="card-body">
 			<div class="d-flex align-items-center">
 				<div>
-					<h5 class="mb-0">System & Dashbaords</h5>
+					<h5 class="mb-0">{{ __('cms.item_types') }}</h5>
 				</div>
 				<div class="font-22 ms-auto">
-					<a href="{{url('cms/items/create')}}" class="btn btn-success"> {{ __('cms.add_item') }}</a>
+					<a href="{{url('cms/types/create')}}" class="btn btn-success"> {{ __('cms.add') }} {{ __('cms.item_type') }}</a>
 				</div>
 			</div>
 			<hr/>
@@ -19,19 +19,15 @@
 						<tr>
 							<th>Title</th>
 							<th>Description</th>
-							<th>Area</th>
-							<th>Access</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($items as $item)
+						@foreach($types as $row)
 						<tr>
 							<td>
-								<h6 class="font-14">{{$item->title}}</h6>
+								<h6 class="font-14">{{$row->item_type_name}}</h6>
 							</td>
-							<td>{{ truncate($item->description,60) }}</td>
-							<td>{{$item->thematic_area->description}}</td>
-							<td>{{$item->access_method}}</td>
+							<td>{{ truncate($row->item_type_desc,60) }}</td>
 						</tr>
 						@endforeach
 					</tbody>

@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Controllers\ItemTypesController;
+use App\Http\Controllers\ThematicAreasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,9 @@ Route::group(['prefix'=>'cms'],function(){
 
   Route::get('/home',[AdminController::class,'index']);
   Route::resource('/items',ItemsController::class);
-  Route::get('/category',[AdminController::class,'index']);
+  Route::get('/types',[AdminController::class,'index']);
+  Route::resource('/organizations',OrganizationsController::class);
+  Route::resource('/types',ItemTypesController::class);
+  Route::resource('/thematicareas',ThematicAreasController::class);
 
 });

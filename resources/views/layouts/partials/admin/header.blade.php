@@ -23,6 +23,16 @@
 	<link rel="stylesheet" href="{{ asset('admin/css/semi-dark.css') }}" />
 	<link rel="stylesheet" href="{{ asset('admin/css/header-colors.css') }}" />
 	<title>Dashboards Portal</title>
+
+	<style type="text/css">
+		.form-group{
+			padding-bottom: 10px;
+		}
+		.btn-wrapper{
+			padding: 0px 70px;
+			padding-bottom: 10px;
+		}
+	</style>
 </head>
 
 <body>

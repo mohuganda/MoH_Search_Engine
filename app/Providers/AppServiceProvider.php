@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\SearchRepository;
+use App\Repositories\OrganizationRepository;
 use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
        $this->app->singleton(ItemsRepository::class, function($app)
         {
             return new ItemsRepository();
+        });
+
+       $this->app->singleton(OrganizationRepository::class, function($app)
+        {
+            return new OrganizationRepository();
         });
 
     }

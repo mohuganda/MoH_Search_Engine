@@ -119,7 +119,7 @@
 	<script src="{{ asset('admin/plugins/simplebar/js/simplebar.min.js') }}"></script>
 	<script src="{{ asset('admin/plugins/metismenu/js/metisMenu.min.js') }}"></script>
 	<script src="{{ asset('admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
-	<script src="{{ asset('admin/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
+<!-- 	<script src="{{ asset('admin/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script> -->
 	<script src="{{ asset('admin/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('admin/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 	
