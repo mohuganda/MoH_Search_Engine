@@ -46,3 +46,23 @@ Route::group(['prefix'=>'cms'],function(){
   Route::resource('/thematicareas',ThematicAreasController::class);
 
 });
+
+//permissions and access control
+Route::group(['prefix' => 'permissions','middleware'=>'auth'], function() {
+	Route::get('/roles',  'PermissionController@index')->name('permissions.roles');
+	Route::post('/role',  'PermissionController@createRole')->name('permissions.role');
+	Route::get('/permissions',  'PermissionController@permissions')->name('permissions.permissions');
+	Route::post('/permission',  'PermissionController@createPermission')->name('permissions.permission');
+	Route::post('/torole',  'PermissionController@permissionsToRole')->name('permissions.torole');
+	Route::get('/users',  'PermissionController@users')->name('permissions.users');
+	Route::post('/user',  'PermissionController@users')->name('permissions.filerusers');
+	Route::post('/saveuser',  'PermissionController@saveUser')->name('permissions.saveuser');
+	Route::post('/userrole',  'PermissionController@roleToUser')->name('permissions.userrole');
+	
+	Route::get('/changepass',  'PermissionController@changePassword')->name('permissions.changepass');
+	Route::post('/changepass',  'PermissionController@changePassword')->name('permissions.changepass');
+	Route::post('/reset',  'PermissionController@resetUser')->name('permissions.reset');
+
+	Route::post('/delete',  'PermissionController@deleteUser')->name('permissions.delete');
+    Route::any('/trail',  'PermissionController@trail')->name('permissions.trail');
+});

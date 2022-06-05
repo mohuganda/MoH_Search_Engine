@@ -16,7 +16,7 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="widgets.html">
+					<a href="{{ url('/cms/home')}}">
 						<div class="parent-icon"><i class='bx bx-home-circle'></i>
 						</div>
 						<div class="menu-title">Home</div>
