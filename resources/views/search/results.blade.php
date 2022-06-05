@@ -18,10 +18,10 @@
                 <div class="row justify-content-center">
                 
                         <div>
-                            <h3>
+                            <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:2rem !important; ">
                                 {{__('home.Search_Dashboards')}}
                             </h3>
-                            <p> Search for dashboards in the Health Sector</p>
+                            <p> A one stop center for finding dashboards and systems in the Uganda health sector</p>
                         </div>
                     
                 </div>

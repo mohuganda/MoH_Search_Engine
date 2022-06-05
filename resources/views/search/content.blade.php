@@ -4,7 +4,7 @@
         
         
         <div class="col-md-9 offset-2">
-            <h5 class="mt-4">About {{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</h5>
+            <h5 class="mt-4">{{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</h5>
 
             <section class="ftco-section ftco-no-pt">
 
