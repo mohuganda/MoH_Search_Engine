@@ -6007,7 +6007,7 @@ h5,
   background-position: center center;
   background-attachment: fixed;
   z-index: 0;
-  min-height:74vh; 
+  min-height:48vh; 
   padding-bottom: 60px;
 }
 
@@ -6375,7 +6375,7 @@ textarea.form-control {
 .services .icon span {
   font-size: 30px;
   line-height: 1.2;
-  color: #1788b3 
+  color: #ffc107d7;
 }
 
 .services .text {
@@ -6398,7 +6398,7 @@ textarea.form-control {
 }
 
 .services .text p.list span {
-  color: #1788b3 ;
+  color: #dc3545;
   font-weight: 600;
   background: rgba(0, 0, 0, .03);
   padding: 2px 2px;
