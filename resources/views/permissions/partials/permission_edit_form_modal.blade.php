@@ -7,7 +7,7 @@
                                 <span class="font-weight-semibold modal-title">
                                     {{ __('general.edit') }} {{ __('auth.permission') }} 
                                 </span>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                             </div>
 
                             <div class="modal-body">
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button data-dismiss="modal" type="button"  class="btn bg-dark btn-warning btn-sm">{{ __('general.close')}}</button>
+                                <button data-bs-dismiss="modal" type="button"  class="btn bg-dark btn-warning btn-sm">{{ __('general.close')}}</button>
                                 <button disabled type="button" class="btn btn-sm btn-success" onclick="postEntry({{$perm->id}})">
                                  <i class="icon-plus-circle2 mr-2"></i>
                                  {{ __('general.update')}} {{ __('auth.permission')}}

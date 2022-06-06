@@ -10,6 +10,7 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ItemTypesController;
 use App\Http\Controllers\ThematicAreasController;
+use App\Http\Controllers\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::group(['prefix'=>'cms'],function(){
 
   Route::get('/home',[AdminController::class,'index']);
   Route::resource('/items',ItemsController::class);
+  Route::post('/items/update',[ItemsController::class,'update']);
   Route::get('/types',[AdminController::class,'index']);
   Route::resource('/organizations',OrganizationsController::class);
   Route::resource('/types',ItemTypesController::class);
@@ -49,20 +51,20 @@ Route::group(['prefix'=>'cms'],function(){
 
 //permissions and access control
 Route::group(['prefix' => 'permissions','middleware'=>'auth'], function() {
-	Route::get('/roles',  'PermissionController@index')->name('permissions.roles');
-	Route::post('/role',  'PermissionController@createRole')->name('permissions.role');
-	Route::get('/permissions',  'PermissionController@permissions')->name('permissions.permissions');
-	Route::post('/permission',  'PermissionController@createPermission')->name('permissions.permission');
-	Route::post('/torole',  'PermissionController@permissionsToRole')->name('permissions.torole');
-	Route::get('/users',  'PermissionController@users')->name('permissions.users');
-	Route::post('/user',  'PermissionController@users')->name('permissions.filerusers');
-	Route::post('/saveuser',  'PermissionController@saveUser')->name('permissions.saveuser');
-	Route::post('/userrole',  'PermissionController@roleToUser')->name('permissions.userrole');
+	Route::get('/roles',  [PermissionController::class,'index'])->name('permissions.roles');
+	Route::post('/role',  [PermissionController::class,'createRole'])->name('permissions.role');
+	Route::get('/permissions',  [PermissionController::class,'permissions'])->name('permissions.permissions');
+	Route::post('/permission',  [PermissionController::class,'createPermission'])->name('permissions.permission');
+	Route::post('/torole',  [PermissionController::class,'permissionsToRole'])->name('permissions.torole');
+	Route::get('/users',  [PermissionController::class,'users'])->name('permissions.users');
+	Route::post('/user',  [PermissionController::class,'users'])->name('permissions.filerusers');
+	Route::post('/saveuser',  [PermissionController::class,'saveUser'])->name('permissions.saveuser');
+	Route::post('/userrole',  [PermissionController::class,'roleToUser'])->name('permissions.userrole');
 	
-	Route::get('/changepass',  'PermissionController@changePassword')->name('permissions.changepass');
-	Route::post('/changepass',  'PermissionController@changePassword')->name('permissions.changepass');
-	Route::post('/reset',  'PermissionController@resetUser')->name('permissions.reset');
+	Route::get('/changepass',  [PermissionController::class,'changePassword'])->name('permissions.changepass');
+	Route::post('/changepass',  [PermissionController::class,'changePassword'])->name('permissions.changepass');
+	Route::post('/reset',  [PermissionController::class,'resetUser'])->name('permissions.reset');
 
-	Route::post('/delete',  'PermissionController@deleteUser')->name('permissions.delete');
-    Route::any('/trail',  'PermissionController@trail')->name('permissions.trail');
+	Route::post('/delete',  [PermissionController::class,'deleteUser'])->name('permissions.delete');
+    Route::any('/trail',  [PermissionController::class,'trail'])->name('permissions.trail');
 });

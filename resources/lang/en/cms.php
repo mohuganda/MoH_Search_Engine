@@ -27,4 +27,5 @@ return [
 	'view_types' => "View Types",
 	'thematic_area'=>"Thematic Area | Thematic Areas",
 	'icon' => 'Icon',
+	'management'=>'Management'
 ];

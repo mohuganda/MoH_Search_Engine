@@ -13,8 +13,9 @@
       </div>
 
 
- <form action="{{url('cms/items')}}" method="post" enctype="multipart/form-data">
+ <form action="{{url('cms/items/update')}}" method="post" enctype="multipart/form-data">
    @include('cms.items.item_form')
+   <input type="hidden" name="id" value="{{$item->id}}" />
 </form>
 
 </div>

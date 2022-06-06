@@ -18,9 +18,14 @@ class ItemsRepository
 		return Item::paginate(15);
 	}
 
-	function saveItem(Request $request){
+	function getItem($id){
+		return Item::find($id);
+	}
 
-		$item = new Item();
+	function saveItem(Request $request,$id=null){
+
+		$item = ($id)? Item::find($id): new Item();
+		
 		$item->title    = $request->title;
 		$item->url_link = $request->url;
 		$item->hosting_organiation = $request->organization;
@@ -40,7 +45,7 @@ class ItemsRepository
             $item->image=$filename;
         }
 
-		$item->save();
+		return ($id)?$item->update():$item->save();
 	}
 
 	function getAllThematicAreas(){

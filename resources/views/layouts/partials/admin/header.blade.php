@@ -15,7 +15,8 @@
 	<link href="{{ asset('admin/css/pace.min.css') }}" rel="stylesheet" />
 	<script src="{{ asset('admin/js/pace.min.js') }}"></script>
 	<!-- Bootstrap CSS -->
-	<link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+	<!-- <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('admin/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('admin/css/icons.css') }}" rel="stylesheet">
 	<!-- Theme Style CSS -->
@@ -31,6 +32,9 @@
 		.btn-wrapper{
 			padding: 0px 70px;
 			padding-bottom: 10px;
+		}
+		.card{
+			margin-bottom: 10px;
 		}
 	</style>
 </head>

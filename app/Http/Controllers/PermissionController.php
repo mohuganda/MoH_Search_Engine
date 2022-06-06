@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -140,6 +139,7 @@ class PermissionController extends Controller
         Create roles
     */
     public function createRole(Request $request){
+
         $role_name = $request->get('role_name');
         $role_id = $request->get('rowid'); //edits
         $role = null;
@@ -152,10 +152,12 @@ class PermissionController extends Controller
 
         $role->name =$role_name;
         $saved = $role->save();
-        $msg = (!$saved)?"Operation failed, try again":"Role saved successfuly,refresh to view changes";
+        $msg = (!$saved)?"Operation failed, try again":"Role saved successfuly";
         $data["message"] = $msg;
         $data['data'] = ($saved)?$role:[];
-        return response()->json($data);
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+        return redirect()->route('permissions.roles')->with($alert);
     }
 
     /*
@@ -173,26 +175,31 @@ class PermissionController extends Controller
         endif;
         $perm->name =$perm_name;
         $saved = $perm->save();
-        $msg = (!$saved)?"Operation failed, try again":"Permission saved successfuly,refresh to view changes";
+        $msg = (!$saved)?"Operation failed, try again":"Permission saved successfuly";
         $data["message"] = $msg;
         $data['data'] = ($saved)?$perm:[];
-        return response()->json($data);
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+        return redirect()->route('permissions.permissions')->with($alert);
     }
 
     /*
         Assign permissions to roles
     */
     public function permissionsToRole(Request $request){
+
         $roledId     = $request->get('role_id');
         $permissions = ($request->get('permissions'))?$request->get('permissions'):[];
         $role = Role::findById($roledId);
         $new_permissions= Permission::whereIn('id',$permissions)->get();
         $saved  = $role->syncPermissions($new_permissions);
 
-        $msg = (!$saved)?"Operation failed, try again":"Assigned successfuly,refresh to view changes";
+        $msg = (!$saved)?"Operation failed, try again":"Assigned successfuly";
         $data["message"] = $msg;
         $data['data'] = $permissions;
-        return response()->json($data);
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+        return  redirect()->route('permissions.roles')->with($alert);
     }
 
     /*
@@ -208,26 +215,29 @@ class PermissionController extends Controller
             $saved = $role->revokePermissionTo($permission);
         endforeach;
 
-        $msg = (!$saved)?"Operation failed, try again":"Revoked successfuly,refresh to view changes";
+        $msg = (!$saved)?"Operation failed, try again":"Revoked successfuly";
         $data["message"] = $msg;
         $data['data'] = [];
         return response()->json($data);
     }
 
     public function roleToUser(Request $request){
+
         $userId = $request->user_id;
         $roleId = $request->role_id;
         $user   = User::find($userId);
         $saved  = $user->assignRole($roleId);
 
-        $msg = (!$saved)?"Operation failed, try again":"Role assigned successfuly,refresh to view changes";
+        $msg = (!$saved)?"Operation failed, try again":"Role assigned successfuly";
     
     	if($saved)
         	$this->logTrail('Assigned Role to user '.$user->name." ".$user->mobile,$this->currentUser()->id,[], $user);
     
         $data["message"] = $msg;
         $data['data'] = [$userId,$roleId];
-        return response()->json($data);
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+        return redirect()->route('permissions.users')->with($alert);
     }
 
     /*
@@ -312,13 +322,6 @@ class PermissionController extends Controller
         return redirect()->route('permissions.users')->with($alert);
     }
 
-    public function logTrail($action,$user,$old_data,$new_data){
-        return true;
-    }
-
-    public function generatePin($length=4){
-        return  strtoupper(Str::random($length));
-    }
-
+   
 
 }

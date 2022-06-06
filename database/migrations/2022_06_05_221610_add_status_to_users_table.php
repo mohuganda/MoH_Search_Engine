@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddExtraFieldsToUsersTable extends Migration
+class AddStatusToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,7 @@ class AddExtraFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('mobile',25)->nullable();
-           // $table->string('name',25)->nullable();
-            $table->string('nin',14)->nullable();
-            $table->string('firstname',25)->nullable();
-            $table->string('lastname',25)->nullable();
-            $table->integer('pwd_changed')->default(0);
-            
+            $table->integer('status',false)->default(0);
         });
     }
 

@@ -17,7 +17,7 @@
             <div class="col-lg-8 text-center">
                 <div class="row justify-content-center">
                 
-                        <div>
+                <div class="col-lg-9">
                             <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:2rem !important; ">
                                 {{__('home.Search_Dashboards')}}
                             </h3>

@@ -17,7 +17,7 @@
 
                         <div class="text text-center">
                             <div class="d-flex justify-content-left search-text">
-                                <img src="{{ asset('public/images/'.$result->image) }}" width="80px" class="rounded mr-2" />
+                                <img src="{{ asset('images/'.$result->image) }}" width="80px" class="rounded mr-2" />
                                 <a href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                             </div>

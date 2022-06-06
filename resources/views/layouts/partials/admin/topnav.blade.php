@@ -3,11 +3,11 @@
 		<div class="sidebar-wrapper" data-simplebar="true">
 			
 			<div class="sidebar-header">
-				<div>
+				<!-- <div>
 					<img src="{{ asset('admin/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
-				</div>
+				</div> -->
 				<div>
-					<h5 class="logo-text">DPortal</h5>
+					<h5 class="logo-text">MoH</h5>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
 				</div>
@@ -46,6 +46,20 @@
 						<li> <a href="{{url('cms/organizations/create')}}"><i class="bx bx-right-arrow-alt"></i> {{__('cms.add_organization')}}</a></li>
 						<li> <a href="{{url('cms/organizations')}}"><i class="bx bx-right-arrow-alt"></i> {{__('cms.view_organizations')}}</a></li>
 					</ul>
+				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-cog"></i>
+						</div>
+						<div class="menu-title">{{__('cms.management')}}</div>
+					</a>
+					<ul>
+						<li> <a href="{{url('permissions/users')}}"><i class="bx bx-right-arrow-alt"></i> {{__('auth.users')}}</a></li>
+						<li> <a href="{{route('permissions.permissions')}}"><i class="bx bx-right-arrow-alt"></i> {{__('auth.permissions')}}</a></li>
+						<li> <a href="{{url('permissions/roles')}}"><i class="bx bx-right-arrow-alt"></i> {{__('auth.roles')}}</a></li>
+					</ul>
+					
 				</li>
 				
 				
