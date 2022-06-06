@@ -29,7 +29,7 @@
                             <div class="form-group p-3">
                                 <div class="form-field">
                                     <div class="icon"><span class="ion-ios-search"></span></div>
-                                    <input type="text" name="term" id="search" class="form-control text-bold" placeholder="What dashboard are you looking for?" required>
+                                    <input type="text" name="term" id="search" class="form-control text-bold" placeholder="What dashboard are you looking for?">
                                 </div>
                             </div>
                         </div>

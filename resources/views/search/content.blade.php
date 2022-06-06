@@ -4,7 +4,7 @@
         
         
         <div class="col-md-9 offset-2">
-            <h5 class="mt-4">{{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</h5>
+            <p class="mt-4" style="color:#000; font-weight:bold;">{{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</p>
 
             <section class="ftco-section ftco-no-pt">
 
@@ -21,7 +21,7 @@
                                 <a href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                             </div>
-                            <div class="d-flex justify-content-left description ">
+                            <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
 
                                 <p>{!! highlight($result->description,$term) !!}</p>
                                 
@@ -38,6 +38,8 @@
                                 
 
                                 <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
+                                </p>
+                                <p class="review"><span class="rev">Type: <small>{{ $result->item_type_name }}</small></span>
                                 </p>
                                 <p class="review"><span class="rev">Access: <small>{{ $result->access_method }}</small></span>
                                 </p>
