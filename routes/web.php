@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubjectsController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ItemTypesController;
 use App\Http\Controllers\ThematicAreasController;
 use App\Http\Controllers\PermissionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::get('/suggestions',[SearchController::class,'getSuggestions']);
 Route::get('/admin', function(){
 	return redirect( url('/cms/home'));
 });
+
+Route::get('/access',  [AccessController::class,'create']);
 
 Route::group(['prefix'=>'cms'],function(){
 
@@ -65,6 +69,8 @@ Route::group(['prefix' => 'permissions','middleware'=>'auth'], function() {
 	Route::post('/changepass',  [PermissionController::class,'changePassword'])->name('permissions.changepass');
 	Route::post('/reset',  [PermissionController::class,'resetUser'])->name('permissions.reset');
 
+
 	Route::post('/delete',  [PermissionController::class,'deleteUser'])->name('permissions.delete');
     Route::any('/trail',  [PermissionController::class,'trail'])->name('permissions.trail');
+
 });
