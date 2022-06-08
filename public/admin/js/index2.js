@@ -1,3 +1,4 @@
+/*
 $(function() {
 	"use strict";
 	var e = {
@@ -734,3 +735,5 @@ $(function() {
 	
 	
 });
+
+*/

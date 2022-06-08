@@ -4,7 +4,7 @@
         
         
         <div class="col-md-9 offset-2">
-            <h5 class="mt-4">{{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</h5>
+            <p class="mt-4" style="color:#000; font-weight:bold;">{{ $results->total() }} results in {{ number_format((microtime(true) - LARAVEL_START)*10,1) }} seconds</p>
 
             <section class="ftco-section ftco-no-pt">
 
@@ -17,11 +17,11 @@
 
                         <div class="text text-center">
                             <div class="d-flex justify-content-left search-text">
-                                <img src="{{ asset('public/images/'.$result->image) }}" width="80px" class="rounded mr-2" />
+                                <a href="{{ asset('images/'.$result->image) }}" target="_blank"><img src="{{ asset('images/'.$result->image) }}" width="200px"  /></a>
                                 <a href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                             </div>
-                            <div class="d-flex justify-content-left description ">
+                            <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
 
                                 <p>{!! highlight($result->description,$term) !!}</p>
                                 
@@ -39,11 +39,13 @@
 
                                 <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
                                 </p>
+                                <p class="review"><span class="rev">Type: <small>{{ $result->item_type->item_type_name }}</small></span>
+                                </p>
                                 <p class="review"><span class="rev">Access: <small>{{ $result->access_method }}</small></span>
                                 </p>
                                 <p class="review">
                                     <span class="rev"><small>
-                                    <a href="#" data-toggle="modal">Request Access</a></small>
+                                    <a href="{{ url('/access') }}" target="_blank">Request Access</a></small>
                                 </span>
                                 </p>
                             </div>
@@ -51,11 +53,16 @@
                     </div>
                 </div>
 
-                @include('search.request_access')
-
                 @endforeach
     
 
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+            {{ $results->appends($_GET)->links() }}
+            </div>
+                </div>
             </div>
          <!--    <div class="row mt-5">
                 <div class="col text-center">
@@ -79,5 +86,6 @@
     
     </div>
 </div>
+
 
 

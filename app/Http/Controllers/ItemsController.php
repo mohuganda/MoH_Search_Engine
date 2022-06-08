@@ -53,4 +53,21 @@ class ItemsController extends Controller
         return redirect( url('/cms/items') );
     }
 
+    public function show($id){
+
+        $data['item'] = $this->itemsRepo->getItem($id);
+        $data['areas'] = $this->itemsRepo->getAllThematicAreas();
+        $data['organizations'] = $this->organizationsRepo->getAll();
+        $data['types'] = $this->itemsRepo->getAllItemTypes();
+        
+        return view('cms.items.edit')->with($data);
+    }
+
+    
+    public function update(Request $request){
+
+        $this->itemsRepo->saveItem($request,$request->id);
+        return redirect( url('/cms/items') );
+    }
+
 }

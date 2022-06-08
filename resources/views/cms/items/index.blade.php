@@ -32,6 +32,7 @@
 							<td>{{ truncate($item->description,60) }}</td>
 							<td>{{$item->thematic_area->description}}</td>
 							<td>{{$item->access_method}}</td>
+							<td><a href="{{ url('cms/items',$item->id)}}">Edit</a></td>
 						</tr>
 						@endforeach
 					</tbody>

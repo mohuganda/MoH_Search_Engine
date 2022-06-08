@@ -35,7 +35,7 @@
                             <div class="modal-footer">
                                 <button data-dismiss="modal" type="button"  class="btn bg-dark btn-warning btn-sm">{{ __('general.close')}}</button>
                             
-                                <button type="button" class="btn btn-sm btn-success" onclick="postEntry('{{'user'.$user->id}}')">
+                                <button type="submit" class="btn btn-sm btn-success" >
                                  <i class="icon-plus-circle2 mr-2"></i>
                                  {{ __('general.update')}} {{ __('auth.role')}}
                                 </button>

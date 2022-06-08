@@ -6,7 +6,7 @@
                                 <span class="font-weight-semibold modal-title">
                                     {{ __('general.edit') }} <span class="text-success"> {{$user->name }}'s</span>  {{ __('auth.login_status') }} 
                                 </span>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                             </div>
 
                             <div class="modal-body">
@@ -19,11 +19,12 @@
                                         </label>
                                         <select class="form-control form-control-select2 select" name="status" required="">
                                           <option value="">Select Status</option>
-                                            @if($user->status ==1)
+                                            <option  value="1">Activate User</option>
                                               <option  value="3">Reset Password</option>
                                               <option value="0">Block user</option>
                                               <option value="2">Restrict</option>
-                                            @endif
+                                            @php
+                                                /*
                                             @if($user->status !==1)
                                               @if($user->status !==3)
                                               <option  value="1">Activate User</option>
@@ -32,15 +33,16 @@
                                               <option value="0">Block user</option>
                                               @endif
                                               <option value="3">Reset Password</option>
-                                            @endif
+                                            @endif*/
+                                             @endphp
                                         </select>
                                     </div>
-                                    <input name="user_id" value="{{Shared::secureValue($user->id)}}" type="hidden">
+                                    <input name="user_id" value="{{$user->id}}" type="hidden">
 
                             </div>
 
                             <div class="modal-footer">
-                                <button data-dismiss="modal" type="button"  class="btn bg-dark btn-warning btn-sm">{{ __('general.close')}}</button>
+                                <button data-bs-dismiss="modal" type="button"  class="btn bg-dark btn-warning btn-sm">{{ __('general.close')}}</button>
                                 <button type="submit" class="btn btn-sm btn-success">
                                  <i class="icon-plus-circle2 mr-2"></i>
                                  {{ __('general.update')}} {{ __('auth.login_status')}}

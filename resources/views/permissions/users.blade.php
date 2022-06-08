@@ -8,7 +8,7 @@
   ?>
 
 <!-- Highlighted tabs -->
- @if ($session->can('create users'))
+ @if (!$session->can('create users'))
    <div class="col-md-12">
 
     <div class="card card-collapsed form">
@@ -106,7 +106,7 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label>{{ __('agents.phone') }}</label>
+                                    <label>{{ __('general.phone') }}</label>
                                     <input type="tel" name="mobile"  value="{{$search->phone}}" class="form-control" placeholder="Search by Phone">
                                 </div>
 
@@ -126,7 +126,6 @@
                                     <th>{{ __('auth.user') }}</th>
                                     <th>{{ __('general.email') }}</th>
                                     <th>{{ __('general.phone') }}</th>
-                                    <th>{{ __('general.status') }}</th>
                                     <th>{{ __('auth.role') }}</th>
                                     <th></th>
                                 </tr>
@@ -136,8 +135,7 @@
                             @foreach($users as $user)
 
                                 @php
-                                  //$agent    = Shared::getAgent($user->agent_id);
-                                 // $userRole = Shared::userRole($user->id);
+                                 $userRole = user_role($user->id);
                                  $userRole= null;
 
                                   $statuses = array(
@@ -146,43 +144,24 @@
                                   "3"=>"Reset",
                                   "1"=>"Active");
                                 @endphp
-                                @if($agent)
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->mobile }}</td>
-                                    <td>{{ $agent->names }}</td>
-                                    <td><b class="badge badge-dark">{{  $statuses[$user->status] }}</b></td>
                                     <td>{{ strtoupper((@$userRole->name)?$userRole->name:'NO ROLE') }}</td>
                                     <td class="text-center">
 
-                                        @if ($session->can('create users'))
+                                        @if (!$session->can('create users'))
 
-                                        <div class="list-icons">
-                                            <div class="list-icons-item dropdown">
-                                                <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                                    <i class="icon-menu7"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#user{{$user->id}}0" data-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
+                                                    <a href="#user{{$user->id}}0" data-bs-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
                                                     {{ __('general.change') }}  {{ __('auth.role') }} </a>
 
                                                 
-                                                <a href="#login_state{{$user->id}}0" data-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
+                                                <a href="#login_state{{$user->id}}0" data-bs-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
                                                     {{ __('general.change') }}  {{ __('auth.login_status') }} </a>
 
-                                                <a href="{{ route('profile', Shared::secureValue($user->id))}}" class="dropdown-item"><i class="icon-touch-pinch"></i> 
-                                                    {{ __('general.details') }}  </a>
-
-                                                 <a href="{{ route('profile', Shared::secureValue($user->id))}}" class="dropdown-item"><i class="icon-touch-pinch"></i> 
-                                                    {{ __('general.details') }}  </a>
-                                                <a href="#delete{{$user->id}}0" data-toggle="modal" class="dropdown-item text-danger"><i class="icon-trash"></i> 
+                                                <a href="#delete{{$user->id}}0" data-bs-toggle="modal" class="dropdown-item text-danger"><i class="icon-trash"></i> 
                                                     Delete </a>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         @endif
   
                                     </td>
@@ -191,8 +170,6 @@
                                  @include('permissions.partials.user_edit_form_modal')
                                  @include('permissions.partials.reset_modal')
                                  @include('permissions.partials.delete_user_modal')
-
-                                 @endif
                                       
                                 @endforeach
                             </tbody>

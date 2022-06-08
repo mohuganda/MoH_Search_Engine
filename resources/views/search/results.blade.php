@@ -17,7 +17,7 @@
             <div class="col-lg-8 text-center">
                 <div class="row justify-content-center">
                 
-                        <div>
+                <div class="col-lg-9">
                             <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:2rem !important; ">
                                 {{__('home.Search_Dashboards')}}
                             </h3>
@@ -36,7 +36,7 @@
                             <div class="form-group p-3">
                                 <div class="form-field">
                                     <div class="icon"><span class="ion-ios-search"></span></div>
-                                    <input type="text" name="term" class="form-control text-bold" placeholder="Search Resources" value="{{ $term }}" required id="search">
+                                    <input type="text" name="term" class="form-control text-bold" placeholder="Search Resources" value="{{ $term }}" id="search">
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex">

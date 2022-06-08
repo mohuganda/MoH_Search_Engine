@@ -13,5 +13,11 @@
  	'status'=>'Status',
  	'email'=>'Email',
  	'change'=>'Change',
- 	'details'=>'Details'
+ 	'details'=>'Details',
+	 'enter'=>'Enter',
+	 'edit'=>'Edit',
+	 'update'=>'Update',
+	 'close'=>'Close',
+	 'select'=>'Select',
+	 'submit'=>'Submit'
 ];

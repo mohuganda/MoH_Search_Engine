@@ -31,7 +31,7 @@
                          
                     </div>
                     <div class="col-md-6">
-                            <button type="button" onclick="postEntry('role')" class="btn btn-success">
+                            <button type="submit"  class="btn btn-success">
                                 <i class="icon-floppy-disk mr-2"></i>
                                 {{ __('general.save') }} {{ __('auth.role') }}
                             </button>
@@ -83,21 +83,10 @@
                                 <tr>
                                     <td>{{ strtoupper($role->name) }}</td>
                                     <td class="text-center">
-
-                                        <div class="list-icons">
-                                            <div class="list-icons-item dropdown">
-                                                <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                                    <i class="icon-menu7"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#role{{$role->id}}0" data-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
+                                                    <a href="#role{{$role->id}}0" data-bs-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
                                                     {{ __('general.edit') }} </a>
-                                                    <a  href="#perms{{$role->id}}0" data-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
+                                                    <a  href="#perms{{$role->id}}0" data-bs-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
                                                     {{ __('auth.permissions') }} </a>
-                                                </div>
-                                            </div>
-                                        </div>
-  
                                     </td>
                                 </tr>
                                 

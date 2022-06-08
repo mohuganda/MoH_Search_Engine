@@ -2,7 +2,7 @@
 
 return [
 	'add_item'=> 'Add Item',
-	'dashboards_systems'=> 'Available Items',
+	'dashboards_systems'=> 'Items',
 	'dashboards'=> 'Dashboards',
 	'systems' => 'Systems',
 	'add_item'=> 'Add Item',
@@ -27,4 +27,5 @@ return [
 	'view_types' => "View Types",
 	'thematic_area'=>"Thematic Area | Thematic Areas",
 	'icon' => 'Icon',
+	'management'=>'Management'
 ];

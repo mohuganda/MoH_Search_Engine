@@ -18,7 +18,10 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'login_status'=>'Login Status',
     'role'=>'Role',
-    'user'=>'Users',
-    'roles'=>'Roles'
+    'users'=>'Users',
+    'roles'=>'Roles',
+    'user'=>'User',
+    'permissions'=>'Permissions',
+    'permission'=>'Permission'
 
 ];
