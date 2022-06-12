@@ -42,8 +42,9 @@ Route::get('/admin', function(){
 Route::get('/access',  [AccessController::class,'create']);
 
 
-Route::get('/log_access/{id}', [SearchController::class,'logAccess']);
 
+Route::get('/log_access/{id}', [SearchController::class,'logAccess']);
+Route::get('/iteminfo/{id}', [SearchController::class,'itemInfo']);
 
 Route::group(['prefix'=>'cms'],function(){
 

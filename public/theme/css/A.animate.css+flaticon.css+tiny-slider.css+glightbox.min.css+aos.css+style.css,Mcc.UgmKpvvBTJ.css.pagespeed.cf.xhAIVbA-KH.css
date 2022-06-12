@@ -7719,3 +7719,7 @@ textarea.form-control {
 .top-searches li{
   font-size: small;
 }
+
+label {
+  color: #525050;
+}

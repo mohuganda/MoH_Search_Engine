@@ -2,6 +2,7 @@
 
 use App\Models\Users;
 use Illuminate\Support\Facades\DB;
+use App\Models\ThematicArea;
 
 
  if(!function_exists('user_role')){
@@ -26,4 +27,12 @@ use Illuminate\Support\Facades\DB;
  	}
 
  }
+
+ if(!function_exists('get_areas')){
+
+ 	function get_areas(){
+        return ThematicArea::all();
+ 	}
+ }
+ 
 

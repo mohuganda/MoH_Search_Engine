@@ -43,4 +43,9 @@ class SearchController extends Controller
      return $this->searchRepo->logAccess($id);
    }
 
+   public function itemInfo($id){
+     $data['item'] = $this->searchRepo->getItem($id);
+     return view("search.item_info")->with($data);
+   }
+
 }

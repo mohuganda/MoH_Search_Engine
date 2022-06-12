@@ -7,7 +7,7 @@
  	'reset'=>'Reset',
  	'create'=>'Create',
  	'name'=>'Name',
- 	'phone'=>'Phone',
+ 	'phone'=>'Phone Number',
  	'search'=>'Search',
  	'users'=>'Users',
  	'status'=>'Status',
@@ -19,5 +19,9 @@
 	 'update'=>'Update',
 	 'close'=>'Close',
 	 'select'=>'Select',
-	 'submit'=>'Submit'
+	 'submit'=>'Submit',
+	 'nominating_office'=>'Nominating Officer',
+	 'reason_for_access'=>'Reason for access',
+	 'request_access'=>'Request Access',
+	 'moreinfo'=>'More Info'
 ];
