@@ -12,9 +12,9 @@
             </div>
             <div class="ftco-footer-widget mb-4">
                 <h5 class="ftco-heading-2">Top Searches</h5>
-                <ul class="list-unstyled navigation-search">
+                <ul class="list-unstyled navigation-search top-searches">
                     @foreach($logs as $log)
-                    <li><a href="{{ url('search?term='.$log->search_phrase) }}"><span class="fa fa-chevron-right mr-2"></span>{{ ucwords($log->search_phrase) }}</a><span> ({{ $log->count }} searches)</span></li>
+                    <li><a href="{{ url('search?term='.$log->search_phrase) }}"><span class="fa fa-chevron-right mr-2"></span>{{ ucwords($log->item->title) }}</a><span> ({{ $log->count }})</span></li>
                     @endforeach
                 </ul>
             </div>

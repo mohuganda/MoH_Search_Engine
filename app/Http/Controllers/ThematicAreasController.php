@@ -36,4 +36,11 @@ class ThematicAreasController extends Controller
         return redirect( url('/cms/thematicareas') );
     }
 
+     public function destroy($id){
+        $this->itemsRepo->deleteThematicArea($id);
+        return redirect( url('/cms/thematicareas') );
+    }
+
+
+
 }

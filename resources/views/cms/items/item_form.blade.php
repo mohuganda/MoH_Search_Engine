@@ -6,7 +6,7 @@
         <input type="text" value="{{@$item->title}}" name="title" class="form-control" placeholder="{{__('cms.title')}}" required>
       </div>
       <div class="form-group">
-        <label>{{__('cms.organization')}}</label>
+        <label>{{ __('cms.hosting') }} {{__('cms.organization')}}</label>
         <select name="organization" class="form-control" required>
           <option  value="">Choose</option>
           @foreach($organizations as $row)

@@ -49,7 +49,7 @@ class ItemsRepository
 	}
 
 	function getAllThematicAreas(){
-		return ThematicArea::all();
+		return ThematicArea::orderBy('display_index','asc')->get();
 	}
 
 	function getAllItemTypes(){
@@ -66,10 +66,15 @@ class ItemsRepository
 
 	function saveThematicArea(Request $request){
 
-		$area = new ThematicArea();
+		$area = ($request->id)? ThematicArea::find($request->id): new ThematicArea();
 		$area->description = $request->description;
 		$area->icon = $request->icon;
+		$area->display_index = $request->index;
 		$area->save();
+	}
+
+	function deleteThematicArea($id){
+		return ThematicArea::findOrFail($id)->delete();
 	}
 
 

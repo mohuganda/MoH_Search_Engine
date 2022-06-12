@@ -29,7 +29,7 @@ class SearchController extends Controller
 
       $data['results'] = $this->searchRepo->getAllItems($request);
       $data['areas']   = $this->searchRepo->getAllThematicAreas();
-      $data['logs']    = $this->searchRepo->getSearchLog();
+      $data['logs']    = $this->searchRepo->getAccessLog();
        
       return view("search.results")->with($data);
 
@@ -39,5 +39,8 @@ class SearchController extends Controller
         return $this->searchRepo->getSearchSuggestions($request);
      }
 
+   public function logAccess($id){
+     return $this->searchRepo->logAccess($id);
+   }
 
 }

@@ -41,6 +41,10 @@ Route::get('/admin', function(){
 
 Route::get('/access',  [AccessController::class,'create']);
 
+
+Route::get('/log_access/{id}', [SearchController::class,'logAccess']);
+
+
 Route::group(['prefix'=>'cms'],function(){
 
   Route::get('/home',[AdminController::class,'index']);
@@ -50,11 +54,13 @@ Route::group(['prefix'=>'cms'],function(){
   Route::resource('/organizations',OrganizationsController::class);
   Route::resource('/types',ItemTypesController::class);
   Route::resource('/thematicareas',ThematicAreasController::class);
+  Route::get('/thematicareas/delete/{id}',[ThematicAreasController::class,'destroy']);
 
 });
 
 //permissions and access control
 Route::group(['prefix' => 'permissions','middleware'=>'auth'], function() {
+
 	Route::get('/roles',  [PermissionController::class,'index'])->name('permissions.roles');
 	Route::post('/role',  [PermissionController::class,'createRole'])->name('permissions.role');
 	Route::get('/permissions',  [PermissionController::class,'permissions'])->name('permissions.permissions');

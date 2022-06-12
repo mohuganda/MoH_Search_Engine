@@ -17,8 +17,10 @@
 
                         <div class="text text-center">
                             <div class="d-flex justify-content-left search-text">
-                                <a href="{{ asset('images/'.$result->image) }}" target="_blank"><img src="{{ asset('images/'.$result->image) }}" width="200px"  /></a>
-                                <a href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
+                                <a href="{{ asset('images/'.$result->image) }}"  >
+                                    <img src="{{ asset('images/'.$result->image) }}" width="200px"  /></a>
+                                <a
+                                    onclick="logAccess({!! $result->id !!})" href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                             </div>
                             <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
@@ -84,5 +86,18 @@
     </div>
 </div>
 
+
+ <script>
+         function logAccess(system_id) {
+           // event.preventDefault();
+            $.ajax({
+               type:'GET',
+               url:`<?php echo url('/log_access');?>/${system_id}`,
+               success:function(data) {
+                  console.log(data);
+               }
+            });
+         }
+</script>
 
 

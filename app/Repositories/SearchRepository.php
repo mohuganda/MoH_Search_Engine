@@ -7,6 +7,7 @@ use App\Models\ThematicArea;
 use App\Models\Item;
 use App\Models\Log;
 use App\Jobs\SearchLogJob;
+use App\Models\AccessLog;
 
 class SearchRepository
 {
@@ -47,11 +48,11 @@ class SearchRepository
 	}
 
 	function getAllThematicAreas(){
-		return ThematicArea::all();
+		return ThematicArea::orderBy('display_index','asc')->get();
 	}
 
-	function getSearchLog(){
-		return 	Log::take(10)->get();
+	function getAccessLog(){
+		return 	AccessLog::take(10)->get();
 	}
    
    function getSearchSuggestions(Request $request){
@@ -66,6 +67,14 @@ class SearchRepository
 					->orWhere('hosting_organiation', 'like', '%' . $term . '%')
 					->get()
    	 		        ->pluck('title');
+   }
+
+   public function logAccess($id){
+
+   	$log = AccessLog::firstOrNew(array('item_id' => $id ));
+    $log->count += 1;
+   	$log->save();
+
    }
 
 

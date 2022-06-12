@@ -7,6 +7,7 @@ return [
 	'systems' => 'Systems',
 	'add_item'=> 'Add Item',
 	'title'	=>'Title',
+	'hosting'=>'Hosting',
 	'organization'	=>'Organization',
 	'link'	=>'URL Link',
 	'db_engine'	=>'DB Engine',
@@ -27,5 +28,7 @@ return [
 	'view_types' => "View Types",
 	'thematic_area'=>"Thematic Area | Thematic Areas",
 	'icon' => 'Icon',
-	'management'=>'Management'
+	'management'=>'Management',
+	'display_index'=>'Display Index',
+	'index'=>'Index'
 ];
