@@ -39,9 +39,12 @@ Route::get('/admin', function(){
 	return redirect( url('/cms/home'));
 });
 
+Route::get('/logout', function(){
+	Auth::logout();
+    return redirect( url('/cms/home'));
+});
+
 Route::get('/access',  [AccessController::class,'create']);
-
-
 
 Route::get('/log_access/{id}', [SearchController::class,'logAccess']);
 Route::get('/iteminfo/{id}', [SearchController::class,'itemInfo']);

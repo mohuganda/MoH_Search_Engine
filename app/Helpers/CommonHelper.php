@@ -34,5 +34,12 @@ use App\Models\ThematicArea;
         return ThematicArea::all();
  	}
  }
+
+ if(!function_exists('get_user')){
+
+ 	function get_user(){
+        return Auth::user();
+ 	}
+ }
  
 
