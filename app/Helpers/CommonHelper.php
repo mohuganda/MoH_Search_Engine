@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\DB;
  	}
 
  }
+
+
+ if(!function_exists('has_permission')){
+
+ 	function has_permission($permission=null){
+
+        return Auth::user()->can("create users");
+ 	}
+
+ }
+

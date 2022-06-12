@@ -17,6 +17,8 @@ class PermissionController extends Controller
         Renders a list of all roles
     */
     public function index(){
+        dd(has_permission());
+
         $data['roles'] = Role::paginate(15);
         $data['permissions'] = Permission::all();
         return view('permissions.roles')->with($data);
