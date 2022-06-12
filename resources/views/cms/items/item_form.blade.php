@@ -43,8 +43,8 @@
         <label>{{__('cms.access_method')}}</label>
         <select name="access_method" class="form-control" required>
           <option value="">Choose</option>
-          <option {{ (@$item->access_method=='Private')?'selected':'' }} value="Private">Private</option>
-          <option {{ (@$item->access_method=='Public')?'selected':'' }}  value="Public">Public</option>
+          <option {{ (@$item->access_method=='Access Required')?'selected':'' }} value="Private">Access Required</option>
+          <option {{ (@$item->access_method=='No Access Required')?'selected':'' }}  value="Public">No Access Required</option>
         </select>
       </div>
       

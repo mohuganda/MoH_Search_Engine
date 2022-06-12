@@ -16,8 +16,8 @@
             <div class="col-lg-8 text-center pb-20 m-l">
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
-                        <h2 class="bold white" style="color:#FFF; font-weight:bold; font-size:2rem !important; ">{{__('home.Search_Dashboards')}}</h2>
-                        <p>A one stop center for finding dashboards and systems in the Uganda health sector</p>
+                        <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:1.5rem !important; ">{{__('home.Search_Dashboards')}}</h3>
+                        <p>A one stop center for finding dashboards in the Uganda health sector</p>
                     </div>
                 </div>
                 @php $token = md5(now()); @endphp

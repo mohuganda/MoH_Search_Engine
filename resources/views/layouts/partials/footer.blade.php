@@ -5,9 +5,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p class="mb-0" style="color: rgba(255,255,255,.5); font-size: 13px;">Copyright &copy;<script></script>
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script> All rights reserved  by <a href="https://health.go.ug/" target="_blank" rel="nofollow noopener">Ministry of Health</a>
+                            <?php echo date('Y'); ?> All rights reserved  by <a href="https://health.go.ug/" target="_blank" rel="nofollow noopener">Ministry of Health</a>
                     </div>
                 </div>
             </div>
