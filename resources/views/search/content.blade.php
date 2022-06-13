@@ -39,7 +39,7 @@
                                 </p>
                                 
 
-                                <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
+                                <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> |
                                 <span class="rev">Type: <small>{{ $result->item_type->item_type_name }}</small></span> |
                                <span class="rev">Access: <small>{{ $result->access_method }}</small></span> | 
 
