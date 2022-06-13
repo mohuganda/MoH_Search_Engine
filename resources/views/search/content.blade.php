@@ -40,13 +40,13 @@
                                 
 
                                 <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> 
-                                <span class="rev">Type: <small>{{ $result->item_type->item_type_name }}</small></span>
-                               <span class="rev">Access: <small>{{ $result->access_method }}</small></span>
+                                <span class="rev">Type: <small>{{ $result->item_type->item_type_name }}</small></span> |
+                               <span class="rev">Access: <small>{{ $result->access_method }}</small></span> | 
 
                                 @if($result->access_method == 'Access Required')
                                 <span class="rev"><small>
                                     <a href="{{ url('/access') }}" target="_blank">{{ __('general.request_access')}}</a></small>
-                                </span>
+                                </span> | 
                                 @endif
                                 <span class="rev"><small>
                                     <a href="{{ url('/iteminfo',$result->id) }}" target="_blank">{{ __('general.moreinfo')}}</a></small>
