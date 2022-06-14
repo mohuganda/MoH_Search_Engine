@@ -11,8 +11,9 @@ class OrganizationRepository
 {
 
 
-	function getAll(){
-		return Organization::paginate(15);
+	function getAll(Request $request = null){
+		$per_page = ($request && $request->per_page)?$request->per_page:1000;
+		return Organization::paginate($per_page);
 	}
 
 	function save(Request $request){

@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Item;
-use App\Repositories\OrganizationRepository;
+use App\Models\ItemContactPerson;
 
 
 
@@ -12,6 +11,16 @@ use App\Repositories\OrganizationRepository;
 
 
  			//return $organizationsRepo->getAll();
+ 	}
+
+ }
+
+ if(!function_exists('get_item_contact')){
+
+ 	function get_item_contact($item_id){
+		$contact = ItemContactPerson::where('item_id',$item_id)->first();
+		$person=  ($contact)?$contact->contact:null;
+		return $person;
  	}
 
  }

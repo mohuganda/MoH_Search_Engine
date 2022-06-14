@@ -63,6 +63,18 @@
             <img src="{{asset('images/'.$item->image)}}" width="200px" />
         @endif
       </div>
+
+       <div class="form-group">
+        <label>{{__('general.contact')}} {{ trans_choice('general.person',1)}}</label>
+        <select name="contact" class="form-control">
+
+          <option>Select</option>
+          @foreach($contacts as $contact)
+          <option  value="{{$contact->id}}" {{(@$row->id ==$contact->id)?'selected':''}}>{{$contact->name}}</option>
+          @endforeach
+        </select> 
+      </div>
+
   </div>
   <div class="col-lg-12">
     <div class="form-group">

@@ -23,5 +23,10 @@
 	 'nominating_office'=>'Nominating Officer',
 	 'reason_for_access'=>'Reason for access',
 	 'request_access'=>'Request Access',
-	 'moreinfo'=>'More Info'
+	 'moreinfo'=>'More Info',
+	 'contact'=>'Contact',
+	 'person'=>'Person | People',
+	 'add'=>'Add',
+	 'title'=>'Title',
+	 'organization'=>'Organization'
 ];

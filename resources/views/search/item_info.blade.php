@@ -18,6 +18,14 @@
 
         {{ $item->title }}
         {{ ($item->organization)?$item->organization->organization_name:'' }}
+
+        <br>
+        <h3>Person: </h3>
+       <br>
+       @php 
+        print_r(@get_item_contact($item->id));
+
+       @endphp
      
     </div>
 

@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\Log;
 use App\Jobs\SearchLogJob;
 use App\Models\ItemType;
+use App\Models\ItemContactPerson;
 
 class ItemsRepository
 {
@@ -45,7 +46,15 @@ class ItemsRepository
             $item->image=$filename;
         }
 
-		return ($id)?$item->update():$item->save();
+		($id)?$item->update():$item->save();
+
+		if($request->contact){
+
+        	$contact = ItemContactPerson::firstOrNew(
+        	array('contact_person_id' => $request->contact,'item_id'=>$item->id ));
+        	$contact->save();
+        }
+
 	}
 
 	function getAllThematicAreas(){

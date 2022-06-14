@@ -21,6 +21,8 @@
 							<th>Description</th>
 							<th>Area</th>
 							<th>Access</th>
+							<th>{{ __('general.contact') }} {{ trans_choice('general.person',1) }}</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,6 +34,7 @@
 							<td>{{ truncate($item->description,60) }}</td>
 							<td>{{$item->thematic_area->description}}</td>
 							<td>{{$item->access_method}}</td>
+							<td>{{ @get_item_contact($item->id)->name }}</td>
 							<td><a href="{{ url('cms/items',$item->id)}}">Edit</a></td>
 						</tr>
 						@endforeach

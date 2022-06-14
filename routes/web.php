@@ -12,6 +12,7 @@ use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ItemTypesController;
 use App\Http\Controllers\ThematicAreasController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ContactPersonsController;
 
 
 /*
@@ -59,6 +60,9 @@ Route::group(['prefix'=>'cms'],function(){
   Route::resource('/types',ItemTypesController::class);
   Route::resource('/thematicareas',ThematicAreasController::class);
   Route::get('/thematicareas/delete/{id}',[ThematicAreasController::class,'destroy']);
+
+  Route::resource('/persons',ContactPersonsController::class);
+  Route::get('/persons/delete/{id}',[ContactPersonsController::class,'destroy']);
 
 });
 
