@@ -10,7 +10,7 @@
 					<h5 class="mb-0">{{ __('general.contact') }} {{ trans_choice('general.person',2) }}</h5>
 				</div>
 				<div class="font-22 ms-auto">
-					<a href="#add_person" data-bs-toggle="modal"  class="btn btn-success"> {{ __('general.add')}} {{__('general.contact') }}</a>
+					<a href="#add_person" data-bs-toggle="modal"  class="btn btn-outline-secondary"> {{ __('general.add')}} {{__('general.contact') }}</a>
 				</div>
 			</div>
 			<hr/>

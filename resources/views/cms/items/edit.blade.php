@@ -8,7 +8,7 @@
           <h5 class="mb-0"> {{ __('cms.add_item') }}</h5>
         </div>
         <div class="font-22 ms-auto">
-          <a href="{{url('cms/items')}}" data-toggle="modal" class="btn btn-success"> {{ __('cms.view_items') }}</a>
+          <a href="{{url('cms/items')}}" data-toggle="modal" class="btn btn-outline-secondary"> {{ __('cms.view_items') }}</a>
         </div>
       </div>
 

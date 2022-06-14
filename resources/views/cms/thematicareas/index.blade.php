@@ -10,7 +10,7 @@
 					<h5 class="mb-0">{{ trans_choice('cms.thematic_area',2) }}</h5>
 				</div>
 				<div class="font-22 ms-auto">
-					<a href="#add_area" data-bs-toggle="modal" class="btn btn-success"> {{ __('cms.add') }} {{ trans_choice('cms.thematic_area',1) }}</a>
+					<a href="#add_area" data-bs-toggle="modal" class="btn btn-outline-secondary"> {{ __('cms.add') }} {{ trans_choice('cms.thematic_area',1) }}</a>
 				</div>
 			</div>
 			<hr/>

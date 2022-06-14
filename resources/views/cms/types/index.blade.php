@@ -9,7 +9,7 @@
 					<h5 class="mb-0">{{ __('cms.item_types') }}</h5>
 				</div>
 				<div class="font-22 ms-auto">
-					<a href="{{url('cms/types/create')}}" class="btn btn-success"> {{ __('cms.add') }} {{ __('cms.item_type') }}</a>
+					<a href="{{url('cms/types/create')}}" class="btn btn-outline-secondary"> {{ __('cms.add') }} {{ __('cms.item_type') }}</a>
 				</div>
 			</div>
 			<hr/>

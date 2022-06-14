@@ -9,7 +9,7 @@
 					<h5 class="mb-0">{{ __('organizatons') }}</h5>
 				</div>
 				<div class="font-22 ms-auto">
-					<a href="{{url('cms/organizations/create')}}"  class="btn btn-success"> {{ __('cms.add_organization') }}</a>
+					<a href="{{url('cms/organizations/create')}}"  class="btn btn-outline-secondary"> {{ __('cms.add_organization') }}</a>
 				</div>
 			</div>
 			<hr/>

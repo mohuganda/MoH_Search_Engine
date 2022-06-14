@@ -111,7 +111,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-dark"><i class="icon-filter4"></i> 
+                                    <button type="submit" class="btn btn-outline-secondary"><i class="icon-filter4"></i> 
                                     {{ __('general.search') }} {{ __('general.users') }}</button>
                                 </div>
                             </div>

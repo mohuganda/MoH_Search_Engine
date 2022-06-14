@@ -86,7 +86,7 @@
   <div class="col-lg-6">
   <div class="form-group btn-wrapper">
         <br>
-         <input type="submit" class="btn btn-success pull-right col-md-12" value="Submit">
+         <input type="submit" class="btn btn-outline-secondary pull-right col-md-12" value="Submit">
       </div>
   </div>
 </div>

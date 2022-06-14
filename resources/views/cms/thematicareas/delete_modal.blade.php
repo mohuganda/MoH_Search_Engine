@@ -8,7 +8,7 @@
     <div class="modal-footer">
 
         <a href="{{url('cms/thematicareas/delete',$row->id)}}" class="btn btn-danger">DELETE</a>
-      <a href="" data-bs-dismiss="modal" class="btn btn-default">CANCEL</a>
+      <a href="" data-bs-dismiss="modal" class="btn btn-outline-secondary">CANCEL</a>
     </div>
   </div>
 </div>
