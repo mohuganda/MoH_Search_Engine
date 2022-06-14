@@ -31,7 +31,7 @@ class AdminController extends Controller
         $data['term']    = $request->term;
         $data['results'] = $this->searchRepo->getAllItems($request);
         $data['areas'] = $this->searchRepo->getAllThematicAreas();
-        $data['widgets'] = array("dashboards"=>6,"users"=>4,"themes"=>3);
+        $data['widgets'] = (object)array("dashboards"=>6,"users"=>4,"themes"=>3);
         
         return view('cms.index')->with($data);
     }
