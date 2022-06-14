@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\SearchRepository;
+use App\Repositories\WidgetsRepository;
 
 class AdminController extends Controller
 {
     
-    protected $searchRepo;
+    protected $searchRepo, $widgetsRepo;
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(SearchRepository $searchRepo)
+    public function __construct(SearchRepository $searchRepo, WidgetsRepository $widgetsRepo)
     {
         $this->middleware('auth');
         $this->searchRepo = $searchRepo;
+        $this->widgetsRepo =$widgetsRepo;
     }
 
     /**
@@ -31,7 +34,7 @@ class AdminController extends Controller
         $data['term']    = $request->term;
         $data['results'] = $this->searchRepo->getAllItems($request);
         $data['areas'] = $this->searchRepo->getAllThematicAreas();
-        $data['widgets'] = (object)array("dashboards"=>6,"users"=>4,"thematic_areas"=>3);
+        $data['widgets'] = (object)$this->widgetsRepo->getWidgets();
         
         return view('cms.index')->with($data);
     }
