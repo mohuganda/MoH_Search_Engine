@@ -86,9 +86,9 @@
 						<div id="chart5"></div>
 					</div>
 				</div>
-
+				@endforeach
 			</div>
-			@endforeach
+		
 		</div>
 	</div>
 
