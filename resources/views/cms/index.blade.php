@@ -65,21 +65,22 @@
 				</div>
 			</div>
 			<div class="product-list p-3 mb-3">
+			  @foreach($top_keywords as $item)
 				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
 					<div class="col-sm-6">
 						<div class="d-flex align-items-center">
 							<div class="product-img">
-								<img src="{{ asset('admin/images/icons/chair.png') }}" alt="" />
+								<img src="" alt="" />
 							</div>
 							<div class="ms-2">
-								<h6 class="mb-1">Light Blue Chair</h6>
-								<p class="mb-0">$240.00</p>
+								<h6 class="mb-1">{{$item->search_phrase}}</h6>
+								
 							</div>
 						</div>
 					</div>
 					<div class="col-sm">
-						<h6 class="mb-1">$2140.00</h6>
-						<p class="mb-0">345 Sales</p>
+						<h6 class="mb-1">{{$item->count}}</h6>
+						
 					</div>
 					<div class="col-sm">
 						<div id="chart5"></div>
@@ -87,6 +88,7 @@
 				</div>
 
 			</div>
+			@endforeach
 		</div>
 	</div>
 
@@ -103,26 +105,28 @@
 				</div>
 			</div>
 			<div class="product-list p-3 mb-3">
+			@foreach($top_dashboards as $item)
 				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
 					<div class="col-sm-6">
 						<div class="d-flex align-items-center">
 							<div class="product-img">
-								<img src="{{ asset('admin/images/icons/chair.png') }}" alt="" />
+								<img src="" alt="" />
 							</div>
 							<div class="ms-2">
-								<h6 class="mb-1">Light Blue Chair</h6>
-								<p class="mb-0">$240.00</p>
+								<h6 class="mb-1">{{$item->item->item_name}}</h6>
+								
 							</div>
 						</div>
 					</div>
 					<div class="col-sm">
-						<h6 class="mb-1">$2140.00</h6>
-						<p class="mb-0">345 Sales</p>
+						<h6 class="mb-1">{{$item->count}}</h6>
+					
 					</div>
 					<div class="col-sm">
 						<div id="chart5"></div>
 					</div>
 				</div>
+			@endforeach
 
 			</div>
 		</div>

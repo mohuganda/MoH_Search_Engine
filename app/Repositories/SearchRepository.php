@@ -80,6 +80,10 @@ class SearchRepository
    public function getItem($id){
    		return Item::find($id);
    }
+   public function keywordLog(){
+	return Log::paginate(10);
+   }
+
 
 
 }

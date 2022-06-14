@@ -35,6 +35,9 @@ class AdminController extends Controller
         $data['results'] = $this->searchRepo->getAllItems($request);
         $data['areas'] = $this->searchRepo->getAllThematicAreas();
         $data['widgets'] = (object)$this->widgetsRepo->getWidgets();
+        $data['top_dashboards']    = $this->searchRepo->getAccessLog();
+        $data['top_keywords']    = $this->searchRepo->keywordLog();
+        
         
         return view('cms.index')->with($data);
     }

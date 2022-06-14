@@ -54,6 +54,8 @@ class ItemsController extends Controller
 
     public function store(Request $request){
 
+        $request->validate(['url'=>'unique:items,url_link']);
+
         $this->itemsRepo->saveItem($request);
         return redirect( url('/cms/items') );
     }
