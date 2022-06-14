@@ -70,7 +70,7 @@
 					<div class="col-sm-6">
 						<div class="d-flex align-items-center">
 							<div class="product-img">
-								<img src="" alt="" />
+							<img src="{{ asset('admin/images/icons/search.png') }}" alt="" />
 							</div>
 							<div class="ms-2">
 								<h6 class="mb-1">{{$item->search_phrase}}</h6>
@@ -110,10 +110,10 @@
 					<div class="col-sm-6">
 						<div class="d-flex align-items-center">
 							<div class="product-img">
-								<img src="" alt="" />
+							<img src="{{ asset('admin/images/icons/search.png') }}" alt="" />
 							</div>
 							<div class="ms-2">
-								<h6 class="mb-1">{{$item->item->item_name}}</h6>
+								<h6 class="mb-1">{{$item->item->title}}</h6>
 								
 							</div>
 						</div>
