@@ -48,7 +48,7 @@
 				</li>
 
 				<li>
-					<a href="{{url('/cms/persons')}}" class="has-arrow">
+					<a href="{{url('/cms/persons')}}" class="">
 						
 						<div class="parent-icon"><i class="fa fa-address-book"></i>
 						</div>
