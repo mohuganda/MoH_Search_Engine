@@ -3,11 +3,17 @@
 
 @include('layouts.partials.common_banner')
 
+@php
+
+   print_r($item);
+
+@endphp
+
 <div class="card radius-10">
   <div class="card-body">
 
     <div class="row" style="margin-bottom:100px;">
-      <form action="{{url('/request_access')}}" method="post">
+      <form action="{{url('/access')}}" method="post">
         @csrf
           <div class="contact-wrap w-100 p-md-5 p-4 row">
             <h3>{{__('general.request_access')}}</h3>
@@ -21,25 +27,25 @@
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
                      <label>{{ __('general.email') }}</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="{{ __('general.email') }}">
+                    <input type="email" class="form-control" name="email"  placeholder="{{ __('general.email') }}">
                   </div>
                 </div>
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
                     <label>{{ __('general.phone') }}</label>
-                    <input type="text" class="form-control" name="contact" id="subject" placeholder="{{ __('general.phone') }}">
+                    <input type="text" class="form-control" name="contact"  placeholder="{{ __('general.phone') }}">
                   </div>
                 </div>
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
                      <label>{{ __('cms.organization_name') }}</label>
-                    <input type="text" class="form-control" name="organisation" id="subject" placeholder="{{ __('cms.organization_name') }}">
+                    <input type="text" class="form-control" name="organisation"  placeholder="{{ __('cms.organization_name') }}">
                   </div>
                 </div>
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
                      <label>{{ __('general.nominating_office')}}</label>
-                    <input type="text" class="form-control" name="secoding_officer" id="subject" placeholder="{{ __('general.nominating_office')}}">
+                    <input type="text" class="form-control" name="secoding_officer"  placeholder="{{ __('general.nominating_office')}}">
                   </div>
                 </div>
 
@@ -48,13 +54,13 @@
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
                     <label>{{ __('general.nominating_office')}} {{ __('general.email')}}</label>
-                    <input type="text" class="form-control" name="secoding_officer_email" id="subject" placeholder="{{ __('general.nominating_office')}} {{ __('general.email')}}">
+                    <input type="text" class="form-control" name="secoding_officer_email"  placeholder="{{ __('general.nominating_office')}} {{ __('general.email')}}">
                   </div>
                 </div>
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
                     <label>{{ __('general.nominating_office')}} {{ __('general.phone')}}</label>
-                    <input type="text" class="form-control" name="secoding_officer_tel" id="subject" placeholder="{{ __('general.nominating_office')}} {{ __('general.phone')}}">
+                    <input type="text" class="form-control" name="secoding_officer_tel"  placeholder="{{ __('general.nominating_office')}} {{ __('general.phone')}}">
                   </div>
                 </div>
                 <div class="col-md-12 mb-2">
@@ -63,6 +69,9 @@
                     <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="{{ __('general.reason_for_access')}}"></textarea>
                   </div>
                 </div>
+
+                <input type="hidden" name="item_id" value="{{$item->id}}">
+                
                 <div class="col-md-12 mt-5">
                   <div class="form-group">
                     <input type="submit" value="Send Message" class="btn btn-primary">
