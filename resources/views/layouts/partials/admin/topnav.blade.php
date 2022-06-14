@@ -49,7 +49,9 @@
 
 				<li>
 					<a href="{{url('/cms/persons')}}" class="has-arrow">
-						<i class="fa fa-address-book"></i>
+						
+						<div class="parent-icon"><i class="fa fa-address-book"></i>
+						</div>
 						{{ __('general.contact') }} {{ trans_choice('general.person',2) }}
 					</a>
 				</li>
