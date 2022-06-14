@@ -51,7 +51,7 @@
 		</div>
 	</div>
 	<!--end row-->
-	<!-- <div class="row row-cols-1 row-cols-xl-2">
+	 <div class="row row-cols-1 row-cols-xl-2">
 		<div class="col d-flex">
 			<div class="card radius-10 w-100">
 				<div class="card-body">
@@ -246,9 +246,9 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div> 
 	<!--end row-->
-	<!-- <div class="row">
+	<div class="row">
 		<div class="col-xl-8 d-flex">
 			<div class="card radius-10 w-100">
 				<div class="card-body">
@@ -614,7 +614,7 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div> 
 	<!--end row-->
 
 </div>
