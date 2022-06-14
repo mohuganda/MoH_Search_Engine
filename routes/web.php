@@ -45,7 +45,8 @@ Route::get('/logout', function(){
     return redirect( url('/cms/home'));
 });
 
-Route::get('/access',  [AccessController::class,'create']);
+Route::get('/access/{id}',[AccessController::class,'index']);
+Route::post('/access',[AccessController::class,'store']);
 
 Route::get('/log_access/{id}', [SearchController::class,'logAccess']);
 Route::get('/iteminfo/{id}', [SearchController::class,'itemInfo']);

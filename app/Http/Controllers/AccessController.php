@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ItemsRepository;
+use App\Mail\RequestAccess;
+use Illuminate\Support\Facades\Mail;
 
 class AccessController extends Controller
 {
@@ -17,10 +19,17 @@ class AccessController extends Controller
     }
 
 
+    public function index($id){
+        $data['item'] = $this->itemsRepo->getItem($id);
+        return view('search.request_access')->with($data);
+    }
 
-    public function create(Request $request){
-        
-        return view('search.request_access');
+    public function store(Request $request){
+
+        $contact = get_item_contact($request->item_id);
+
+        Mail::to($contact->email)->send(new RequestAccess($request));
+        redirect( url('/') );
     }
 
 }

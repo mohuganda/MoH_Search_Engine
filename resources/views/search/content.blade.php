@@ -45,7 +45,7 @@
 
                                 @if($result->access_method == 'Access Required')
                                 <span class="rev"><small>
-                                    <a href="{{ url('/access') }}" target="_blank">{{ __('general.request_access')}}</a></small>
+                                    <a href="{{ url('/access',$result->id) }}" target="_blank">{{ __('general.request_access')}}</a></small>
                                 </span> | 
                                 @endif
                                 <span class="rev"><small>
