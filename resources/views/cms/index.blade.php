@@ -6,11 +6,11 @@
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0 text-secondary">Revenue</p>
-							<h4 class="my-1">$4805</h4>
-							<p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>$34 Since last week</p>
+							<p class="mb-0 text-secondary">Dashboards</p>
+							<h4 class="my-1">{{$widgets->dashboards}}</h4>
+							
 						</div>
-						<div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bxs-wallet'></i>
+						<div class="widgets-icons bg-light-success text-success ms-auto"><i class='fa fa-tachometer'></i>
 						</div>
 					</div>
 					<div id="chart1"></div>
@@ -22,11 +22,11 @@
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0 text-secondary">Total Customers</p>
-							<h4 class="my-1">8.4K</h4>
-							<p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week</p>
+							<p class="mb-0 text-secondary">Users</p>
+							<h4 class="my-1">{{$widgets->users}}</h4>
+							
 						</div>
-						<div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='bx bxs-group'></i>
+						<div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='fa fa-users'></i>
 						</div>
 					</div>
 					<div id="chart2"></div>
@@ -38,11 +38,11 @@
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0 text-secondary">Store Visitors</p>
-							<h4 class="my-1">59K</h4>
-							<p class="mb-0 font-13 text-danger"><i class='bx bxs-down-arrow align-middle'></i>12.4% Since last week</p>
+							<p class="mb-0 text-secondary">thematic areas</p>
+							<h4 class="my-1">{{$widgets->thematic_areas}}</h4>
+
 						</div>
-						<div class="widgets-icons bg-light-danger text-danger ms-auto"><i class='bx bxs-binoculars'></i>
+						<div class="widgets-icons bg-light-danger text-danger ms-auto"><i class='fa fa-bars'></i>
 						</div>
 					</div>
 					<div id="chart3"></div>
