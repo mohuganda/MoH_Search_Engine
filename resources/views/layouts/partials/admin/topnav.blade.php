@@ -52,7 +52,7 @@
 						
 						<div class="parent-icon"><i class="fa fa-address-book"></i>
 						</div>
-						{{ __('general.contact') }} {{ trans_choice('general.person',2) }}
+						<div class="menu-title">{{ __('general.contact') }} {{ trans_choice('general.person',2) }}</div>
 					</a>
 				</li>
 
