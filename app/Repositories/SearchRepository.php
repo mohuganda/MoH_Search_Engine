@@ -39,7 +39,7 @@ class SearchRepository
 
 		}
 
-		$data = $query->paginate(2);
+		$data = $query->paginate(20);
 
 		 //log search to db async
          dispatch(new SearchLogJob($term));
