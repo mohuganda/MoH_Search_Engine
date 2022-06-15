@@ -64,32 +64,45 @@
                                 <tr>
                                   
                                   <td>Contact Person</td>
-                                  <td>Email</td>
-                                  <td>Thematic Area</td>
-                                  <td>Access Method</td>
-                                  <td>Developer/Funder</td>
-                                  <td>Technology</td>
-                                  <td>Access Frequency</td>
-                                  <td>Date Added</th>
-                                  <td>Request Access</th>
+                                  <td>Agaba Andrew</td>
                                 </tr>
                                 <tr>
-                                 
-                                  <td>Contact Person</td>
-                                  <td>Email</td>
-                                  <td>{{$item->thematic_area->description}}</td>
+                                   <td>Email</td>
+                                  <td>agabaandre@gmail.com</td>
+                                  </tr>
+                                <tr>
+
+                                  <td>Thematic Area</td>
+                                   <td>{{$item->thematic_area->description}}</td>
+                                </tr>
+                                <tr>
+                                  <td>Access</td>
                                   <td>{{$item->access_method}}</td>
-                                  <td>{{$item->dev_entity_id}}</td>
-                                  <td>{{$item->db_engine}}</td>
-                                  <td>20</td>
-                                  <td>{{$item->created_at}}</td>
-                                  <td>span class="rev"><small>
+                                  </tr>
+                                  <tr>
+                                    <td>Date Added</th>
+                                    <td>{{$item->created_at}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Developer Entity</th>
+                                    <td>{{$item->dev_entity_id}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Technology</th>
+                                    <td>{{$item->db_engine}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Access Frequency</th>
+                                    <td>20</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Request Access</th>
+                                    <td>span class="rev"><small>
                                     <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a></small>
                                     </span>
                                  </td>
-                                  
-                                </tr>
-                                
+                                  </tr>
+
                               </tbody>
                             </table>
                         </div>
