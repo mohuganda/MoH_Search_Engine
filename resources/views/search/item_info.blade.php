@@ -26,7 +26,7 @@
                         <div class="text text-center">
                             <div class="d-flex justify-content-left search-text">
                                 <a href="{{ asset('images/'.$item->image) }}"  >
-                                    <img src="{{ asset('images/'.$item->image) }}" width="400px"  /></a>
+                                    <img src="{{ asset('images/'.$item->image) }}" width="500px"  /></a>
                                 <a>
                             
                             </div>
