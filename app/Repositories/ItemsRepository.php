@@ -16,7 +16,7 @@ class ItemsRepository
 
 	function getAllItems(Request $request){
 
-		return Item::paginate(15);
+		return Item::paginate(4);
 	}
 
 	function getItem($id){

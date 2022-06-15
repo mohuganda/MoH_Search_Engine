@@ -43,7 +43,9 @@
 					
 					
 				</table>
+				<p>
 				{{$items->links()}}
+				</p>
 			</div>
 		</div>
 	</div>
