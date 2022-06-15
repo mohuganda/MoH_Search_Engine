@@ -21,6 +21,7 @@ class PermissionController extends Controller
         $data['roles'] = Role::paginate(15);
         $data['permissions'] = Permission::all();
         return view('permissions.roles')->with($data);
+        
     }
 
     /*
