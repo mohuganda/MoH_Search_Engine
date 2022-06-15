@@ -60,6 +60,13 @@
                          
 
                             <table class="table table-striped" style="text-align:left;">
+                                 <tr>
+                                  
+                                  <th>Name:</th>
+                                  <td> <a
+                                    onclick="logAccess({!! $item->id !!})" href="{{ $result->url_link }}" target="_blank">{{$item->title}}</a>
+                                  </td>
+                                </tr>
                            
                                 <tr>
                                   
@@ -106,7 +113,18 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> <script>
+         function logAccess(system_id) {
+           // event.preventDefault();
+            $.ajax({
+               type:'GET',
+               url:`<?php echo url('/log_access');?>/${system_id}`,
+               success:function(data) {
+                  console.log(data);
+               }
+            });
+         }
+</script>
      
     </div>
 
