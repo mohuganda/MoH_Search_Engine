@@ -34,7 +34,7 @@
 
                                 <p class="review text-truncate">
                                     <span class="rev"><small>
-                                    <a href="{{ $result->url_link }}"  target="_blank">Navigate {{ $result->title }}</a></small>
+                                    <a href="{{ $result->url_link }}"  target="_blank">Navigate the {{ $result->title }}</a></small>
                                 </span>
                                 </p>
                                 
