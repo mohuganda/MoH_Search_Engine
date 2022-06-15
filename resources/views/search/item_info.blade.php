@@ -10,13 +10,7 @@
 
     <div class="row ml-2 mr-2" style="margin-bottom:100px; color:#000;">
     
-    
 
-    	@php
-
-		print_r($item->toArray());
-
-		@endphp
                  <h3 class="review text-truncate">
                                     <span class="rev"><small>
                                     <a href="{{ $item->url_link }}"  target="_blank">{{ $item->title }}</a></small>
@@ -64,31 +58,40 @@
 
                         <div class="text text-center">
                          
-                          
-                            <div class="info-wrap2 align-items-center description">
 
-
-                                <p class="review text-truncate">
-                                    <span class="rev"><small>
-                                    <a href="{{ $item->url_link }}"  target="_blank">{{ $item->url_link }}</a></small>
-                                </span>
-                                </p>
-                                
-
-                                <p class="review"><span class="rev">Theme: <small>{{$item->thematic_area->description}}</small></span> |
-                                <span class="rev">Type: <small>{{ $item->item_type->item_type_name }}</small></span> |
-                               <span class="rev">Access: <small>{{ $item->access_method }}</small></span> | 
-
-                                @if($item->access_method == 'Access Required')
-                                <span class="rev"><small>
+                            <table class="table table-striped">
+                              <tbody>
+                                <tr>
+                                  
+                                  <td>Contact Person</td>
+                                  <td>Email</td>
+                                  <td>Thematic Area</td>
+                                  <td>Access Method</td>
+                                  <td>Developer/Funder</td>
+                                  <td>Technology</td>
+                                  <td>Access Frequency</td>
+                                  <td>Date Added</th>
+                                  <td>Request Access</th>
+                                </tr>
+                                <tr>
+                                 
+                                  <td>Contact Person</td>
+                                  <td>Email</td>
+                                  <td>{{$item->thematic_area->description}}</td>
+                                  <td>{{$item->access_method}}</td>
+                                  <td>{{$item->dev_entity_id}}</td>
+                                  <td>{{$item->db_engine}}</td>
+                                  <td>20</td>
+                                  <td>{{$item->created_at}}</td>
+                                  <td>span class="rev"><small>
                                     <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a></small>
-                                </span> | 
-                                @endif
-                                <span class="rev"><small>
-                                    <a href="{{ url('/iteminfo',$item->id) }}" target="_blank">{{ __('general.moreinfo')}}</a></small>
-                                </span>
-                                </p>
-                            </div>
+                                    </span>
+                                 </td>
+                                  
+                                </tr>
+                                
+                              </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
