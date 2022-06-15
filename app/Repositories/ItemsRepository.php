@@ -58,7 +58,7 @@ class ItemsRepository
 	}
 
 	function getAllThematicAreas(){
-		return ThematicArea::orderBy('display_index','asc')->get();
+		return ThematicArea::orderBy('display_index','asc')->paginate(50);
 	}
 
 	function getAllItemTypes(){
