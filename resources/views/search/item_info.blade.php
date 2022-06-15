@@ -17,7 +17,7 @@
                                 </span>
               </h3>
  
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                <div class="col-md-5 col-lg-5 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
                     
 
@@ -34,14 +34,13 @@
                           
                             <div class="info-wrap2 align-items-center description">
 
-                                <p class="review">
-                                </p>
+                             
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                <div class="col-md-5 col-lg-5 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
                     
 
