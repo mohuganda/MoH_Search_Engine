@@ -128,6 +128,10 @@
 	<script src="{{ asset('admin/js/index.js') }}"></script>
 	<!--app JS-->
 	<script src="{{ asset('admin/js/app.js') }}"></script>
+
+	<script type="text/javascript">
+		new PerfectScrollbar(".product-list");
+    </script>
 	
 </body>
 

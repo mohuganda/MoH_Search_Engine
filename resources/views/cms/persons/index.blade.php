@@ -42,7 +42,7 @@
 					</tbody>
 				</table>
 				<p>
-				{{$items->links()}}
+				{{$people->links()}}
 				</p>
 			</div>
 		</div>

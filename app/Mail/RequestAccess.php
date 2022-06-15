@@ -32,6 +32,7 @@ class RequestAccess extends Mailable
      */
     public function build()
     {
+        $data['data'] = (Object) $this->request->all();
         return $this->view('mails.access_email');
     }
 }

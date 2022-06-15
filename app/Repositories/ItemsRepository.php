@@ -62,7 +62,7 @@ class ItemsRepository
 	}
 
 	function getAllItemTypes(){
-		return ItemType::all();
+		return ItemType::paginate(1000);
 	}
 
 	function saveType(Request $request){
