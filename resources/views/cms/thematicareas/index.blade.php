@@ -44,7 +44,7 @@
 					</tbody>
 				</table>
 				<p>
-				{{$items->links()}}
+				{{$organizations->links()}}
 				</p>
 			</div>
 		</div>

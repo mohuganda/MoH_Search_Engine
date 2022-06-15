@@ -33,7 +33,7 @@
 					</tbody>
 				</table>
 				<p>
-				{{$items->links()}}
+				{{$types->links()}}
 				</p>
 			</div>
 		</div>
