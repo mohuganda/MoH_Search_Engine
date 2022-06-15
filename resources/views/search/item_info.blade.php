@@ -28,8 +28,6 @@
                             
                             </div>
                             <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
-
-                                <p>{!! highlight($item->description,$term) !!}</p>
                                 
                             </div>
                           
