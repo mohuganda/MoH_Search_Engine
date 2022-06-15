@@ -63,40 +63,40 @@
                            
                                 <tr>
                                   
-                                  <th>Contact Person</th>
+                                  <th>Contact Person:</th>
                                   <td>Agaba Andrew</td>
                                 </tr>
                                 <tr>
-                                   <th>Email</th>
+                                   <th>Email:</th>
                                   <td>agabaandre@gmail.com</td>
                                   </tr>
                                 <tr>
 
-                                  <th>Thematic Area</th>
+                                  <th>Thematic Area:</th>
                                   <td>{{$item->thematic_area->description}}</td>
                                 </tr>
                                 <tr>
-                                  <th>Access</th>
+                                  <th>Access:</th>
                                   <td>{{$item->access_method}}</td>
                                   </tr>
                                   <tr>
-                                    <th>Date Added</th>
+                                    <th>Date Added:</th>
                                     <td>{{$item->created_at}}</td>
                                   </tr>
                                   <tr>
-                                    <th>Developer Entity</th>
+                                    <th>Developer Entity:</th>
                                     <td>{{$item->dev_entity_id}}</td>
                                   </tr>
                                   <tr>
-                                    <th>Technology</th>
+                                    <th>Technology:</th>
                                     <td>{{$item->db_engine}}</td>
                                   </tr>
                                   <tr>
-                                    <th>Access Frequency</th>
+                                    <th>Access Frequency:</th>
                                     <td>20</td>
                                   </tr>
                                   <tr>
-                                    <th>Request Access</th>
+                                    <th>Request Access:</th>
                                     <td>
                                     <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a>
                                     </span>
