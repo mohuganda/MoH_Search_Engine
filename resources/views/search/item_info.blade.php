@@ -64,7 +64,7 @@
                                   
                                   <th>Name:</th>
                                   <td> <a
-                                    onclick="logAccess({!! $item->id !!})" href="{{ $result->url_link }}" target="_blank">{{$item->title}}</a>
+                                    onclick="logAccess({!! $item->id !!})" href="{{ $item->url_link }}" target="_blank">{{$item->title}}</a>
                                   </td>
                                 </tr>
                            
