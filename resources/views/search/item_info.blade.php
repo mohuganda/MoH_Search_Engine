@@ -10,21 +10,15 @@
 
     <div class="row ml-2 mr-2" style="margin-bottom:100px; color:#000;">
     
-
-                 <h3 class="review text-truncate">
-                                    <span class="rev"><small>
-                                    <a href="{{ $item->url_link }}"  target="_blank">{{ $item->title }}</a></small>
-                                </span>
-              </h3>
  
                 <div class="col-md-6 col-lg-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
                     
 
                         <div class="text text-center">
-                            <div class="d-flex justify-content-left search-text">
+                            <div class="d-flex justify-content-center">
                                 <a href="{{ asset('images/'.$item->image) }}"  >
-                                    <img src="{{ asset('images/'.$item->image) }}" width="500px"  /></a>
+                                    <img src="{{ asset('images/'.$item->image) }}" width="600px"  /></a>
                                 <a>
                             
                             </div>
@@ -32,7 +26,7 @@
                                 
                             </div>
                           
-                            <div class="info-wrap2 align-items-center description">
+                            <div class="info-wrap2 align-items-center description" style="display:none;">
 
                                 <p class="review"><span class="rev">Theme: <small>{{$item->thematic_area->description}}</small></span> |
                                 <span class="rev">Type: <small>{{ $item->item_type->item_type_name }}</small></span> |
@@ -59,42 +53,72 @@
                         <div class="text text-center">
                          
 
-                            <table class="table table-striped">
-                              <tbody>
+                            <table class="table table-striped" style="text-align:left;">
+                                 <tr>
+                                  
+                                  <th>Name:</th>
+                                  <td> <a
+                                    onclick="logAccess({!! $item->id !!})" href="{{ $item->url_link }}" target="_blank">{{$item->title}}</a>
+                                  </td>
+                                </tr>
+                           
                                 <tr>
                                   
-                                  <td>Contact Person</td>
-                                  <td>Email</td>
-                                  <td>Thematic Area</td>
-                                  <td>Access Method</td>
-                                  <td>Developer/Funder</td>
-                                  <td>Technology</td>
-                                  <td>Access Frequency</td>
-                                  <td>Date Added</th>
-                                  <td>Request Access</th>
+                                  <th>Contact Person:</th>
+                                  <td>Agaba Andrew</td>
                                 </tr>
                                 <tr>
-                                 
-                                  <td>Contact Person</td>
-                                  <td>Email</td>
+                                   <th>Email:</th>
+                                  <td>agabaandre@gmail.com</td>
+                                  </tr>
+                                <tr>
+
+                                  <th>Thematic Area:</th>
                                   <td>{{$item->thematic_area->description}}</td>
+                                </tr>
+                                <tr>
+                                  <th>Access:</th>
                                   <td>{{$item->access_method}}</td>
-                                  <td>{{$item->dev_entity_id}}</td>
-                                  <td>{{$item->db_engine}}</td>
-                                  <td>20</td>
-                                  <td>{{$item->created_at}}</td>
-                                  <td>span class="rev"><small>
-                                    <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a></small>
+                                  </tr>
+                                  <tr>
+                                    <th>Date Added:</th>
+                                    <td>{{$item->created_at}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Developer Entity:</th>
+                                    <td>{{$item->dev_entity_id}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Technology:</th>
+                                    <td>{{$item->db_engine}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Access Frequency:</th>
+                                    <td>20</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Request Access:</th>
+                                    <td>
+                                    <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a>
                                     </span>
                                  </td>
-                                  
-                                </tr>
-                                
-                              </tbody>
+                                  </tr>
+
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> <script>
+         function logAccess(system_id) {
+           // event.preventDefault();
+            $.ajax({
+               type:'GET',
+               url:`<?php echo url('/log_access');?>/${system_id}`,
+               success:function(data) {
+                  console.log(data);
+               }
+            });
+         }
+</script>
      
     </div>
 
