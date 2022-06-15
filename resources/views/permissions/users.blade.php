@@ -7,6 +7,7 @@
 
   ?>
 
+
 <!-- Highlighted tabs -->
  @if ($session->can('create users'))
    <div class="col-md-12">
@@ -185,4 +186,3 @@
     <!-- /highlighted tabs -->
 
 @endsection
-    <!-- /List
