@@ -8,9 +8,6 @@
 <div class="card radius-10">
   <div class="card-body">
 
-    <div class="row ml-2 mr-2" style="margin-bottom:100px; color:#000;">
-    
-
                  <h3 class="review text-truncate">
                                     <span class="rev"><small>
                                     <a href="{{ $item->url_link }}"  target="_blank">{{ $item->title }}</a></small>
@@ -113,7 +110,7 @@
                             </table>
                         </div>
                     </div>
-                </div> <script>
+            <script>
          function logAccess(system_id) {
            // event.preventDefault();
             $.ajax({
