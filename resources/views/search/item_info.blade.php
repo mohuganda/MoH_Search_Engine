@@ -59,51 +59,50 @@
                         <div class="text text-center">
                          
 
-                            <table class="table table-striped text-align-left">
-                              <tbody>
+                            <table class="table table-striped" style="text-align:left;">
+                           
                                 <tr>
                                   
-                                  <td>Contact Person</td>
+                                  <th>Contact Person</th>
                                   <td>Agaba Andrew</td>
                                 </tr>
                                 <tr>
-                                   <td>Email</td>
+                                   <th>Email</th>
                                   <td>agabaandre@gmail.com</td>
                                   </tr>
                                 <tr>
 
-                                  <td>Thematic Area</td>
-                                   <td>{{$item->thematic_area->description}}</td>
+                                  <th>Thematic Area</th>
+                                  <td>{{$item->thematic_area->description}}</td>
                                 </tr>
                                 <tr>
-                                  <td>Access</td>
+                                  <th>Access</th>
                                   <td>{{$item->access_method}}</td>
                                   </tr>
                                   <tr>
-                                    <td>Date Added</th>
+                                    <th>Date Added</th>
                                     <td>{{$item->created_at}}</td>
                                   </tr>
                                   <tr>
-                                    <td>Developer Entity</th>
+                                    <th>Developer Entity</th>
                                     <td>{{$item->dev_entity_id}}</td>
                                   </tr>
                                   <tr>
-                                    <td>Technology</th>
+                                    <th>Technology</th>
                                     <td>{{$item->db_engine}}</td>
                                   </tr>
                                   <tr>
-                                    <td>Access Frequency</th>
+                                    <th>Access Frequency</th>
                                     <td>20</td>
                                   </tr>
                                   <tr>
-                                    <td>Request Access</th>
+                                    <th>Request Access</th>
                                     <td>
                                     <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a>
                                     </span>
                                  </td>
                                   </tr>
 
-                              </tbody>
                             </table>
                         </div>
                     </div>
