@@ -6,7 +6,6 @@
                 <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('')}}">Home</a>
             </div>
             <div class="col-lg-2 text-center align-items-left" style="float:left !important;">
-                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('')}}">Home</a>
                 <a class="navbar-brand" href="{{url('')}}">
                     <img src="{{asset('theme/images/moh.png')}}" width="100px">
                     <p style="color:#FFF; text-align:center; font-weight:200; font-size:small;">Ministry of Health</p>
