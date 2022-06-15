@@ -32,6 +32,9 @@
 						<li> <a href="{{url('cms/items')}}"><i class="bx bx-right-arrow-alt"></i> {{__('cms.view_items')}}</a></li>
 						<li> <a href="{{url('cms/types')}}"><i class="bx bx-right-arrow-alt"></i> {{__('cms.item_types')}}</a></li>
 						<li> <a href="{{url('cms/thematicareas')}}"><i class="bx bx-right-arrow-alt"></i> {{trans_choice('cms.thematic_area',2)}}</a></li>
+						<li> <a href="{{url('cms/authorities')}}"><i class="bx bx-right-arrow-alt"></i> {{__('general.approval')}} {{__('general.authority')}}</a></li>
+						<li> <a href="{{url('cms/tools')}}"><i class="bx bx-right-arrow-alt"></i> {{__('general.ui')}} {{__('general.tools')}}</a></li>
+						<li> <a href="{{url('cms/entities')}}"><i class="bx bx-right-arrow-alt"></i> {{ trans_choice('general.dev_entity',2)}}</a></li>
 					</ul>
 				</li>
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ApprovalAuthority extends Model
 {
     use HasFactory;
+
 }

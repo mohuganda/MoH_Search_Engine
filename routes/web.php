@@ -13,6 +13,9 @@ use App\Http\Controllers\ItemTypesController;
 use App\Http\Controllers\ThematicAreasController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ContactPersonsController;
+use App\Http\Controllers\AuthoritiesController;
+use App\Http\Controllers\ToolsController;
+use App\Http\Controllers\DevEntitiesController;
 
 
 /*
@@ -64,6 +67,15 @@ Route::group(['prefix'=>'cms'],function(){
 
   Route::resource('/persons',ContactPersonsController::class);
   Route::get('/persons/delete/{id}',[ContactPersonsController::class,'destroy']);
+
+  Route::resource('/authorities',AuthoritiesController::class);
+  Route::get('/authorities/delete/{id}',[AuthoritiesController::class,'destroy']);
+
+  Route::resource('/tools',ToolsController::class);
+  Route::get('/tools/delete/{id}',[ToolsController::class,'destroy']);
+
+  Route::resource('/entities',DevEntitiesController::class);
+  Route::get('/entities/delete/{id}',[DevEntitiesController::class,'destroy']);
 
 });
 
