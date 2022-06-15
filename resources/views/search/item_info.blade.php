@@ -34,7 +34,8 @@
                           
                             <div class="info-wrap2 align-items-center description">
 
-                               
+                                <p class="review">
+                                </p>
                             </div>
                         </div>
                     </div>
