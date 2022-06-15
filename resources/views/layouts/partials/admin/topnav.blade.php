@@ -1,7 +1,7 @@
 	<div class="wrapper">
 		<!--sidebar wrapper -->
 		<div class="sidebar-wrapper" data-simplebar="true">
-			
+
 			<div class="sidebar-header">
 				<!-- <div>
 					<img src="{{ asset('admin/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
@@ -52,7 +52,7 @@
 
 				<li>
 					<a href="{{url('/cms/persons')}}" class="">
-						
+
 						<div class="parent-icon"><i class="fa fa-address-book"></i>
 						</div>
 						<div class="menu-title">{{ __('general.contact') }} {{ trans_choice('general.person',2) }}</div>
@@ -70,10 +70,10 @@
 						<li> <a href="{{route('permissions.permissions')}}"><i class="bx bx-right-arrow-alt"></i> {{__('auth.permissions')}}</a></li>
 						<li> <a href="{{url('permissions/roles')}}"><i class="bx bx-right-arrow-alt"></i> {{__('auth.roles')}}</a></li>
 					</ul>
-					
+
 				</li>
-				
-				
+
+
 			</ul>
 			<!--end navigation-->
 
