@@ -38,8 +38,12 @@
 							<td><a href="{{ url('cms/items',$item->id)}}">Edit</a></td>
 						</tr>
 						@endforeach
+						
 					</tbody>
+					
+					
 				</table>
+				{{$items->links()}}
 			</div>
 		</div>
 	</div>
