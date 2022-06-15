@@ -17,7 +17,7 @@
 		@endphp
 
  
-                <div class="col-md-12 col-lg-12 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                <div class="col-md-6 col-lg-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
 
                         <div class="text text-center">
