@@ -114,23 +114,30 @@
 	<!-- Bootstrap JS -->
 	<!-- <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script> -->
 
-	<script src="{{ asset('js/app.js') }}"></script>
+
 	
 	<!--plugins-->
 	<script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/js/app.js') }}"></script>
+    <script src="{{ asset('admin/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+
 	<script src="{{ asset('admin/plugins/simplebar/js/simplebar.min.js') }}"></script>
-	<script src="{{ asset('admin/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+	
 	<script src="{{ asset('admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
 <!-- 	<script src="{{ asset('admin/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script> -->
 	<script src="{{ asset('admin/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('admin/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 	
-	<script src="{{ asset('admin/js/index.js') }}"></script>
+	
 	<!--app JS-->
-	<script src="{{ asset('admin/js/app.js') }}"></script>
+	
 
 	<script type="text/javascript">
+		try{
 		new PerfectScrollbar(".product-list");
+	}catch(error){
+		//
+	}
     </script>
 	
 </body>
