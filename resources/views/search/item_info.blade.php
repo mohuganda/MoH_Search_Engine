@@ -17,11 +17,11 @@
 		print_r($item->toArray());
 
 		@endphp
-                 <p class="review text-truncate">
+                 <h3 class="review text-truncate">
                                     <span class="rev"><small>
                                     <a href="{{ $item->url_link }}"  target="_blank">{{ $item->title }}</a></small>
                                 </span>
-                 </p>
+              </h3>
  
                 <div class="col-md-6 col-lg-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
