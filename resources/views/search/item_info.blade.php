@@ -9,7 +9,7 @@
   <div class="card-body">
 
     <div class="row ml-2 mr-2" style="margin-bottom:100px; color:#000;">
-    <h3>{{$item->title}}</h3>
+    
     
 
     	@php
@@ -17,7 +17,11 @@
 		print_r($item->toArray());
 
 		@endphp
-
+                 <p class="review text-truncate">
+                                    <span class="rev"><small>
+                                    <a href="{{ $item->url_link }}"  target="_blank">{{ $item->title }}</a></small>
+                                </span>
+                 </p>
  
                 <div class="col-md-6 col-lg-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="listing-wrap">
@@ -35,14 +39,6 @@
                             </div>
                           
                             <div class="info-wrap2 align-items-center description">
-
-
-                                <p class="review text-truncate">
-                                    <span class="rev"><small>
-                                    <a href="{{ $item->url_link }}"  target="_blank">{{ $item->url_link }}</a></small>
-                                </span>
-                                </p>
-                                
 
                                 <p class="review"><span class="rev">Theme: <small>{{$item->thematic_area->description}}</small></span> |
                                 <span class="rev">Type: <small>{{ $item->item_type->item_type_name }}</small></span> |
