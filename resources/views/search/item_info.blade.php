@@ -32,7 +32,7 @@
                                 
                             </div>
                           
-                            <div class="info-wrap2 align-items-center description">
+                            <div class="info-wrap2 align-items-center description" style="display:none;">
 
                                 <p class="review"><span class="rev">Theme: <small>{{$item->thematic_area->description}}</small></span> |
                                 <span class="rev">Type: <small>{{ $item->item_type->item_type_name }}</small></span> |
