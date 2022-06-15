@@ -5,7 +5,7 @@
 
 @php
 
-   print_r($item);
+   //print_r($item);
 
 @endphp
 
@@ -13,10 +13,13 @@
   <div class="card-body">
 
     <div class="row" style="margin-bottom:100px;">
+
       <form action="{{url('/access')}}" method="post">
         @csrf
           <div class="contact-wrap w-100 p-md-5 p-4 row">
             <h3>{{__('general.request_access')}}</h3>
+             <h5 class="text-info"> {{ $item->title }} </h5>
+             <br>
               <div class="col-md-6">
                 <div class="col-md-12 mb-2">
                   <div class="form-group">
@@ -71,7 +74,7 @@
                 </div>
 
                 <input type="hidden" name="item_id" value="{{$item->id}}">
-                
+
                 <div class="col-md-12 mt-5">
                   <div class="form-group">
                     <input type="submit" value="Send Message" class="btn btn-primary">
@@ -81,6 +84,7 @@
               </div>
           </div>
       </form>
+
     </div>
 
   </div>

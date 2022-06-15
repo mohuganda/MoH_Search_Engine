@@ -8,7 +8,7 @@
   ?>
 
 <!-- Highlighted tabs -->
- @if (!$session->can('create users'))
+ @if ($session->can('create users'))
    <div class="col-md-12">
 
     <div class="card card-collapsed form">
@@ -136,8 +136,7 @@
 
                                 @php
                                  $userRole = user_role($user->id);
-                                 $userRole= null;
-
+                                
                                   $statuses = array(
                                   "0"=>"Blocked",
                                   "2"=>"Restricted",
@@ -151,7 +150,7 @@
                                     <td>{{ strtoupper((@$userRole->name)?$userRole->name:'NO ROLE') }}</td>
                                     <td class="text-center">
 
-                                        @if (!$session->can('create users'))
+                                        @if ($session->can('create users'))
 
                                                     <a href="#user{{$user->id}}0" data-bs-toggle="modal" class="dropdown-item"><i class="icon-touch-pinch"></i> 
                                                     {{ __('general.change') }}  {{ __('auth.role') }} </a>
