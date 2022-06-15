@@ -1,7 +1,7 @@
 <section class="hero-wrap" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="overlay"></div>
     <div class="container">
-        <div class="row no-gutters slider-text">
+        <div class="row">
             <div class="col-lg-2 text-center align-items-left" style="float:left !important;">
                 <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('')}}">Home</a>
             </div>
