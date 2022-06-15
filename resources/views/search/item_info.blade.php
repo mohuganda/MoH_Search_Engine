@@ -24,9 +24,8 @@
                             <div class="d-flex justify-content-left search-text">
                                 <a href="{{ asset('images/'.$item->image) }}"  >
                                     <img src="{{ asset('images/'.$item->image) }}" width="200px"  /></a>
-                                <a
-                                    onclick="logAccess({!! $item->id !!})" href="{{ $item->url_link }}" target="_blank">{!! highlight($item->title,$term) !!}</a>
-
+                                <a>
+                            
                             </div>
                             <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
 
