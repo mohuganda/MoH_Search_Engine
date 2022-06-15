@@ -32,7 +32,7 @@
                             <div class="info-wrap2 align-items-center description">
 
 
-                                <p class="review">
+                                <p class="review text-truncate">
                                     <span class="rev"><small>
                                     <a href="{{ $result->url_link }}"  target="_blank">{{ $result->url_link }}</a></small>
                                 </span>
