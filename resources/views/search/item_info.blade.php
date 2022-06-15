@@ -59,7 +59,7 @@
                         <div class="text text-center">
                          
 
-                            <table class="table table-striped">
+                            <table class="table table-striped text-align-left">
                               <tbody>
                                 <tr>
                                   
@@ -97,8 +97,8 @@
                                   </tr>
                                   <tr>
                                     <td>Request Access</th>
-                                    <td>span class="rev"><small>
-                                    <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a></small>
+                                    <td>
+                                    <a href="{{ url('/access',$item->id) }}" target="_blank">{{ __('general.request_access')}}</a>
                                     </span>
                                  </td>
                                   </tr>
