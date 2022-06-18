@@ -35,6 +35,25 @@
         </select>
       </div>
 
+        <div class="form-group">
+        <label>{{__('cms.approval')}} {{__('cms.authority')}}</label>
+        <select name="approval_authority" class="form-control" required>
+          <option  value="">Choose</option>
+           @foreach($authorities as $auth)
+            <option {{ (@$auth->id==@$item->approval_authority_id)?'selected':'' }}  value="{{$auth->id}}">{{$auth->authority_name}}</option>
+          @endforeach
+        </select>
+      </div>
+
+        <div class="form-group">
+        <label>{{__('cms.ui')}} {{ trans_choice('cms.tool',1)}} </label>
+        <select name="uitool" class="form-control" required>
+          <option  value="">Choose</option>
+           @foreach($uitools as $tool)
+            <option {{ (@$tool->id==@$item->ui_tool_id)?'selected':'' }} value="{{$tool->id}}">{{$tool->tool_name}}</option>
+          @endforeach
+        </select>
+      </div>
       
     </div>
     <div class="col-lg-6">
@@ -66,14 +85,25 @@
 
        <div class="form-group">
         <label>{{__('general.contact')}} {{ trans_choice('general.person',1)}}</label>
-        <select name="contact" class="form-control">
+        <select name="contact" class="form-control" multiple>
 
           <option>Select</option>
           @foreach($contacts as $contact)
-          <option  value="{{$contact->id}}" {{(@$row->id ==$contact->id)?'selected':''}}>{{$contact->name}}</option>
+          <option  value="{{$contact->id}}" {{(in_array($contact->id,item_contacts(@$item->id)))?'selected':''}}>{{$contact->name}}</option>
           @endforeach
         </select> 
       </div>
+
+      <div class="form-group">
+        <label>{{__('cms.dev')}} {{ trans_choice('cms.entity',1)}} </label>
+        <select name="dev_entity" class="form-control" required>
+          <option  value="">Choose</option>
+           @foreach($entities as $entity)
+            <option {{ (@$entity->id==@$item->dev_entity_id)?'selected':'' }}  value="{{$entity->id}}">{{$entity->entity_name}}</option>
+          @endforeach
+        </select>
+      </div>
+      
 
   </div>
   <div class="col-lg-12">

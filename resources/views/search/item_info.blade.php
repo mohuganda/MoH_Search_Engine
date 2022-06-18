@@ -64,13 +64,19 @@
                            
                                 <tr>
                                   
-                                  <th>Contact Person:</th>
-                                  <td>Agaba Andrew</td>
+                                  <th>{{ __('general.contact') }} {{ trans_choice('general.person',2) }}:</th>
+                                  <td> 
+                                    <ul>
+                                    @foreach(item_contacts($item->id,false) as $person)
+                                      <li>
+                                        <h5>{{ ucwords($person->contact->name) }}</h5>
+                                        <p>{{ ucwords($person->contact->email) }}</p>
+                                      </li>
+                                    @endforeach
+                                    </ul>
+
+                                  </td>
                                 </tr>
-                                <tr>
-                                   <th>Email:</th>
-                                  <td>agabaandre@gmail.com</td>
-                                  </tr>
                                 <tr>
 
                                   <th>Thematic Area:</th>
@@ -86,7 +92,7 @@
                                   </tr>
                                   <tr>
                                     <th>Developer Entity:</th>
-                                    <td>{{$item->dev_entity_id}}</td>
+                                    <td>{{$item->devEntity->entity_name}}</td>
                                   </tr>
                                   <tr>
                                     <th>Technology:</th>
@@ -94,7 +100,7 @@
                                   </tr>
                                   <tr>
                                     <th>Access Frequency:</th>
-                                    <td>20</td>
+                                    <td>{{ $item->accessLog->count }} times</td>
                                   </tr>
                                   <tr>
                                     <th>Request Access:</th>

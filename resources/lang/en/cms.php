@@ -30,5 +30,11 @@ return [
 	'icon' => 'Icon',
 	'management'=>'Management',
 	'display_index'=>'Display Index',
-	'index'=>'Index'
+	'index'=>'Index',
+	'approval'=>'Approval',
+	'authority'=>'Authority',
+	'dev'=>'Dev',
+	'tool'=>'Tools | Tools',
+	'ui'=> 'UI',
+	'entity'=>'Entity|Entities'
 ];

@@ -6,13 +6,13 @@
 		<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 		<!--End Back To Top Button-->
 		<footer class="page-footer">
-			<p class="mb-0">Copyright © <?php echo date('Y') ?> All right reserved.</p>
+			<p class="mb-0">Copyright © 2021. All right reserved.</p>
 		</footer>
 	</div>
 	<!--end wrapper-->
 
 	<!--start switcher-->
-	<div class="switcher-wrapper" style="display:none;">
+	<div class="switcher-wrapper">
 		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
 		</div>
 		<div class="switcher-body">
@@ -112,33 +112,20 @@
 	<!--end switcher-->
 
 	<!-- Bootstrap JS -->
-	<!-- <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script> -->
-
-
+	<script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
 	
 	<!--plugins-->
 	<script src="{{ asset('admin/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/js/app.js') }}"></script>
-    <script src="{{ asset('admin/plugins/metismenu/js/metisMenu.min.js') }}"></script>
-
 	<script src="{{ asset('admin/plugins/simplebar/js/simplebar.min.js') }}"></script>
-	
+	<script src="{{ asset('admin/plugins/metismenu/js/metisMenu.min.js') }}"></script>
 	<script src="{{ asset('admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
 <!-- 	<script src="{{ asset('admin/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script> -->
 	<script src="{{ asset('admin/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('admin/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 	
-	
+	<script src="{{ asset('admin/js/index.js') }}"></script>
 	<!--app JS-->
-	
-
-	<script type="text/javascript">
-		try{
-		new PerfectScrollbar(".product-list");
-	}catch(error){
-		//
-	}
-    </script>
+	<script src="{{ asset('admin/js/app.js') }}"></script>
 	
 </body>
 

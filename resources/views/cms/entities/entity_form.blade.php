@@ -7,7 +7,7 @@
 
       <div class="form-group">
         <label>{{__('general.description')}}</label>
-        <textarea name="description" value="{{@$row->entity_description}}" class="form-control">{{@$row->tool_description}}</textarea> 
+        <textarea name="description" value="{{@$row->entity_description}}" class="form-control">{{@$row->entity_description}}</textarea> 
       </div>
 
       <div class="form-group btn-wrapper">

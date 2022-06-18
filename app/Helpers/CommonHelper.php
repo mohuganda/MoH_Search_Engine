@@ -3,6 +3,7 @@
 use App\Models\Users;
 use Illuminate\Support\Facades\DB;
 use App\Models\ThematicArea;
+use App\Models\ItemContactPerson;
 
 
  if(!function_exists('user_role')){
@@ -40,6 +41,28 @@ use App\Models\ThematicArea;
  	function get_user(){
         return Auth::user();
  	}
+ }
+
+ if( !function_exists('item_contacts')){
+
+ 	function item_contacts($item_id=null,$return_ids=true){
+
+ 		$contacts = ItemContactPerson::where('item_id',$item_id)->get();
+ 		
+ 		if($return_ids):
+
+	 		$contact_arr = [];
+
+	 		foreach ($contacts as $contact) {
+	 			array_push($contact_arr, $contact->id);
+	 		}
+
+	 		return $contact_arr;
+ 		endif;
+
+ 		return $contacts;
+
+    }
  }
  
 

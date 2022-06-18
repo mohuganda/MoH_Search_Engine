@@ -9,6 +9,10 @@ use App\Models\Log;
 use App\Jobs\SearchLogJob;
 use App\Models\ItemType;
 use App\Models\ItemContactPerson;
+use App\Models\ApprovalAuthority;
+use App\Models\ItemUiTool;
+use App\Models\UiTool;
+use App\Models\DevEntity;
 
 class ItemsRepository
 {
@@ -46,6 +50,17 @@ class ItemsRepository
             $item->image=$filename;
         }
 
+
+        if($request->dev_entity)
+        	$item->dev_entity_id = $request->dev_entity;
+
+        if($request->approval_authority)
+        	$item->approval_authority_id = $request->approval_authority;
+
+        if($request->uitool)
+        	$item->ui_tool_id = $request->uitool; 
+
+
 		($id)?$item->update():$item->save();
 
 		if($request->contact){
@@ -54,6 +69,7 @@ class ItemsRepository
         	array('contact_person_id' => $request->contact,'item_id'=>$item->id ));
         	$contact->save();
         }
+        
 
 	}
 

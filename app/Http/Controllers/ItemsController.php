@@ -6,26 +6,36 @@ use Illuminate\Http\Request;
 use App\Repositories\ItemsRepository;
 use App\Repositories\OrganizationRepository;
 use App\Repositories\PersonsRepository;
+use App\Repositories\AuthorityRepository;
+use App\Repositories\ToolsRepository;
+use App\Repositories\DevEntitiesRepository;
 
 class ItemsController extends Controller
 {
     
-    protected $itemsRepo;
-    protected $organizationsRepo;
-    protected $personsRepo;
-
+    protected $itemsRepo,$organizationsRepo,$personsRepo,$authorityRepo,$toolsRepo,$devEntitiesRepo;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(ItemsRepository $itemsRepo, OrganizationRepository $organizationsRepo, PersonsRepository $personsRepo)
+    public function __construct(
+        ItemsRepository $itemsRepo,
+        OrganizationRepository $organizationsRepo,
+        PersonsRepository $personsRepo,
+        AuthorityRepository $authorityRepo,
+        ToolsRepository $toolsRepo,
+        DevEntitiesRepository $devEntitiesRepo
+    )
     {
         $this->middleware('auth');
         $this->itemsRepo = $itemsRepo;
         $this->organizationsRepo = $organizationsRepo;
         $this->personsRepo = $personsRepo;
+        $this->authorityRepo = $authorityRepo;
+        $this->toolsRepo = $toolsRepo;
+        $this->devEntitiesRepo = $devEntitiesRepo;
     }
 
     /**
@@ -47,10 +57,15 @@ class ItemsController extends Controller
         $data['areas'] = $this->itemsRepo->getAllThematicAreas();
         $data['organizations'] = $this->organizationsRepo->getAll($request);
         $data['types'] = $this->itemsRepo->getAllItemTypes();
-        $data['contacts'] = $this->personsRepo->getAll($request);
+        $data['contacts']    = $this->personsRepo->getAll($request);
+        $data['authorities'] = $this->authorityRepo->getAll($request);
+        $data['uitools']     = $this->toolsRepo->getAll($request);
+        $data['entities']    = $this->devEntitiesRepo->getAll($request);
         
         return view('cms.items.create')->with($data);
     }
+
+    
 
     public function store(Request $request){
 
@@ -67,6 +82,9 @@ class ItemsController extends Controller
         $data['organizations'] = $this->organizationsRepo->getAll();
         $data['types'] = $this->itemsRepo->getAllItemTypes();
         $data['contacts'] = $this->personsRepo->getAll();
+        $data['authorities'] = $this->authorityRepo->getAll();
+        $data['uitools']     = $this->toolsRepo->getAll();
+        $data['entities']    = $this->devEntitiesRepo->getAll();
         
         return view('cms.items.edit')->with($data);
     }

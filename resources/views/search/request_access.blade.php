@@ -3,11 +3,6 @@
 
 @include('layouts.partials.common_banner')
 
-@php
-
-   //print_r($item);
-
-@endphp
 
 <div class="card radius-10">
   <div class="card-body">
