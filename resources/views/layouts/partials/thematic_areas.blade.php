@@ -14,7 +14,7 @@
                 <h5 class="ftco-heading-2">Top Searches</h5>
                 <ul class="list-unstyled navigation-search top-searches">
                     @foreach($logs as $log)
-                    <li><a href="{{ $log->item->url_link }}" target="_blank"><span class="fa fa-chevron-right mr-2"></span>{{ ucwords($log->item->title) }}</a><span> ({{ $log->count }})</span></li>
+                    <li><a href="{{ $log->item->url_link }}" target="_blank" onclick="logAccess({!! $log->item->id !!})"><span class="fa fa-chevron-right mr-2"></span>{{ ucwords($log->item->title) }}</a><span> ({{ $log->count }})</span></li>
                     @endforeach
                 </ul>
             </div>
