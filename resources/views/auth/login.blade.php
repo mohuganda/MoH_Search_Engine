@@ -23,7 +23,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url({{ asset('images/kla.jpg') }});">
+                        <div class="img justify-content-center" style="background-image: url({{ asset('images/kla.jpg') }});">
                             <div class="col-md-6 text-center mb-5">
                                 <a class="navbar-brand" href="{{url('')}}">
                                     <img src="{{asset('theme/images/moh.png')}}" width="100px">
