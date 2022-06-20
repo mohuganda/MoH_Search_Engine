@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="login-wrap p-2 p-md-5">
-                            <div class="d-flex" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="d-flex align-items-center; justify-content-center;">
                                 <div class="w-100">
                                     <h3 class="heading-section">MoH Dashboard Portal</h3>
                                     <h4 class="mb-4 justify-content-center">Sign In</h4>
