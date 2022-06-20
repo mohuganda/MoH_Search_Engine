@@ -71,8 +71,14 @@ class ItemsController extends Controller
 
         $request->validate(['url'=>'unique:items,url_link']);
 
-        $this->itemsRepo->saveItem($request);
-        return redirect( url('/cms/items') );
+        $saved = $this->itemsRepo->saveItem($request);
+
+        $msg = (!$saved)?"Operation failed, try again":"Item saved succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect(url('/cms/items'))->with($alert);
     }
 
     public function show($id){
@@ -92,8 +98,14 @@ class ItemsController extends Controller
     
     public function update(Request $request){
 
-        $this->itemsRepo->saveItem($request,$request->id);
-        return redirect( url('/cms/items') );
+        $saved = $this->itemsRepo->saveItem($request,$request->id);
+
+        $msg = (!$saved)?"Operation failed, try again":"Item updated succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+        
+        return redirect(url('/cms/items'))->with($alert);
     }
 
 }

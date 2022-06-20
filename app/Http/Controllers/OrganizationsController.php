@@ -36,8 +36,14 @@ class OrganizationsController extends Controller
         $form_validation = ['organization_name'=>'required|min:5','description'=>'required|min:5'];
         $request->validate($form_validation);
 
-        $this->organizationRepo->save($request);
-        return redirect(url('/cms/organizations'));
+        $saved = $this->organizationRepo->save($request);
+
+        $msg = (!$saved)?"Operation failed, try again":"Organization updated succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect(url('/cms/organizations'))->with($alert);
     }
 
 }

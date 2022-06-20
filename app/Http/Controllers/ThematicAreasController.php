@@ -32,13 +32,25 @@ class ThematicAreasController extends Controller
 
     public function store(Request $request){
 
-        $this->itemsRepo->saveThematicArea($request);
-        return redirect( url('/cms/thematicareas') );
+        $saved = $this->itemsRepo->saveThematicArea($request);
+        
+        $msg = (!$saved)?"Operation failed, try again":"Thematic Area saved succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect(url('/cms/thematicareas'))->with($alert);
     }
 
      public function destroy($id){
-        $this->itemsRepo->deleteThematicArea($id);
-        return redirect( url('/cms/thematicareas') );
+        
+        $saved = $this->itemsRepo->deleteThematicArea($id);
+        $msg   = (!$saved)?"Operation failed, try again":"Thematic Area deleted succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect( url('/cms/thematicareas') )->with($alert);
     }
 
 

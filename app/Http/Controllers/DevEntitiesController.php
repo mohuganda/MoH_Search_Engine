@@ -25,13 +25,25 @@ class DevEntitiesController extends Controller
 
     public function store(Request $request){
 
-        $this->devEntityRepo->save($request);
-        return redirect( url('/cms/entities') );
+        $saved = $this->devEntityRepo->save($request);
+
+        $msg = (!$saved)?"Operation failed, try again":"Entity saved succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect( url('/cms/entities') )->with($data);
     }
 
      public function destroy($id){
-        $this->devEntityRepo->delete($id);
-        return redirect( url('/cms/entities') );
+        
+        $saved = $this->devEntityRepo->delete($id);
+
+        $msg = (!$saved)?"Operation failed, try again":"Entity deleted succesfully";
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect( url('/cms/entities') )->with($data);
     }
 
 

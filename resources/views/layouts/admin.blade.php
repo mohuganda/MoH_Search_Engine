@@ -14,8 +14,8 @@
 
           <!-- Success alert -->
         <div class="alert alert-{{ ($msg['key'])?$msg['key']:'success' }} bg-white alert-styled-left alert-arrow-left alert-dismissible">
-          <a  class="close" data-bs-dismiss="alert"><span>&times;</span></a>
             <span class="alert_msg">{!! Session::get('alert-' .$msg['key']) !!}</span>
+             <!-- <a  class="close" data-bs-dismiss="alert"><span>&times;</span></a> -->
           </div>
           <!-- /Success alert -->
           @endif
