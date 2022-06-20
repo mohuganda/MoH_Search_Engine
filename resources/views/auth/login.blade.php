@@ -23,7 +23,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="wrap d-md-flex">
-                        <div class="img justify-content-center" style="background-image: url({{ asset('images/kla.jpg') }}); display: flex; align-items: center; jsutify-content: center;">
+                        <div class="img justify-content-center" style="background-image: url({{ asset('images/kla.jpg') }}); display: flex; align-items: center; justify-content: center;">
                             <div class="col-md-6 text-center mb-5">
                                 <a class="navbar-brand" href="{{url('')}}">
                                     <img src="{{asset('theme/images/moh.png')}}" width="100px">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="login-wrap p-2 p-md-5">
-                            <div class="d-flex">
+                            <div class="d-flex" style="display: flex; align-items: center; justify-content: center;">
                                 <div class="w-100">
                                     <h3 class="heading-section">MoH Dashboard Portal</h3>
                                     <h4 class="mb-4 justify-content-center">Sign In</h4>
