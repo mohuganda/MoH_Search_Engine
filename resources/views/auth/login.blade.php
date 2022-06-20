@@ -31,18 +31,13 @@
                     <div class="wrap d-md-flex">
                         <div class="img" style="background-image: url({{ asset('images/kla.jpg') }});">
                         </div>
-                        <div class="login-wrap p-4 p-md-5">
+                        <div class="login-wrap p-2 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h2 class="heading-section">MoH Dashboard Portal</h2>
-                                    <h3 class="mb-4">Sign In</h3>
+                                    <3 class="heading-section">MoH Dashboard Portal</h3>
+                                    <h4 class="mb-4">Sign In</h4>
                                 </div>
-                                <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                    </p>
-                                </div>
+                           
                             </div>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
