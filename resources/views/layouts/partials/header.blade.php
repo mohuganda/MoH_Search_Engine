@@ -29,9 +29,7 @@ function translateLanguage(lang) {
   $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
   return false;
 }
-$(function(){
-  $('.selectpicker').selectpicker();
-});
+
 </script>
 
 </head>
