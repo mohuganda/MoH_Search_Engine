@@ -49,7 +49,7 @@
 						@endcan
 					</ul>
 				</li>
-                @can('manage organization')
+                @can('manage organizations')
 				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-archive"></i>
