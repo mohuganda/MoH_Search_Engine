@@ -34,7 +34,7 @@
                         <div class="login-wrap p-2 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <3 class="heading-section">MoH Dashboard Portal</h3>
+                                    <h3 class="heading-section">MoH Dashboard Portal</h3>
                                     <h4 class="mb-4">Sign In</h4>
                                 </div>
                            
