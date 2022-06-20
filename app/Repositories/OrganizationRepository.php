@@ -21,7 +21,7 @@ class OrganizationRepository
 		$organization = new Organization();
 		$organization->organization_name = $request->organization_name;
 		$organization->organization_description = $request->description;
-		$organization->save();
+		return $organization->save();
 	}
 
 

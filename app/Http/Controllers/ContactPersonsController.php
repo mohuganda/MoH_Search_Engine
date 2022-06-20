@@ -34,13 +34,25 @@ class ContactPersonsController extends Controller
 
     public function store(Request $request){
 
-        $this->personsRepo->savePerson($request);
-        return redirect( url('/cms/persons') );
+         $saved = $this->personsRepo->savePerson($request);
+         $msg  = (!$saved)?"Operation failed, try again":"Person updated succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect( url('/cms/persons') )->with($alert);
     }
 
      public function destroy($id){
-        $this->personsRepo->deletePerson($id);
-        return redirect( url('/cms/persons') );
+        
+        $saved = $this->personsRepo->deletePerson($id);
+
+        $msg   = (!$saved)?"Operation failed, try again":"Person deleted succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect( url('/cms/persons') )->with($alert);
     }
 
 

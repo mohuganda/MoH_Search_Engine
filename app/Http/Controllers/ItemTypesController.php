@@ -35,8 +35,14 @@ class ItemTypesController extends Controller
 
     public function store(Request $request){
 
-        $this->itemsRepo->saveType($request);
-        return redirect( url('/cms/types') );
+        $saved = $this->itemsRepo->saveType($request);
+
+        $msg = (!$saved)?"Operation failed, try again":"Item Type saved succesfully";
+       
+        $alert_class = ($saved)?'info':'danger';
+        $alert = ['alert-'.$alert_class=>$msg];
+
+        return redirect( url('/cms/types') )->with($alert);
     }
 
 }

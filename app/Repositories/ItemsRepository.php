@@ -61,7 +61,7 @@ class ItemsRepository
         	$item->ui_tool_id = $request->uitool; 
 
 
-		($id)?$item->update():$item->save();
+		$saved = ($id)?$item->update():$item->save();
 
 		if($request->contact){
 
@@ -70,6 +70,7 @@ class ItemsRepository
         	$contact->save();
         }
         
+        return $saved;
 
 	}
 
@@ -86,7 +87,7 @@ class ItemsRepository
 		$type = new ItemType();
 		$type->item_type_name = $request->type_name;
 		$type->item_type_desc = $request->description;
-		$type->save();
+		return $type->save();
 	}
 
 	function saveThematicArea(Request $request){
@@ -95,7 +96,7 @@ class ItemsRepository
 		$area->description = $request->description;
 		$area->icon = $request->icon;
 		$area->display_index = $request->index;
-		$area->save();
+		return $area->save();
 	}
 
 	function deleteThematicArea($id){
