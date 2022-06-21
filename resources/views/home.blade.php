@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('content')
-<section class="hero-wrap mb-40" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;  border-bottom: 20px solid #ffc107;">
+<section class="hero-wrap mb-40" style="background-image: url({{ asset('images/kla.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;  border-bottom: 10px solid #ffc107;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text">
