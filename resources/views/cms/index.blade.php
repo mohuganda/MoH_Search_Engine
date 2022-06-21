@@ -64,7 +64,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-list p-3 mb-3">
+			
 				<table class="table">
 
 					@foreach($top_keywords as $item)
@@ -94,7 +94,7 @@
 					</tr>
 					@endforeach
 				</table>
-			</div>
+			
 
 		</div>
 	</div>
@@ -111,7 +111,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="product-list p-3 mb-3">
+			
 				<table class="table">
 
 					@foreach($top_dashboards as $item)
@@ -143,7 +143,7 @@
 
 				</table>
 
-			</div>
+		
 		</div>
 	</div>
 </div>
