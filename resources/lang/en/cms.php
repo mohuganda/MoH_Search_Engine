@@ -36,5 +36,7 @@ return [
 	'dev'=>'Dev',
 	'tool'=>'Tools | Tools',
 	'ui'=> 'UI',
-	'entity'=>'Entity|Entities'
+	'entity'=>'Entity|Entities',
+	'settings'=>'Settings',
+	'change_bannerimage'=>'Change Banner Image'
 ];

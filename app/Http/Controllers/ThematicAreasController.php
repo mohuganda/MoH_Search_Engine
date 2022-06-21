@@ -21,7 +21,7 @@ class ThematicAreasController extends Controller
     public function index(Request $request){
       
         $data['areas'] = $this->itemsRepo->getAllThematicAreas($request);
-        
+        $data['term']     = $request->term;
         return view('cms.thematicareas.index')->with($data);
     }
 

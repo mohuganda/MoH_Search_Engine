@@ -89,6 +89,7 @@
 						@can('create roles')
 						<li> <a href="{{url('permissions/roles')}}"><i class="bx bx-right-arrow-alt"></i> {{__('auth.roles')}}</a></li>
 						@endcan
+						<li> <a href="{{url('cms/settings')}}"><i class="bx bx-right-arrow-alt"></i> {{__('cms.settings')}}</a></li>
 					</ul>
 
 				</li>

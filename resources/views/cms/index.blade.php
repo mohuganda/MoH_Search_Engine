@@ -135,4 +135,8 @@
 
 </div>
 
+<script type="text/javascript">
+	new PerfectScrollbar(".product-list");
+</script>
+
 @endsection

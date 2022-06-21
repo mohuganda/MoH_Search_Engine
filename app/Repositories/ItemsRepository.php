@@ -20,7 +20,27 @@ class ItemsRepository
 
 	function getAllItems(Request $request){
 
-		return Item::paginate(15);
+		$area = $request->area;
+		$term = $request->term;
+
+		if($term){
+
+		 $query =  Item::where('title', 'like', '%' . $term . '%')
+					->orWhere('description', 'like', '%' . $term . '%')
+					->orWhere('access_method', 'like', '%' . $term . '%')
+					->orWhere('url_link', 'like', '%' . $term . '%')
+					->orWhere('department', 'like', '%' . $term . '%')
+					->orWhere('hosting_organiation', 'like', '%' . $term . '%')
+					->orWhere('title', 'like', '%' . rephrase($term,5) . '%')
+					->orWhere('description', 'like', '%' . rephrase($term) . '%')
+					->orderBy('title','asc');
+
+		return $query->paginate(15);
+
+		}else{
+
+			return Item::paginate(15);
+		}
 	}
 
 	function getItem($id){
@@ -74,8 +94,23 @@ class ItemsRepository
 
 	}
 
-	function getAllThematicAreas(){
-		return ThematicArea::orderBy('display_index','asc')->paginate(50);
+	function getAllThematicAreas($request=null){
+
+		
+		if(@$request->term){
+
+		$term = $request->term;
+
+		 $query =  ThematicArea::where('description', 'like', '%' . $term . '%')
+					->orderBy('display_index','asc');
+
+		 return $query->paginate(15);
+
+		}else{
+
+			return ThematicArea::orderBy('display_index','asc')->paginate(20);
+		}
+		
 	}
 
 	function getAllItemTypes(){

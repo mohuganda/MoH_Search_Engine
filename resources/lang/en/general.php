@@ -36,5 +36,6 @@
 		'tool'=>'Tool',
 		'tools'=>'Tools',
 		'ui'=> 'UI',
-		'dev_entity'=>'Dev Entity | Dev Entities'
+		'dev_entity'=>'Dev Entity | Dev Entities',
+		'image'=>'Image'
 ];

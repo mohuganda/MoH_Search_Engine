@@ -13,6 +13,12 @@
 					<a href="#add_area" data-bs-toggle="modal" class="btn btn-outline-secondary"> {{ __('cms.add') }} {{ trans_choice('cms.thematic_area',1) }}</a>
 				</div>
 			</div>
+
+			<form class="row p-4" method="post" action="{{url('cms/thematicareas/search')}}">
+					@csrf
+					<input type="text" placeholder="{{ __('general.search')}}" name="term" value="{{$term}}" class="form-control">
+				</form>
+				
 			<hr/>
 			<div class="table-responsive">
 				<table class="table align-middle mb-0">

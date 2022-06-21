@@ -12,8 +12,13 @@
 					<a href="{{url('cms/items/create')}}" class="btn btn-success"> {{ __('cms.add_item') }}</a>
 				</div>
 			</div>
+				<form class="row p-4" method="post" action="{{url('cms/items/search')}}">
+					@csrf
+					<input type="text" placeholder="{{ __('general.search')}}" name="term" value="{{$term}}" class="form-control">
+				</form>
 			<hr/>
 			<div class="table-responsive">
+
 				<table class="table align-middle mb-0">
 					<thead class="table-light">
 						<tr>

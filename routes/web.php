@@ -16,6 +16,7 @@ use App\Http\Controllers\ContactPersonsController;
 use App\Http\Controllers\AuthoritiesController;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\DevEntitiesController;
+use App\Http\Controllers\SettingsController;
 
 
 /*
@@ -58,11 +59,13 @@ Route::group(['prefix'=>'cms'],function(){
 
   Route::get('/home',[AdminController::class,'index']);
   Route::resource('/items',ItemsController::class);
+  Route::post('/items/search',[ItemsController::class,'index']);
   Route::post('/items/update',[ItemsController::class,'update']);
   Route::get('/types',[AdminController::class,'index']);
   Route::resource('/organizations',OrganizationsController::class);
   Route::resource('/types',ItemTypesController::class);
   Route::resource('/thematicareas',ThematicAreasController::class);
+  Route::post('/thematicareas/search',[ThematicAreasController::class,'index']);
   Route::get('/thematicareas/delete/{id}',[ThematicAreasController::class,'destroy']);
 
   Route::resource('/persons',ContactPersonsController::class);
@@ -76,6 +79,8 @@ Route::group(['prefix'=>'cms'],function(){
 
   Route::resource('/entities',DevEntitiesController::class);
   Route::get('/entities/delete/{id}',[DevEntitiesController::class,'destroy']);
+
+  Route::resource('/settings',SettingsController::class);
 
 });
 

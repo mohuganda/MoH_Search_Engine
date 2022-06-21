@@ -47,6 +47,7 @@ class ItemsController extends Controller
       
         $data['items']    = $this->itemsRepo->getAllItems($request);
         $data['areas']    = $this->itemsRepo->getAllThematicAreas();
+        $data['term']     = $request->term;
         
         return view('cms.items.index')->with($data);
     }
