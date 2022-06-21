@@ -52,7 +52,7 @@ class SearchRepository
 	}
 
 	function getAccessLog(){
-		return 	AccessLog::orderBy('count','desc')->take(15)->get();
+		return 	AccessLog::orderBy('count','desc')->take(10)->get();
 	}
    
    function getSearchSuggestions(Request $request){

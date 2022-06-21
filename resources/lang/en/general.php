@@ -25,7 +25,7 @@
 		'request_access'=>'Request Access',
 		'moreinfo'=>'More Info',
 		'contact'=>'Contact',
-		'person'=>'Person | People',
+		'person'=>'Person',
 		'add'=>'Add',
 		'title'=>'Title',
 		'organization'=>'Organization',
