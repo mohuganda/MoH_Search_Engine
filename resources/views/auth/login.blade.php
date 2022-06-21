@@ -27,7 +27,7 @@
                             <div class="col-md-6 text-center mb-5">
                                 <a class="navbar-brand" href="{{url('')}}">
                                     <img src="{{asset('theme/images/moh.png')}}" width="100px">
-                                    <p style="color:#FFF; text-align:center; font-weight:200; font-size:small;">Ministry of Health</p>
+                                    <p style="color:#FFF; text-align:center; font-weight:400; font-size:small;">Ministry of Health</p>
                                 </a>
 
                             </div>
