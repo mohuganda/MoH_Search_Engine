@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class NullablePhoneContactPerson extends Migration
+class NullablePhoneContact extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class NullablePhoneContactPerson extends Migration
     {
         Schema::table('contact_persons', function (Blueprint $table) {
           
-            $table->string('phone_number',50)->nullable();
+            $table->string('phone_number')->nullable();
            
         });
     }
@@ -28,13 +28,9 @@ class NullablePhoneContactPerson extends Migration
     public function down()
     {
         Schema::table('contact_persons', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',50);
-            $table->string('phone_number',50);
-            $table->string('email')->nullable();
-            $table->string('title',50);
-            $table->foreignId('organization_id');
-            $table->timestamps();
+          
+            $table->string('phone_number',50)->nullable();
+           
         });
     }
 }
