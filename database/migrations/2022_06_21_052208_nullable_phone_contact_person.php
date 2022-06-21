@@ -13,14 +13,10 @@ class NullablePhoneContactPerson extends Migration
      */
     public function up()
     {
-        Schema::create('contact_persons', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',50);
+        Schema::table('organizations', function (Blueprint $table) {
+          
             $table->string('phone_number',50)->nullable();
-            $table->string('email')->nullable()->nullable();
-            $table->string('title',50);
-            $table->foreignId('organization_id');
-            $table->timestamps();
+           
         });
     }
 
@@ -31,7 +27,7 @@ class NullablePhoneContactPerson extends Migration
      */
     public function down()
     {
-        Schema::create('contact_persons', function (Blueprint $table) {
+        Schema::table('contact_persons', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
             $table->string('phone_number',50);
