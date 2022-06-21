@@ -58,7 +58,7 @@
 				<div class="d-flex align-items-center">
 					<div>
 						<h5 class="mb-1">Top Search Keywords</h5>
-						<p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days</p>
+						
 					</div>
 					<div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
 					</div>
@@ -105,7 +105,7 @@
 				<div class="d-flex align-items-center">
 					<div>
 						<h5 class="mb-1">Top Searched Dashboards</h5>
-						<p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days</p>
+						
 					</div>
 					<div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
 					</div>
