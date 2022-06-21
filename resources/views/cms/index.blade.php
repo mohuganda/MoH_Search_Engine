@@ -52,7 +52,7 @@
 </div>
 <div class="row row-cols-1 row-cols-xl-2">
 
-	<div class="col d-flex">
+	<div class="col">
 		<div class="card radius-5 w-100">
 			<div class="card-body">
 				<div class="d-flex align-items-center">
@@ -99,7 +99,7 @@
 		</div>
 	</div>
 
-	<div class="col d-flex">
+	<div class="col">
 		<div class="card radius-5 w-100">
 			<div class="card-body">
 				<div class="d-flex align-items-center">
