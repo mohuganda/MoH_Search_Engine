@@ -15,7 +15,7 @@ class NullablePhoneContact extends Migration
     {
         Schema::table('contact_persons', function (Blueprint $table) {
           
-            $table->string('phone_number')->nullable();
+            $table->string('phone_number')->nullable()->change();
            
         });
     }
