@@ -20,9 +20,9 @@
             <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
             </div>
             <div class="info-wrap2 align-items-center description" style="display:none;">
-              <p class="review"><span class="rev">Theme: <small>{{$item->thematic_area->description}}</small></span> |
-                <span class="rev">Type: <small>{{ $item->item_type->item_type_name }}</small></span> |
-                <span class="rev">Access: <small>{{ $item->access_method }}</small></span> |
+              <p class="review"><span class="rev">Theme: <small>{{@$item->thematic_area->description}}</small></span> |
+                <span class="rev">Type: <small>{{ @$item->item_type->item_type_name }}</small></span> |
+                <span class="rev">Access: <small>{{ @$item->access_method }}</small></span> |
 
                 @if($item->access_method == 'Access Required')
                 <span class="rev"><small>
@@ -60,8 +60,8 @@
                                     <ul>
                                     @foreach(item_contacts($item->id,false) as $person)
                                       <li>
-                                        <h5>{{ ucwords($person->contact->name) }}</h5>
-                                        <p>{{ ucwords($person->contact->email) }}</p>
+                                        <h5>{{ ucwords(@$person->contact->name) }}</h5>
+                                        <p>{{ ucwords(@$person->contact->email) }}</p>
                                       </li>
                                     @endforeach
                                     </ul>
@@ -71,27 +71,27 @@
                                 <tr>
 
                                   <th>Thematic Area:</th>
-                                  <td>{{$item->thematic_area->description}}</td>
+                                  <td>{{@$item->thematic_area->description}}</td>
                                 </tr>
                                 <tr>
                                   <th>Access:</th>
-                                  <td>{{$item->access_method}}</td>
+                                  <td>{{@$item->access_method}}</td>
                                   </tr>
                                   <tr>
                                     <th>Date Added:</th>
-                                    <td>{{$item->created_at}}</td>
+                                    <td>{{@$item->created_at}}</td>
                                   </tr>
                                   <tr>
                                     <th>Developer Entity:</th>
-                                    <td>{{$item->devEntity->entity_name}}</td>
+                                    <td>{{@$item->devEntity->entity_name}}</td>
                                   </tr>
                                   <tr>
                                     <th>Technology:</th>
-                                    <td>{{$item->db_engine}}</td>
+                                    <td>{{@$item->db_engine}}</td>
                                   </tr>
                                   <tr>
                                     <th>Access Frequency:</th>
-                                    <td>{{ $item->accessLog->count }} times</td>
+                                    <td>{{ @$item->accessLog->count }} times</td>
                                   </tr>
                                   <tr>
                                     <th>Request Access:</th>
