@@ -10,17 +10,6 @@
     <link rel="stylesheet" href="{{asset('theme/css/font-awesome.min.css')}}" >
     <link rel="stylesheet" href="{{asset('theme/css/ionicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('theme/css/A.animate.css%2bflaticon.css%2btiny-slider.css%2bglightbox.min.css%2baos.css%2bstyle.css%2cMcc.UgmKpvvBTJ.css.pagespeed.cf.xhAIVbA-KH.css')}}" />
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
-    <!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet"> -->
-  
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
-<script>
-  function googleTranslateElementInit() {
-  new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
-}
 
-
-</script>
 
 </head>
