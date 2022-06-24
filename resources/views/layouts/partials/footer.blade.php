@@ -14,6 +14,16 @@
 <script src="{{asset('theme/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('theme/js/tiny-slider.js')}}"></script>
 <script src="{{asset('theme/js/glightbox.min.js%2brellax.min.js%2baos.js%2bgoogle-map.js%2bmain.js.pagespeed.jc.GegtEeL2Mo.js')}}"></script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 <script>
     eval(mod_pagespeed_FVNClcdAuR);
 </script>
@@ -30,15 +40,7 @@
     eval(mod_pagespeed_hLudSOF5YS);
 </script>
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
 
 
 <script>
