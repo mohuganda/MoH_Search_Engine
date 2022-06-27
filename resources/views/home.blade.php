@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 @php $token = md5(now()); @endphp
-                <form action="{{url('search')}}" class="search-property-1 mt-md-5 " method="get" style="margin-bottom:4px !important;" id="search_form">
+                <form action="{{url('search')}}" class="search-property-1" method="get" style="margin-bottom:4px !important;" id="search_form">
                     @csrf
                     <div class="row g-0">
 
