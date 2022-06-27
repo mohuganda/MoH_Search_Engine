@@ -11,7 +11,7 @@
                             <div class="icon"><span class="fa-solid {{$area->icon }}"></span></div>
                             <div class="text">
                                 <h2>{{$area->description }}</h2>
-                                <p class="list"><span>{{ count_area_records($area->id) }}</span> Records</p>
+                                <p class="list"><span>{{ count_area_records($area->id) }}</span> Dashboards</p>
                             </div>
                         </a>
                     </div>
