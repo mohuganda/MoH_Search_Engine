@@ -4,7 +4,7 @@
 @include('layouts.partials.common_banner')
 
 
-
+<form method="post" action="{{url('submssions')}}">
 <div class="card radius-10">
   <div class="card-body">
     <div class="col-lg-12" style="text-align:center;">
@@ -12,6 +12,7 @@
   </div>
     <div class="row ml-2 mr-2" style="margin-bottom:100px; color:#000;">
     <div class="row">
+
   @csrf
   <div class="col-lg-6">
       <div class="form-group">
@@ -90,10 +91,11 @@
       </div>
 
        <div class="form-group">
-        <label>{{__('general.contact')}} {{ trans_choice('general.person',1)}} Separte by Commas eg. </label>
+        <label>{{__('general.contact')}} {{ trans_choice('general.person',1)}}</label>
+        <div class="form-group"><input type="text" name="name[]" class="form-control mb-2" placeholder="Name" class="form-group" required/><input type="text" class="form-control mb-2" placeholder="Phone Number" name="phone[]" class="form-group mb-2" required/><input type="text"  class="form-control" name="email[]" placeholder="Email" class="form-group mb-2" required/></div>
         <div id="contact">
           
-          <input type="button" value="Add Contact" onclick="addContact()">
+          <input type="button" value="Add More Contact Persons" class="btn btn-primary" onclick="addContact()">
 
         </div>
 
@@ -111,6 +113,7 @@
       </div>
 
   </div>
+  
   <div class="col-lg-12">
     <div class="form-group">
         <label>{{__('cms.description')}}</label>
@@ -128,8 +131,11 @@
 
 
 
+
+
   </div>
 </div>
+</form>
 
 
 
@@ -146,7 +152,7 @@
         }
 
         function addContact(){
-         const  contact_row = '<div class="form-group"><input type="text" placeholder="Name" class="form-group"/><input type="text" placeholder="Phone Number" class="form-group" /><input type="text" placeholder="Email" class="form-group"/></div>';
+         const  contact_row = '<p>Contact Person</p><div class="form-group"><input type="text" name="name[]" class="form-control mb-2" placeholder="Name" class="form-group" required><input type="text" class="form-control mb-2" placeholder="Phone Number" name="phone[]" class="form-group mb-2" required/><input type="text"  class="form-control" name="email[]" placeholder="Email" class="form-group mb-2" required/></div>';
          $("#contact").append(contact_row);
         }
 
