@@ -68,6 +68,12 @@
           @endforeach
         </select>
       </div>
+
+      
+    <div class="form-group">
+        <label>{{__('cms.description')}}</label>
+        <textarea rows="4" name="description" class="form-control" placeholder="{{__('cms.description')}}" >{{@$item->description}}</textarea> 
+      </div>
       
     </div>
     <div class="col-lg-6">
@@ -114,12 +120,8 @@
 
   </div>
   
-  <div class="col-lg-12">
-    <div class="form-group">
-        <label>{{__('cms.description')}}</label>
-        <textarea rows="4" name="description" class="form-control" placeholder="{{__('cms.description')}}" >{{@$item->description}}</textarea> 
-      </div>
-  </div>
+
+
   <div class="col-lg-6"></div>
   <div class="col-lg-6">
   <div class="form-group btn-wrapper">
