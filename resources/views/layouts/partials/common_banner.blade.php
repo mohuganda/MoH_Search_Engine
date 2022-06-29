@@ -2,8 +2,10 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 text-center align-items-left" style="float:left !important;">
+            <div class="col-lg-2 text-center align-items-left d-flex" style="float:left !important;">
                 <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('')}}">Home</a>
+                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('/submission')}}">Systems</a>
+                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('/submission')}}">Submission</a>
             </div>
         </div>
         <div class="row no-gutters slider-text">

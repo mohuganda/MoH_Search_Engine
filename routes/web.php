@@ -17,6 +17,7 @@ use App\Http\Controllers\AuthoritiesController;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\DevEntitiesController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\PublicItemController;
 
 
 /*
@@ -39,6 +40,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/suggestions',[SearchController::class,'getSuggestions']);
+
+Route::resource('/submission',PublicItemController::class);
 
 Route::get('/admin', function(){
 	return redirect( url('/cms/home'));
