@@ -38,5 +38,6 @@ return [
 	'ui'=> 'UI',
 	'entity'=>'Entity|Entities',
 	'settings'=>'Settings',
-	'change_bannerimage'=>'Change Banner Image'
+	'change_bannerimage'=>'Change Banner Image',
+	'published'=>'Published'
 ];

@@ -27,10 +27,10 @@
 
       <div class="form-group">
         <label>{{ trans_choice('cms.thematic_area',1)}}</label>
-        <select name="thematic_area" class="form-control" required>
+        <select name="thematic_areas[]" class="form-control" required multiple>
           <option  value="">Choose</option>
           @foreach($areas as $row)
-            <option {{ (@$item->thematic_area_id==$row->id)?'selected':'' }}  value="{{$row->id}}">{{$row->description}}</option>
+            <option {{ $item->thematic_areas && (@$item->thematic_areas->contains('thematic_area_id',$row->id))?'selected':'' }}  value="{{$row->id}}">{{$row->description}}</option>
           @endforeach
         </select>
       </div>
@@ -54,6 +54,18 @@
           @endforeach
         </select>
       </div>
+
+      <div class="form-group">
+        <label>{{__('cms.published')}}</label>
+        <select name="published" class="form-control" required>
+          <option  value="">Choose</option>
+          <option {{ (@$item->published==1)?'selected':'' }} value="1">Published</option>
+          <option {{ (@$item->published==0)?'selected':'' }}  value="0">Not Published</option>
+        
+        </select>
+      </div>
+
+      
       
     </div>
     <div class="col-lg-6">
@@ -62,8 +74,8 @@
         <label>{{__('cms.access_method')}}</label>
         <select name="access_method" class="form-control" required>
           <option value="">Choose</option>
-          <option {{ (@$item->access_method=='Access Required')?'selected':'' }} value="Access Required">Access Required</option>
-          <option {{ (@$item->access_method=='No Access Required')?'selected':'' }}  value="No Access Required">No Access Required</option>
+          <option {{ (@$item->access_method=='Restricted')?'selected':'' }} value="Restricted">Restricted</option>
+          <option {{ (@$item->access_method=='Open')?'selected':'' }}  value="Open">Open</option> 
         </select>
       </div>
       

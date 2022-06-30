@@ -92,14 +92,16 @@ class ItemsController extends Controller
         $data['authorities'] = $this->authorityRepo->getAll();
         $data['uitools']     = $this->toolsRepo->getAll();
         $data['entities']    = $this->devEntitiesRepo->getAll();
-        
+
+        //dd($data['item']->thematic_areas->toArray());
+
         return view('cms.items.edit')->with($data);
     }
 
     
     public function update(Request $request){
 
-        $saved = $this->itemsRepo->saveItem($request,$request->id);
+        $saved = $this->itemsRepo->saveItem($request,false,$request->id);
 
         $msg = (!$saved)?"Operation failed, try again":"Item updated succesfully";
        

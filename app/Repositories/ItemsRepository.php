@@ -13,6 +13,8 @@ use App\Models\ApprovalAuthority;
 use App\Models\ItemUiTool;
 use App\Models\UiTool;
 use App\Models\DevEntity;
+use App\Models\ContactPerson;
+use App\Models\ItemThematicArea;
 
 class ItemsRepository
 {
@@ -47,7 +49,8 @@ class ItemsRepository
 		return Item::find($id);
 	}
 
-	function saveItem(Request $request,$id=null){
+
+	function saveItem(Request $request,$contactsIsExternal=false,$id=null){
 
 		$item = ($id)? Item::find($id): new Item();
 		
@@ -55,11 +58,12 @@ class ItemsRepository
 		$item->url_link = $request->url;
 		$item->hosting_organiation = $request->organization;
 		$item->access_method 	   = $request->access_method;
-		$item->thematic_area_id    = $request->thematic_area;
+		$item->thematic_area_id    = 0;
 		$item->db_engine 		   = $request->db_engine;
 		$item->item_type_id        = $request->item_type;
 		$item->description         = $request->description;
 		$item->status 			   = 1;
+		$item->published 		   = ($contactsIsExternal)?0: $request->published; 
 		$item->department		   = 1;
 
 		if($request->file('image')){
@@ -80,14 +84,52 @@ class ItemsRepository
         if($request->uitool)
         	$item->ui_tool_id = $request->uitool; 
 
-
+		//save the item
 		$saved = ($id)?$item->update():$item->save();
 
-		if($request->contact){
+		
+		//save thematic areas
+
+		for($i=0;$i<count($request->thematic_areas);$i++){
+
+			$thematic_areas  = $request->thematic_areas;
+
+			$area = ItemThematicArea::firstOrNew(array('thematic_area_id' => $thematic_areas[$i],'item_id'=>$item->id));
+			$area->save();
+		}
+
+		//save contacts
+		if($request->contact && !$contactsIsExternal){
 
         	$contact = ItemContactPerson::firstOrNew(
         	array('contact_person_id' => $request->contact,'item_id'=>$item->id ));
         	$contact->save();
+        }
+
+		//contacts for submission
+		if($contactsIsExternal){
+			//loop through contacts array, create the contact record, associate with item
+
+			for($i=0; $i<count($request->name);$i++):
+
+			$names  = $request->name;
+			$emails = $request->email;
+			$phones = $request->phone;
+			$titles = $request->person_title;
+			
+			$person = ContactPerson::firstOrNew(array('phone_number' => $phones[$i]));
+
+			$person->name = $names[$i];
+			$person->phone_number = $phones[$i];
+			$person->email = $emails[$i];
+			$person->title = $titles[$i];
+			$person->organization_id = $item->hosting_organiation;
+			$person->save();
+
+        	$contact = ItemContactPerson::firstOrNew(array('contact_person_id' => $person->id,'item_id'=>$item->id ));
+        	$contact->save();
+
+			endfor;
         }
         
         return $saved;
@@ -137,7 +179,53 @@ class ItemsRepository
 	function deleteThematicArea($id){
 		return ThematicArea::findOrFail($id)->delete();
 	}
+//front CMS submission
+function savePublicItem(Request $request,$id=null){
 
+	$item = ($id)? Item::find($id): new Item();
+	
+	$item->title    = $request->title;
+	$item->url_link = $request->url;
+	$item->hosting_organiation = $request->organization;
+	$item->access_method 	   = $request->access_method;
+	$item->thematic_area_id    = $request->thematic_area;
+	$item->db_engine 		   = $request->db_engine;
+	$item->item_type_id        = $request->item_type;
+	$item->description         = $request->description;
+	$item->status 			   = 1;
+	$item->department		   = 1;
+
+	if($request->file('image')){
+
+		$file= $request->file('image');
+		$filename= date('YmdHi').$file->getClientOriginalName();
+		$file->move(public_path('images'), $filename);
+		$item->image=$filename;
+	}
+
+
+	if($request->dev_entity)
+		$item->dev_entity_id = $request->dev_entity;
+
+	if($request->approval_authority)
+		$item->approval_authority_id = $request->approval_authority;
+
+	if($request->uitool)
+		$item->ui_tool_id = $request->uitool; 
+
+
+	$saved = ($id)?$item->update():$item->save();
+
+	if($request->contact){
+
+		$contact = ItemContactPerson::firstOrNew(
+		array('contact_person_id' => $request->contact,'item_id'=>$item->id ));
+		$contact->save();
+	}
+	
+	return $saved;
+
+}
 
 }
 

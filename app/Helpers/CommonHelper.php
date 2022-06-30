@@ -31,10 +31,12 @@ use App\Models\ItemContactPerson;
 
  if(!function_exists('get_areas')){
 
- 	function get_areas(){
-        return ThematicArea::all();
+ 	function get_areas($area_id=null){
+        return ($area_id)?ThematicArea::find($area_id):ThematicArea::all();
  	}
  }
+
+
 
  if(!function_exists('get_user')){
 

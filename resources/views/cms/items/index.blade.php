@@ -37,7 +37,11 @@
 								<h6 class="font-14">{{$item->title}}</h6>
 							</td>
 							<td>{{ truncate($item->description,60) }}</td>
-							<td>{{$item->thematic_area->description}}</td>
+							<td>
+								@foreach($item->thematic_areas as $area)
+									{{$area->thematic_area->description}}
+								@endforeach
+							</td>
 							<td>{{$item->access_method}}</td>
 							<td>{{ @get_item_contact($item->id)->name }}</td>
 							<td><a href="{{ url('cms/items',$item->id)}}">Edit</a></td>

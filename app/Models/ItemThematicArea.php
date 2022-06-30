@@ -5,10 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactPerson extends Model
+use App\Models\ThematicArea;
+
+class ItemThematicArea extends Model
 {
-	protected $table ="contact_persons";
     protected $guarded = [];
     
     use HasFactory;
+
+    public function thematic_area(){
+    	return $this->belongsTo(ThematicArea::class);
+    }
+
 }

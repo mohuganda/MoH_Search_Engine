@@ -70,8 +70,12 @@
                                 </tr>
                                 <tr>
 
-                                  <th>Thematic Area:</th>
-                                  <td>{{@$item->thematic_area->description}}</td>
+                                  <th>Thematic Areas:</th>
+                                  <td>
+                                  @foreach($item->thematic_areas as $area)
+                                    {{$area->thematic_area->description}}
+                                  @endforeach
+                                  </td>
                                 </tr>
                                 <tr>
                                   <th>Access:</th>
@@ -93,6 +97,7 @@
                                     <th>Access Frequency:</th>
                                     <td>{{ @$item->accessLog->count }} times</td>
                                   </tr>
+                                  @if($item->access_method == 'Restricted')
                                   <tr>
                                     <th>Request Access:</th>
                                     <td>
@@ -100,6 +105,7 @@
                                     </span>
                                  </td>
                                   </tr>
+                                  @endif
                                 </table>
     </div>
 

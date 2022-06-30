@@ -35,11 +35,16 @@
                                     </p>
 
 
-                                    <p class="review"><span class="rev">Theme: <small>{{$result->thematic_area->description}}</small></span> |
+                                    <p class="review"><span class="rev">Theme: 
+                                        <small>
+                                        @foreach($result->thematic_areas as $area)
+									      {{$area->thematic_area->description}},
+								         @endforeach
+                                        </small></span> |
                                         <span class="rev">Type: <small>{{ $result->item_type->item_type_name }}</small></span> |
                                         <span class="rev">Access: <small>{{ $result->access_method }}</small></span> |
 
-                                        @if($result->access_method == 'Access Required')
+                                        @if($result->access_method == 'Restricted')
                                         <span class="rev"><small>
                                                 <a href="{{ url('/access',$result->id) }}" target="_blank">{{ __('general.request_access')}}</a></small>
                                         </span> |

@@ -1,12 +1,18 @@
 <?php
 
 use App\Models\Item;
-
+use App\Models\ItemType;
 
  if(!function_exists('count_area_records')){
 
  	function count_area_records($area_id){
- 			return Item::where('thematic_area_id',$area_id)->count();
+ 			$query =Item::where('thematic_area_id',$area_id);
+
+			$type = (isset($_GET['type']))?$_GET['type']:2;
+
+			$query->where('item_type_id',$type);
+
+			return $query->count();
  	}
 
  }
@@ -31,6 +37,15 @@ if(!function_exists('truncate')){
 
 	function truncate($text,$length=10){
 			return ($length<strlen($text))?substr($text, 0,$length)."...":$text;
+	}
+
+}
+
+if(!function_exists('get_item_type')){
+
+	function get_item_type(){
+		    $type_id = (isset($_GET['type']))?$_GET['type']:2;
+			return ItemType::find($type_id)->item_type_name.'s';
 	}
 
 }

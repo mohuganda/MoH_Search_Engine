@@ -41,7 +41,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/suggestions',[SearchController::class,'getSuggestions']);
 
-Route::resource('/submission',PublicItemController::class);
+Route::resource('/submissions',PublicItemController::class);
 
 Route::get('/admin', function(){
 	return redirect( url('/cms/home'));

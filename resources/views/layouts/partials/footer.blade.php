@@ -23,10 +23,12 @@
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            includedLanguages: 'en,fr,es,ar,jp,jv,ko,pa,pt,ru,zh-CN'
         }, 'google_translate_element');
     }
 </script>
+
 <script>
     eval(mod_pagespeed_FVNClcdAuR);
 </script>

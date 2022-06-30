@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-2 text-center align-items-left d-flex" style="float:left !important;">
-                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="#">Systems</a>
-                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('/submission')}}">Submission</a>
+                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('/search?type=2')}}">Systems</a>
+                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('/submissions')}}">Submission</a>
             </div>
         </div>
 
@@ -28,6 +28,8 @@
                 <form action="{{url('search')}}" class="search-property-1" method="get" style="margin-bottom:4px !important;" id="search_form">
                     @csrf
                     <div class="row g-0">
+
+                    <input type="hidden" name="type" value="{{@$_GET['type']}}" />
 
                         <div class="col-md-5 d-flex">
                             <div class="form-group p-3">

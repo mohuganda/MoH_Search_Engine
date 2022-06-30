@@ -17,6 +17,7 @@ class SearchRepository
 
 		$term = $request->term;
 		$area = $request->area;
+		$type = $request->type;
 
 		if($term){
 
@@ -29,14 +30,37 @@ class SearchRepository
 					->orWhere('title', 'like', '%' . rephrase($term,5) . '%')
 					->orWhere('description', 'like', '%' . rephrase($term) . '%')
 					->orderBy('title','asc');
+					
+			
+		  if(intval($type) >0)
+		  $query = $query->where('item_type_id',$type);
+
 
 		  if(intval($area) >0)
 			$query = $query->where('thematic_area_id',$area);
 
+		  if(intval($type) >0)
+			$query =  Item::where('item_type_id',$type);
+	
+
 		} else{
 
-		 $query = Item::where('thematic_area_id',$area);
+		if($area){
+			$query = Item::where('thematic_area_id',$area);
 
+			if(intval($type) >0)
+			$query =  Item::where('item_type_id',$type);
+
+		}
+		else if(intval($type)){
+
+			if(intval($type) >0)
+			$query =  Item::where('item_type_id',$type);
+
+		 } else{
+			$query = Item::where('item_type_id',2);
+		 }	
+		
 		}
 
 		$data = $query->paginate(15);
@@ -52,7 +76,15 @@ class SearchRepository
 	}
 
 	function getAccessLog(){
-		return 	AccessLog::orderBy('count','desc')->take(10)->get();
+
+		$accessLogs =	AccessLog::orderBy('count','desc')->take(50)->get();
+		$type = (isset($_GET['type']))?$_GET['type']:2;
+
+		return $accessLogs->filter(function ($row) use ($type ){
+			return ($row->item->item_type_id  == $type);
+		});
+
+	
 	}
    
    function getSearchSuggestions(Request $request){

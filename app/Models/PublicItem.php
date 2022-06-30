@@ -46,10 +46,6 @@ class Item extends Model
         return $this->belongsTo(AccessLog::class,'id','item_id');
     }
 
-    public function thematic_areas(){
-        return $this->hasMany(ItemThematicArea::class);
-    }
-    
 
     public function getCreatedAtAttribute($value)
     {

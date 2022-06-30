@@ -45,14 +45,16 @@ class PublicItemController extends Controller
      */
     public function index(Request $request)
     {
-        $data['items'] = $this->itemsRepo->getAllItems($request);
-        $data['areas'] = $this->itemsRepo->getAllThematicAreas();
+        $data['items']       = $this->itemsRepo->getAllItems($request);
+        $data['areas']       = $this->itemsRepo->getAllThematicAreas();
         $data['organizations'] = $this->organizationsRepo->getAll($request);
-        $data['types'] = $this->itemsRepo->getAllItemTypes();
+        $data['types']       = $this->itemsRepo->getAllItemTypes();
         $data['contacts']    = $this->personsRepo->getAll($request);
         $data['authorities'] = $this->authorityRepo->getAll($request);
         $data['uitools']     = $this->toolsRepo->getAll($request);
         $data['entities']    = $this->devEntitiesRepo->getAll($request);
+        $data['alert'] = '';
+
         return view('search/submit_item')->with($data);
     }
 
@@ -74,7 +76,16 @@ class PublicItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['url'=>'unique:items,url_link']);
+
+        $saved = $this->itemsRepo->saveItem($request,true);
+
+        $msg = (!$saved)?"Operation failed, try again":"Item submitted succesfully";
+      
+        $alert = ['alert'=>$msg];
+
+        return redirect(url('/submissions'))->with($alert);
+
     }
 
     /**
