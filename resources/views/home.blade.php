@@ -21,8 +21,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:1.5rem !important; ">
-                         {{ __('home.search_for')}} {{ get_item_type() }} {{ __('home.with_in_sector')}}</h3>
-                        <p>{{__('home.one_stop_center')}} {{ get_item_type() }} {{__('home.with_in_sector')}}</p>
+                         {{ __('home.search_for')}} {{ strtolower(get_item_type()) }} {{ __('home.with_in_sector')}}</h3>
+                        <p>{{__('home.one_stop_center')}} {{ strtolower(get_item_type()) }} {{__('home.with_in_sector')}}</p>
                     </div>
                 </div>
                 @php $token = md5(now()); @endphp
