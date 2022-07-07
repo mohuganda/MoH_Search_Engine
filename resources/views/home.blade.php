@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-2 text-center align-items-left d-flex" style="float:left !important;">
-                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('type=1')}}">Systems</a>
+                <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('?type=1')}}">Systems</a>
                 <a class="navbar-brand" style="color:#FFF; font-size:14px;" href="{{url('/submissions')}}">Submission</a>
             </div>
         </div>
