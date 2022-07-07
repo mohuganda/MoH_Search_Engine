@@ -13,7 +13,7 @@ use App\Repositories\DevEntitiesRepository;
 class PublicItemController extends Controller
 {
 
-    protected $itemsRepo,$organizationsRepo,$personsRepo,$authorityRepo,$toolsRepo,$devEntitiesRepo;
+    protected $itemsRepo, $organizationsRepo, $personsRepo, $authorityRepo, $toolsRepo, $devEntitiesRepo;
 
     /**
      * Create a new controller instance.
@@ -27,8 +27,7 @@ class PublicItemController extends Controller
         AuthorityRepository $authorityRepo,
         ToolsRepository $toolsRepo,
         DevEntitiesRepository $devEntitiesRepo
-    )
-    {
+    ) {
         $this->itemsRepo = $itemsRepo;
         $this->organizationsRepo = $organizationsRepo;
         $this->personsRepo = $personsRepo;
@@ -37,7 +36,7 @@ class PublicItemController extends Controller
         $this->devEntitiesRepo = $devEntitiesRepo;
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -76,16 +75,14 @@ class PublicItemController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['url'=>'unique:items,url_link']);
+        $request->validate(['url' => 'unique:items,url_link']);
 
-        $saved = $this->itemsRepo->saveItem($request,true);
+        $saved = $this->itemsRepo->saveItem($request, true);
 
-        $msg = (!$saved)?"Operation failed, try again":"Item submitted succesfully";
-      
-        $alert = ['alert'=>$msg];
+        $msg = (!$saved) ? "Operation failed, try again" : "Item submitted succesfully";
 
-        return redirect(url('/submissions'))->with($alert);
 
+        return redirect(url('/submissions'))->with('alert', $msg);
     }
 
     /**
