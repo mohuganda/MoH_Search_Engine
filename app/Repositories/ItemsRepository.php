@@ -210,16 +210,6 @@ class ItemsRepository
 			$item->image = $filename;
 		}
 
-		//save thematic areas
-
-		for ($i = 0; $i < count($request->thematic_areas); $i++) {
-
-			$thematic_areas  = $request->thematic_areas;
-
-			$area = ItemThematicArea::firstOrNew(array('thematic_area_id' => $thematic_areas[$i], 'item_id' => $item->id));
-			$area->save();
-		}
-
 
 
 		if ($request->dev_entity)
@@ -233,6 +223,18 @@ class ItemsRepository
 
 
 		$saved = ($id) ? $item->update() : $item->save();
+
+		//save thematic areas
+
+		for ($i = 0; $i < count($request->thematic_areas); $i++) {
+
+			$thematic_areas  = $request->thematic_areas;
+
+			$area = ItemThematicArea::firstOrNew(array('thematic_area_id' => $thematic_areas[$i], 'item_id' => $item->id));
+			$area->save();
+		}
+
+
 
 		if ($request->contact) {
 
