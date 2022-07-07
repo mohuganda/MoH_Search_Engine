@@ -13,14 +13,13 @@
       <div class="row ml-2 mr-2" style="margin-bottom:100px; color:#000;">
         <div class="row">
 
-
-
-
           <!-- Success alert -->
-          <div class="bs-alert bs-alert-info bs-alert-styled-left bs-alert-arrow-left bs-alert-dismissible">
-            <span class="alert_msg">{{$alert}}</span>
-            <!-- <a  class="close" data-bs-dismiss="alert"><span>&times;</span></a> -->
+          @if ($alert = Session::get('alert'))
+          <div class="alert alert-info alert-block" role="alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $alert }}</strong>
           </div>
+          @endif
           <!-- /Success alert -->
 
 

@@ -82,7 +82,7 @@ class PublicItemController extends Controller
         $msg = (!$saved) ? "Operation failed, try again" : "Item submitted succesfully";
 
 
-        return redirect(url('/submissions'))->with('alert', $msg);
+        return back()->with('alert', $msg);
     }
 
     /**
