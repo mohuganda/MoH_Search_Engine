@@ -17,7 +17,7 @@
 
 
           <!-- Success alert -->
-          <div class="alert alert-info alert-styled-left alert-arrow-left alert-dismissible">
+          <div class="bs-alert bs-alert-info bs-alert-styled-left bs-alert-arrow-left bs-alert-dismissible">
             <span class="alert_msg">Saved</span>
             <!-- <a  class="close" data-bs-dismiss="alert"><span>&times;</span></a> -->
           </div>
