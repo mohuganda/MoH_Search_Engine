@@ -48,10 +48,6 @@ Route::get('/admin', function () {
   return redirect(url('/cms/home'));
 });
 
-Route::get('/login', function () {
-  //
-  return view('auth.login');
-});
 
 Route::get('/logout', function () {
   Auth::logout();
