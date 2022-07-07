@@ -11,7 +11,7 @@
                             <div class="icon"><span class="fa-solid {{$area->icon }}"></span></div>
                             <div class="text">
                                 <h2>{{$area->description }}</h2>
-                                <p><span>{{ count_area_records($area->id) }}</span> {{ ucwords(get_item_type()) }}</p>
+                                <p class="list"><span>{{ count_area_records($area->id) }}</span> </p>{{ ucwords(get_item_type()) }}
                             </div>
                         </a>
                     </div>
