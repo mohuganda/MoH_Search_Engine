@@ -31,82 +31,85 @@ use App\Http\Controllers\PublicItemController;
 |
 */
 //default route
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class, 'index']);
 
-Route::any('/search', [SearchController::class,'search']);
+Route::any('/search', [SearchController::class, 'search']);
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/suggestions',[SearchController::class,'getSuggestions']);
+Route::get('/suggestions', [SearchController::class, 'getSuggestions']);
 
-Route::resource('/submissions',PublicItemController::class);
+Route::resource('/submissions', PublicItemController::class);
 
-Route::get('/admin', function(){
+Route::get('/admin', function () {
   //
-	return redirect( url('/cms/home'));
+  return redirect(url('/cms/home'));
 });
 
-Route::get('/logout', function(){
-	Auth::logout();
-    return redirect( url('/cms/home'));
+Route::get('/login', function () {
+  //
+  return view('auth.login');
 });
 
-Route::get('/access/{id}',[AccessController::class,'index']);
-Route::post('/access',[AccessController::class,'store']);
+Route::get('/logout', function () {
+  Auth::logout();
+  return redirect(url('/cms/home'));
+});
 
-Route::get('/log_access/{id}', [SearchController::class,'logAccess']);
-Route::get('/iteminfo/{id}', [SearchController::class,'itemInfo']);
+Route::get('/access/{id}', [AccessController::class, 'index']);
+Route::post('/access', [AccessController::class, 'store']);
 
-Route::group(['prefix'=>'cms'],function(){
+Route::get('/log_access/{id}', [SearchController::class, 'logAccess']);
+Route::get('/iteminfo/{id}', [SearchController::class, 'itemInfo']);
 
-  Route::get('/home',[AdminController::class,'index']);
-  Route::resource('/items',ItemsController::class);
-  Route::post('/items/search',[ItemsController::class,'index']);
-  Route::post('/items/update',[ItemsController::class,'update']);
-  Route::get('/types',[AdminController::class,'index']);
-  Route::resource('/organizations',OrganizationsController::class);
-  Route::resource('/types',ItemTypesController::class);
-  Route::resource('/thematicareas',ThematicAreasController::class);
-  Route::post('/thematicareas/search',[ThematicAreasController::class,'index']);
-  Route::get('/thematicareas/delete/{id}',[ThematicAreasController::class,'destroy']);
+Route::group(['prefix' => 'cms'], function () {
 
-  Route::resource('/persons',ContactPersonsController::class);
-  Route::get('/persons/delete/{id}',[ContactPersonsController::class,'destroy']);
+  Route::get('/home', [AdminController::class, 'index']);
+  Route::resource('/items', ItemsController::class);
+  Route::post('/items/search', [ItemsController::class, 'index']);
+  Route::post('/items/update', [ItemsController::class, 'update']);
+  Route::get('/types', [AdminController::class, 'index']);
+  Route::resource('/organizations', OrganizationsController::class);
+  Route::resource('/types', ItemTypesController::class);
+  Route::resource('/thematicareas', ThematicAreasController::class);
+  Route::post('/thematicareas/search', [ThematicAreasController::class, 'index']);
+  Route::get('/thematicareas/delete/{id}', [ThematicAreasController::class, 'destroy']);
 
-  Route::resource('/authorities',AuthoritiesController::class);
-  Route::get('/authorities/delete/{id}',[AuthoritiesController::class,'destroy']);
+  Route::resource('/persons', ContactPersonsController::class);
+  Route::get('/persons/delete/{id}', [ContactPersonsController::class, 'destroy']);
 
-  Route::resource('/tools',ToolsController::class);
-  Route::get('/tools/delete/{id}',[ToolsController::class,'destroy']);
+  Route::resource('/authorities', AuthoritiesController::class);
+  Route::get('/authorities/delete/{id}', [AuthoritiesController::class, 'destroy']);
 
-  Route::resource('/entities',DevEntitiesController::class);
-  Route::get('/entities/delete/{id}',[DevEntitiesController::class,'destroy']);
+  Route::resource('/tools', ToolsController::class);
+  Route::get('/tools/delete/{id}', [ToolsController::class, 'destroy']);
 
-  Route::resource('/settings',SettingsController::class);
+  Route::resource('/entities', DevEntitiesController::class);
+  Route::get('/entities/delete/{id}', [DevEntitiesController::class, 'destroy']);
 
+  Route::resource('/settings', SettingsController::class);
 });
 
 //permissions and access control
-Route::group(['prefix' => 'permissions','middleware'=>'auth'], function() {
+Route::group(['prefix' => 'permissions', 'middleware' => 'auth'], function () {
 
-	Route::get('/roles',  [PermissionController::class,'index'])->name('permissions.roles');
-	Route::post('/role',  [PermissionController::class,'createRole'])->name('permissions.role');
-	Route::get('/permissions',  [PermissionController::class,'permissions'])->name('permissions.permissions');
-	Route::post('/permission',  [PermissionController::class,'createPermission'])->name('permissions.permission');
-	Route::post('/torole',  [PermissionController::class,'permissionsToRole'])->name('permissions.torole');
-	Route::get('/users',  [PermissionController::class,'users'])->name('permissions.users');
-	Route::post('/user',  [PermissionController::class,'users'])->name('permissions.filerusers');
-	Route::post('/saveuser',  [PermissionController::class,'saveUser'])->name('permissions.saveuser');
-	Route::post('/userrole',  [PermissionController::class,'roleToUser'])->name('permissions.userrole');
-	
-	Route::get('/changepass',  [PermissionController::class,'changePassword'])->name('permissions.changepass');
-	Route::post('/changepass',  [PermissionController::class,'changePassword'])->name('permissions.changepass');
-	Route::post('/reset',  [PermissionController::class,'resetUser'])->name('permissions.reset');
+  Route::get('/roles',  [PermissionController::class, 'index'])->name('permissions.roles');
+  Route::post('/role',  [PermissionController::class, 'createRole'])->name('permissions.role');
+  Route::get('/permissions',  [PermissionController::class, 'permissions'])->name('permissions.permissions');
+  Route::post('/permission',  [PermissionController::class, 'createPermission'])->name('permissions.permission');
+  Route::post('/torole',  [PermissionController::class, 'permissionsToRole'])->name('permissions.torole');
+  Route::get('/users',  [PermissionController::class, 'users'])->name('permissions.users');
+  Route::post('/user',  [PermissionController::class, 'users'])->name('permissions.filerusers');
+  Route::post('/saveuser',  [PermissionController::class, 'saveUser'])->name('permissions.saveuser');
+  Route::post('/userrole',  [PermissionController::class, 'roleToUser'])->name('permissions.userrole');
+
+  Route::get('/changepass',  [PermissionController::class, 'changePassword'])->name('permissions.changepass');
+  Route::post('/changepass',  [PermissionController::class, 'changePassword'])->name('permissions.changepass');
+  Route::post('/reset',  [PermissionController::class, 'resetUser'])->name('permissions.reset');
 
 
-	Route::post('/delete',  [PermissionController::class,'deleteUser'])->name('permissions.delete');
-    Route::any('/trail',  [PermissionController::class,'trail'])->name('permissions.trail');
-
+  Route::post('/delete',  [PermissionController::class, 'deleteUser'])->name('permissions.delete');
+  Route::any('/trail',  [PermissionController::class, 'trail'])->name('permissions.trail');
 });
