@@ -19,7 +19,7 @@ class AdminController extends Controller
      */
     public function __construct(SearchRepository $searchRepo, WidgetsRepository $widgetsRepo)
     {
-       // $this->middleware('auth');
+        $this->middleware('auth');
         $this->searchRepo = $searchRepo;
         $this->widgetsRepo =$widgetsRepo;
     }
