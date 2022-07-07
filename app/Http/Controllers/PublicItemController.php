@@ -52,7 +52,7 @@ class PublicItemController extends Controller
         $data['authorities'] = $this->authorityRepo->getAll($request);
         $data['uitools']     = $this->toolsRepo->getAll($request);
         $data['entities']    = $this->devEntitiesRepo->getAll($request);
-        $data['alert'] = '';
+
 
         return view('search/submit_item')->with($data);
     }
@@ -79,7 +79,8 @@ class PublicItemController extends Controller
 
         $saved = $this->itemsRepo->saveItem($request, true);
 
-        $msg = "Item submitted succesfully";
+        $msg = (!$saved) ? "Operation failed, try again" : "Item submitted succesfully";
+
 
         return back()->with('alert', $msg);
     }
