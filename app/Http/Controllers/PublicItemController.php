@@ -79,8 +79,7 @@ class PublicItemController extends Controller
 
         $saved = $this->itemsRepo->saveItem($request, true);
 
-        $msg = (!$saved) ? "Operation failed, try again" : "Item submitted succesfully";
-
+        $msg = "Item submitted succesfully";
 
         return back()->with('alert', $msg);
     }
