@@ -20,8 +20,9 @@
             <div class="col-lg-8 text-center pb-20 m-l">
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
-                        <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:1.5rem !important; ">{{__('home.Search_Dashboards')}}</h3>
-                        <p>A one stop center for finding dashboards in the Uganda health sector</p>
+                        <h3 class="bold white" style="color:#FFF; font-weight:bold; font-size:1.5rem !important; ">
+                         {{ __('home.search_for')}} {{ get_item_type() }} {{ __('home.with_in_sector')}}</h3>
+                        <p>{{__('home.one_stop_center')}} {{ get_item_type() }} {{__('home.with_in_sector')}}</p>
                     </div>
                 </div>
                 @php $token = md5(now()); @endphp
