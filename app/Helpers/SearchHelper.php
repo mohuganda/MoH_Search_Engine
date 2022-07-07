@@ -44,7 +44,7 @@ if(!function_exists('truncate')){
 if(!function_exists('get_item_type')){
 
 	function get_item_type(){
-		    $type_id = (isset($_GET['type']))?$_GET['type']:2;
+		    $type_id = (isset($_GET['type']) && !empty($_GET['type']))?$_GET['type']:2;
 			return ItemType::find($type_id)->item_type_name.'s';
 	}
 
