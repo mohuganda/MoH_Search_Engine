@@ -14,15 +14,15 @@
         <div class="row">
 
 
-          @if(!empty($alert))
+
 
           <!-- Success alert -->
-          <div class="alert alert-info bg-white alert-styled-left alert-arrow-left alert-dismissible">
-            <span class="alert_msg">{{$alert}}</span>
+          <div class="alert alert-info alert-styled-left alert-arrow-left alert-dismissible">
+            <span class="alert_msg">Saved</span>
             <!-- <a  class="close" data-bs-dismiss="alert"><span>&times;</span></a> -->
           </div>
           <!-- /Success alert -->
-          @endif
+
 
 
           @csrf
