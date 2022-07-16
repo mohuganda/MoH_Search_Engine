@@ -7,13 +7,8 @@ if (!function_exists('count_area_records')) {
 
 	function count_area_records($area_id)
 	{
-		$query = Item::where('thematic_area_id', $area_id);
 
-		$type = (isset($_GET['type'])) ? $_GET['type'] : 2;
-
-		$query->where('item_type_id', $type);
-
-		return $query->count();
+		return count(get_area_items($area_id));
 	}
 }
 
