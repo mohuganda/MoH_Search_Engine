@@ -13,112 +13,104 @@ class SearchRepository
 {
 
 
-	function getAllItems(Request $request){
+	function getAllItems(Request $request)
+	{
 
 		$term = $request->term;
 		$area = $request->area;
 		$type = $request->type;
 
-		if($term){
+		if ($term) {
 
-		 $query =  Item::where('title', 'like', '%' . $term . '%')
-					->orWhere('description', 'like', '%' . $term . '%')
-					->orWhere('access_method', 'like', '%' . $term . '%')
-					->orWhere('url_link', 'like', '%' . $term . '%')
-					->orWhere('department', 'like', '%' . $term . '%')
-					->orWhere('hosting_organiation', 'like', '%' . $term . '%')
-					->orWhere('title', 'like', '%' . rephrase($term,5) . '%')
-					->orWhere('description', 'like', '%' . rephrase($term) . '%')
-					->orderBy('title','asc');
-					
-			
-		  if(intval($type) >0)
-		  $query = $query->where('item_type_id',$type);
+			$query =  Item::where('title', 'like', '%' . $term . '%')
+				->orWhere('description', 'like', '%' . $term . '%')
+				->orWhere('access_method', 'like', '%' . $term . '%')
+				->orWhere('url_link', 'like', '%' . $term . '%')
+				->orWhere('department', 'like', '%' . $term . '%')
+				->orWhere('hosting_organiation', 'like', '%' . $term . '%')
+				->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
+				->orWhere('description', 'like', '%' . rephrase($term) . '%')
+				->orderBy('title', 'asc');
 
 
-		  if(intval($area) >0)
-			$query = $query->where('thematic_area_id',$area);
+			if (intval($type) > 0)
+				$query = $query->where('item_type_id', $type);
 
-		  if(intval($type) >0)
-			$query =  Item::where('item_type_id',$type);
-	
 
-		} else{
+			if (intval($area) > 0)
+				$query = $query->whereIn('id', get_area_items($area));
 
-		if($area){
-			$query = Item::where('thematic_area_id',$area);
+			if (intval($type) > 0)
+				$query =  Item::where('item_type_id', $type);
+		} else {
 
-			if(intval($type) >0)
-			$query =  Item::where('item_type_id',$type);
+			if ($area) {
+				$query = Item::whereIn('id', get_area_items($area));
 
-		}
-		else if(intval($type)){
+				if (intval($type) > 0)
+					$query =  Item::where('item_type_id', $type);
+			} else if (intval($type)) {
 
-			if(intval($type) >0)
-			$query =  Item::where('item_type_id',$type);
-
-		 } else{
-			$query = Item::where('item_type_id',2);
-		 }	
-		
+				if (intval($type) > 0)
+					$query =  Item::where('item_type_id', $type);
+			} else {
+				$query = Item::where('item_type_id', 2);
+			}
 		}
 
 		$data = $query->paginate(15);
 
-		 //log search to db async
-         dispatch(new SearchLogJob($term));
+		//log search to db async
+		dispatch(new SearchLogJob($term));
 
-         return $data;
+		return $data;
 	}
 
-	function getAllThematicAreas(){
-		return ThematicArea::orderBy('display_index','asc')->get();
+	function getAllThematicAreas()
+	{
+		return ThematicArea::orderBy('display_index', 'asc')->get();
 	}
 
-	function getAccessLog(){
+	function getAccessLog()
+	{
 
-		$accessLogs =	AccessLog::orderBy('count','desc')->take(50)->get();
-		$type = (isset($_GET['type']))?$_GET['type']:2;
+		$accessLogs =	AccessLog::orderBy('count', 'desc')->take(50)->get();
+		$type = (isset($_GET['type'])) ? $_GET['type'] : 2;
 
-		return $accessLogs->filter(function ($row) use ($type ){
+		return $accessLogs->filter(function ($row) use ($type) {
 			return ($row->item->item_type_id  == $type);
 		});
-
-	
 	}
-   
-   function getSearchSuggestions(Request $request){
 
-   	$term = $request->term;
+	function getSearchSuggestions(Request $request)
+	{
 
-   	 return Item::where('title', 'like', '%' . $term . '%')
-					->orWhere('description', 'like', '%' . $term . '%')
-					->orWhere('access_method', 'like', '%' . $term . '%')
-					->orWhere('url_link', 'like', '%' . $term . '%')
-					->orWhere('department', 'like', '%' . $term . '%')
-					->orWhere('hosting_organiation', 'like', '%' . $term . '%')
-					->get()
-   	 		        ->pluck('title');
-   }
+		$term = $request->term;
 
-   public function logAccess($id){
+		return Item::where('title', 'like', '%' . $term . '%')
+			->orWhere('description', 'like', '%' . $term . '%')
+			->orWhere('access_method', 'like', '%' . $term . '%')
+			->orWhere('url_link', 'like', '%' . $term . '%')
+			->orWhere('department', 'like', '%' . $term . '%')
+			->orWhere('hosting_organiation', 'like', '%' . $term . '%')
+			->get()
+			->pluck('title');
+	}
 
-   	$log = AccessLog::firstOrNew(array('item_id' => $id ));
-    $log->count += 1;
-   	$log->save();
+	public function logAccess($id)
+	{
 
-   }
+		$log = AccessLog::firstOrNew(array('item_id' => $id));
+		$log->count += 1;
+		$log->save();
+	}
 
-   public function getItem($id){
-   		return Item::find($id);
-   }
-   public function keywordLog(){
-	return Log::paginate(10);
-   }
-
-
-
+	public function getItem($id)
+	{
+		return Item::find($id);
+	}
+	public function keywordLog()
+	{
+		return Log::paginate(10);
+	}
 }
-
-
-?>
