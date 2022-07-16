@@ -27,8 +27,8 @@
 
     <div class="form-group">
       <label>{{ trans_choice('cms.thematic_area',1)}}</label>
-      <select name="thematic_areas[]" class="form-control" required multiple>
-        <option value="">Choose</option>
+      <select name="thematic_areas[]" class="form-control filter-multi-select" required multiple>
+
         @foreach($areas as $row)
         <option {{ $item->thematic_areas && (@$item->thematic_areas->contains('thematic_area_id',$row->id))?'selected':'' }} value="{{$row->id}}">{{$row->description}}</option>
         @endforeach
@@ -98,9 +98,8 @@
 
     <div class="form-group">
       <label>{{__('general.contact')}} {{ trans_choice('general.person',1)}}</label>
-      <select name="contact" class="form-control" multiple>
+      <select name="contact" class="form-control filter-multi-select" multiple>
 
-        <option>Select</option>
         @foreach($contacts as $contact)
         <option value="{{$contact->id}}" {{(in_array($contact->id,item_contacts(@$item->id)))?'selected':''}}>{{$contact->name}}</option>
         @endforeach

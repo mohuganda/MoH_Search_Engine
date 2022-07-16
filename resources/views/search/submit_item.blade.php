@@ -52,8 +52,8 @@
 
             <div class="form-group">
               <label>{{ trans_choice('cms.thematic_area',1)}}</label>
-              <select name="thematic_areas[]" class="form-control" required multiple>
-                <option value="">Choose</option>
+              <select name="thematic_areas[]" class="form-control filter-multi-select" required multiple>
+
                 @foreach($areas as $row)
                 <option value="{{$row->id}}">{{$row->description}}</option>
                 @endforeach
