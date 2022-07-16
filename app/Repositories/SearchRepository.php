@@ -30,10 +30,11 @@ class SearchRepository
 				->orWhere('hosting_organiation', 'like', '%' . $term . '%')
 				->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
 				->orWhere('description', 'like', '%' . rephrase($term) . '%')
+				->where('published', 1)
 
 				->orderBy('title', 'asc');
 
-			$query = $query->where('published', 1);
+
 
 			if (intval($type) > 0)
 				$query = $query->where('item_type_id', $type);
@@ -49,6 +50,7 @@ class SearchRepository
 
 			if ($area) {
 				$query = Item::whereIn('id', get_area_items($area));
+
 				if (intval($type) > 0)
 					$query =  Item::where('item_type_id', $type);
 			} else if (intval($type)) {
@@ -58,9 +60,6 @@ class SearchRepository
 			} else {
 				$query = Item::where('item_type_id', 2);
 			}
-
-
-			$query = $query->where('published', 1);
 		}
 
 		$data = $query->paginate(15);
