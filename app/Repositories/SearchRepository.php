@@ -57,7 +57,6 @@ class SearchRepository
 
 				if (intval($type) > 0)
 					$query =  Item::where('item_type_id', $type);
-				$query = $query->where('published', 1);
 			} else {
 				$query = Item::where('item_type_id', 2);
 			}
