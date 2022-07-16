@@ -52,7 +52,7 @@
 			display: inline-flex;
 			height: 1.875em;
 			color: #202;
-			background-color: var(--fms-badge-color);
+			background-color: #1788b3;
 			border-radius: 1.1em;
 			align-items: center;
 			vertical-align: baseline;
