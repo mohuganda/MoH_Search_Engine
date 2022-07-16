@@ -30,8 +30,10 @@ class SearchRepository
 				->orWhere('hosting_organiation', 'like', '%' . $term . '%')
 				->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
 				->orWhere('description', 'like', '%' . rephrase($term) . '%')
+
 				->orderBy('title', 'asc');
 
+			$query = $query->where('published', 1);
 
 			if (intval($type) > 0)
 				$query = $query->where('item_type_id', $type);
