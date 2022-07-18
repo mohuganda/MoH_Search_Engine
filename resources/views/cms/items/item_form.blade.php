@@ -30,7 +30,7 @@
       <select name="thematic_areas[]" class="form-control filter-multi-select" required multiple>
 
         @foreach($areas as $row)
-        <option {{ $item->thematic_areas && (@$item->thematic_areas->contains('thematic_area_id',$row->id))?'selected':'' }} value="{{$row->id}}">{{$row->description}}</option>
+        <option {{ @$item->thematic_areas && (@$item->thematic_areas->contains('thematic_area_id',$row->id))?'selected':'' }} value="{{$row->id}}">{{$row->description}}</option>
         @endforeach
       </select>
     </div>
@@ -101,7 +101,7 @@
       <select name="contact" class="form-control filter-multi-select" multiple>
 
         @foreach($contacts as $contact)
-        <option value="{{$contact->id}}" {{(in_array($contact->id,item_contacts(@$item->id)))?'selected':''}}>{{$contact->name}}</option>
+        <option value="{{$contact->id}}" {{(in_array($contact->id,item_contacts(@$item->id)))?'selected':''}}>{{@$contact->name}}</option>
         @endforeach
       </select>
     </div>
