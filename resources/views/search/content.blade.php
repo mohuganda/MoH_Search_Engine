@@ -19,7 +19,7 @@
                                     <a onclick="logAccess({!! $result->id !!})" href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                                 </div>
-                                <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px;">
+                                <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px; margin-top:2px;">
 
                                     <p>{!! highlight($result->description,$term) !!}</p>
 
@@ -35,12 +35,12 @@
                                     </p>
 
 
-                                    <p class="review"><span class="rev">Theme: 
-                                        <small>
-                                        @foreach($result->thematic_areas as $area)
-									      {{$area->thematic_area->description}},
-								         @endforeach
-                                        </small></span> |
+                                    <p class="review"><span class="rev">Theme:
+                                            <small>
+                                                @foreach($result->thematic_areas as $area)
+                                                {{$area->thematic_area->description}},
+                                                @endforeach
+                                            </small></span> |
                                         <span class="rev">Type: <small>{{ $result->item_type->item_type_name }}</small></span> |
                                         <span class="rev">Access: <small>{{ $result->access_method }}</small></span> |
 
