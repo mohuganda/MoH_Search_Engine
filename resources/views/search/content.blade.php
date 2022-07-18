@@ -19,7 +19,7 @@
                                     <a onclick="logAccess({!! $result->id !!})" href="{{ $result->url_link }}" target="_blank">{!! highlight($result->title,$term) !!}</a>
 
                                 </div>
-                                <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px; margin-top:5px;">
+                                <div class="d-flex justify-content-left description" style="clear:both; text-align:left; margin-right:6px; margin-top:10px;">
 
                                     <p>{!! highlight($result->description,$term) !!}</p>
 
