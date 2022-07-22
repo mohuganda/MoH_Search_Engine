@@ -7,45 +7,45 @@ use App\Repositories\DevEntitiesRepository;
 
 class DevEntitiesController extends Controller
 {
-    
+
     protected $devEntityRepo;
 
-    
+
     public function __construct(DevEntitiesRepository $devEntityRepo)
     {
         $this->middleware('auth');
         $this->devEntityRepo = $devEntityRepo;
     }
 
-    public function index(Request $request){
-      
+    public function index(Request $request)
+    {
+
         $data['entities'] = $this->devEntityRepo->getAll($request);
         return view('cms.entities.index')->with($data);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $saved = $this->devEntityRepo->save($request);
 
-        $msg = (!$saved)?"Operation failed, try again":"Entity saved succesfully";
-       
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $msg = (!$saved) ? "Operation failed, try again" : "Entity saved succesfully";
 
-        return redirect( url('/cms/entities') )->with($data);
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
+
+        return redirect(url('/cms/entities'))->with($alert);
     }
 
-     public function destroy($id){
-        
+    public function destroy($id)
+    {
+
         $saved = $this->devEntityRepo->delete($id);
 
-        $msg = (!$saved)?"Operation failed, try again":"Entity deleted succesfully";
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $msg = (!$saved) ? "Operation failed, try again" : "Entity deleted succesfully";
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
 
-        return redirect( url('/cms/entities') )->with($data);
+        return redirect(url('/cms/entities'))->with($data);
     }
-
-
-
 }
