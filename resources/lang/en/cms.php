@@ -37,6 +37,7 @@ return [
 	'tool'=>'Tools | Tools',
 	'ui'=> 'UI',
 	'entity'=>'Entity|Entities',
+	'submitted_by'=>'Submitting Individual',
 	'settings'=>'Settings',
 	'change_bannerimage'=>'Change Banner Image',
 	'published'=>'Published'

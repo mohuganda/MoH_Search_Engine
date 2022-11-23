@@ -25,10 +25,13 @@ class ItemsRepository
 
 		$area = $request->area;
 		$term = $request->term;
+		$published = $request->published;
 
-		if ($term) {
+		$filters = $request->all();
 
-			$query =  Item::where('title', 'like', '%' . $term . '%')
+		if (!empty($term)) {
+
+			$query = Item::where('title', 'like', '%' . $term . '%')
 				->orWhere('description', 'like', '%' . $term . '%')
 				->orWhere('access_method', 'like', '%' . $term . '%')
 				->orWhere('url_link', 'like', '%' . $term . '%')
@@ -38,11 +41,23 @@ class ItemsRepository
 				->orWhere('description', 'like', '%' . rephrase($term) . '%')
 				->orderBy('title', 'asc');
 
-			return $query->paginate(15);
+
+			$items = $query->paginate(15);
+		 } elseif ($published > -1) {
+
+			$query = Item::where('published', $published)
+				->orderBy('title', 'asc');
+			//($query->get());
+			$items = $query->paginate(15);
+
 		} else {
 
-			return Item::paginate(15);
+			$items = Item::paginate(15);
 		}
+
+		$items->appends($filters)->links();
+
+		return $items;
 	}
 
 	function getItem($id)
@@ -56,17 +71,17 @@ class ItemsRepository
 
 		$item = ($id) ? Item::find($id) : new Item();
 
-		$item->title    = $request->title;
+		$item->title = $request->title;
 		$item->url_link = $request->url;
 		$item->hosting_organiation = $request->organization;
-		$item->access_method 	   = $request->access_method;
-		$item->thematic_area_id    = 0;
-		$item->db_engine 		   = $request->db_engine;
-		$item->item_type_id        = $request->item_type;
-		$item->description         = $request->description;
-		$item->status 			   = 1;
-		$item->published 		   = ($contactsIsExternal) ? 0 : $request->published;
-		$item->department		   = 1;
+		$item->access_method = $request->access_method;
+		$item->thematic_area_id = 0;
+		$item->db_engine = $request->db_engine;
+		$item->item_type_id = $request->item_type;
+		$item->description = $request->description;
+		$item->status = 1;
+		$item->published = ($contactsIsExternal) ? 0 : $request->published;
+		$item->department = 1;
 
 		if ($request->file('image')) {
 
@@ -76,6 +91,13 @@ class ItemsRepository
 			$item->image = $filename;
 		}
 
+
+		if ($request->submitter_name)
+			$item->submitter_name = $request->submitter_name;
+		if ($request->submitter_phone)
+			$item->submitter_phone = $request->submitter_phone;
+		if ($request->submitter_email)
+			$item->submitter_email = $request->submitter_email;
 
 		if ($request->dev_entity)
 			$item->dev_entity_id = $request->dev_entity;
@@ -94,7 +116,7 @@ class ItemsRepository
 
 		for ($i = 0; $i < count($request->thematic_areas); $i++) {
 
-			$thematic_areas  = $request->thematic_areas;
+			$thematic_areas = $request->thematic_areas;
 
 			$area = ItemThematicArea::firstOrNew(array('thematic_area_id' => $thematic_areas[$i], 'item_id' => $item->id));
 			$area->save();
@@ -113,9 +135,9 @@ class ItemsRepository
 		if ($contactsIsExternal) {
 			//loop through contacts array, create the contact record, associate with item
 
-			for ($i = 0; $i < count($request->name); $i++) :
+			for ($i = 0; $i < count($request->name); $i++):
 
-				$names  = $request->name;
+				$names = $request->name;
 				$emails = $request->email;
 				$phones = $request->phone;
 				$titles = $request->person_title;
@@ -146,7 +168,7 @@ class ItemsRepository
 
 			$term = $request->term;
 
-			$query =  ThematicArea::where('description', 'like', '%' . $term . '%')
+			$query = ThematicArea::where('description', 'like', '%' . $term . '%')
 				->orderBy('display_index', 'asc');
 
 			return $query->paginate(15);
@@ -190,17 +212,17 @@ class ItemsRepository
 
 		$item = ($id) ? Item::find($id) : new Item();
 
-		$item->title    = $request->title;
+		$item->title = $request->title;
 		$item->url_link = $request->url;
 		$item->hosting_organiation = $request->organization;
-		$item->access_method 	   = $request->access_method;
-		$item->thematic_area_id    = 0;
+		$item->access_method = $request->access_method;
+		$item->thematic_area_id = 0;
 		//$item->thematic_area_id    = $request->thematic_area;
-		$item->db_engine 		   = $request->db_engine;
-		$item->item_type_id        = $request->item_type;
-		$item->description         = $request->description;
-		$item->status 			   = 1;
-		$item->department		   = 1;
+		$item->db_engine = $request->db_engine;
+		$item->item_type_id = $request->item_type;
+		$item->description = $request->description;
+		$item->status = 1;
+		$item->department = 1;
 
 		if ($request->file('image')) {
 
@@ -228,7 +250,7 @@ class ItemsRepository
 
 		for ($i = 0; $i < count($request->thematic_areas); $i++) {
 
-			$thematic_areas  = $request->thematic_areas;
+			$thematic_areas = $request->thematic_areas;
 
 			$area = ItemThematicArea::firstOrNew(array('thematic_area_id' => $thematic_areas[$i], 'item_id' => $item->id));
 			$area->save();
