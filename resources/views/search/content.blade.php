@@ -25,7 +25,7 @@
                                     <a href="{{ asset('images/place_holder.png') }}">
                                         <img src="{{ @asset('images/place_holder.png') }}" width="200px" /></a>
 
-                                    endif @
+                                    @endif
 
                                     <a onclick="logAccess({!! $result->id !!})" href="{{ $result->url_link }}"
                                         target="_blank">{!! highlight($result->title,$term) !!}</a>
