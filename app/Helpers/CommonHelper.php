@@ -47,6 +47,23 @@ if (!function_exists('get_user')) {
 	}
 }
 
+
+if (!function_exists('is_valid_image')) {
+
+	function is_valid_image($name, $path = FALSE)
+	{
+		$path = '/images/';
+		$image = $path . $name;
+		if (file_exists(public_path() . $image)) {
+			return TRUE;
+		} else {
+			return FALSE;
+
+		}
+	}
+}
+
+
 if (!function_exists('item_contacts')) {
 
 	function item_contacts($item_id = null, $return_ids = true)
@@ -54,7 +71,7 @@ if (!function_exists('item_contacts')) {
 
 		$contacts = ItemContactPerson::where('item_id', $item_id)->get();
 
-		if ($return_ids) :
+		if ($return_ids):
 
 			$contact_arr = [];
 
@@ -76,7 +93,7 @@ if (!function_exists('get_area_items')) {
 
 		$items = ItemThematicArea::where('thematic_area_id', $area_id)->get();
 
-		if ($return_ids) :
+		if ($return_ids):
 
 			$item_arr = [];
 
