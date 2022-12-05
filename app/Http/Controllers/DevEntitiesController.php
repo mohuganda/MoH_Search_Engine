@@ -46,6 +46,6 @@ class DevEntitiesController extends Controller
         $alert_class = ($saved) ? 'info' : 'danger';
         $alert = ['alert-' . $alert_class => $msg];
 
-        return redirect(url('/cms/entities'))->with($data);
+        return redirect(url('/cms/entities'))->with($alert);
     }
 }
