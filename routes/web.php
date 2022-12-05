@@ -18,7 +18,7 @@ use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\DevEntitiesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\PublicItemController;
-
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,4 +108,13 @@ Route::group(['prefix' => 'permissions', 'middleware' => 'auth'], function () {
 
   Route::post('/delete',  [PermissionController::class, 'deleteUser'])->name('permissions.delete');
   Route::any('/trail',  [PermissionController::class, 'trail'])->name('permissions.trail');
+
+  Route::get('/alerts',  [PermissionController::class, 'getAlerts'])->name('permissions.alerts');
+  Route::post('/alerts',  [PermissionController::class, 'postAlerts'])->name('permissions.alerts');
+  Route::delete('/alerts/delete',  [PermissionController::class, 'deleteAlerts'])->name('permissions.alerts.delete');
+});
+
+
+Route::group(['prefix' => 'reports', 'middleware' => 'auth'], function () {
+  Route::get('/system',  [ReportController::class, 'dynamic'])->name('reports.system');
 });

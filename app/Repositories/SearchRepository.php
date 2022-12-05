@@ -72,7 +72,13 @@ class SearchRepository
 
 	function getAllThematicAreas()
 	{
-		return ThematicArea::orderBy('display_index', 'asc')->get();
+		$areas = ThematicArea::orderBy('display_index', 'asc')->get();
+		// Count the number of items in each area
+		foreach ($areas as $area) {
+			$area->count = count(get_area_items($area->id));
+		}
+
+		return $areas;
 	}
 
 	function getAccessLog()

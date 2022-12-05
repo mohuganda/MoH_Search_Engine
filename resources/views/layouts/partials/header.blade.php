@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="{{asset('theme/css/A.animate.css%2bflaticon.css%2btiny-slider.css%2bglightbox.min.css%2baos.css%2bstyle.css%2cMcc.UgmKpvvBTJ.css.pagespeed.cf.xhAIVbA-KH.css')}}" />
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{asset('theme/css/filter_multi_select.css')}}" />
+
+
+
+  
+ 
   <style>
     select>.viewbar>.selected-items>.item {
       margin: 0.125rem 0.25rem 0.125rem 0;

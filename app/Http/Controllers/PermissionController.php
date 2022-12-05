@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NotificationEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -9,41 +10,43 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class PermissionController extends Controller
 {
-   
+
     /*
         Renders a list of all roles
     */
-    public function index(){
-       
+    public function index()
+    {
+
         $data['roles'] = Role::paginate(15);
         $data['permissions'] = Permission::all();
         return view('permissions.roles')->with($data);
-        
     }
 
     /*
         Renders a list of all users
     */
-    public function users(Request $request){
+    public function users(Request $request)
+    {
         //$data['users']  = User::paginate(15);
         $data['roles'] = Role::all();
 
         $name     = $request->name;
         $phone    = $request->mobile;
-        $count    = (!empty($request->count))?$request->count:20;
-       
+        $count    = (!empty($request->count)) ? $request->count : 20;
+
         $users = DB::table('users')
-                ->when($phone, function ($query, $phone) {
-                    return $query->where('users.mobile','like',$phone.'%');
-                })
-                ->when($name, function ($query, $name) {
-                    return $query->where('users.name','like', $name.'%');
-                })
-                ->orderBy('users.id','desc')
-                ->paginate($count);
+            ->when($phone, function ($query, $phone) {
+                return $query->where('users.mobile', 'like', $phone . '%');
+            })
+            ->when($name, function ($query, $name) {
+                return $query->where('users.name', 'like', $name . '%');
+            })
+            ->orderBy('users.id', 'desc')
+            ->paginate($count);
 
         $users->appends($request->all())->links();
 
@@ -51,9 +54,9 @@ class PermissionController extends Controller
         $data['users']  = $users;
 
         $data['search'] = (object) array(
-            "name"=>$name,
-            "count" =>$count,
-            "phone" =>$phone
+            "name" => $name,
+            "count" => $count,
+            "phone" => $phone
         );
 
 
@@ -63,12 +66,14 @@ class PermissionController extends Controller
     /*
         Renders a list of all permissions
     */
-    public function permissions(){
+    public function permissions()
+    {
         $data['permissions'] = Permission::paginate(15);
         return view('permissions.permissions')->with($data);
     }
 
-    public function saveUser(Request $request){
+    public function saveUser(Request $request)
+    {
 
         //dd($request->all());
         $user = new User();
@@ -79,39 +84,40 @@ class PermissionController extends Controller
         $email     = $request->email;
         $mobile    = $request->mobile;
         $roleId    = $request->role_id;
-        $password  = (empty($request->pass) && !$request->id)?Str::random(6):$request->pass;
-        
+        $password  = (empty($request->pass) && !$request->id) ? Str::random(6) : $request->pass;
 
-        if($request->id)
-         $user = User::find($request->id);
+
+        if ($request->id)
+            $user = User::find($request->id);
 
         $user->firstname = $firstName;
         $user->lastname  = $lastName;
         $user->mobile    = $mobile;
         $user->nin       = $nin;
         $user->email     = $email;
-        $user->name      = $lastName." ".$firstName;
-       
-        if(!empty($password)){
-          $user->password  = Hash::make($password);
-          $user->pwd_changed = 0;
-        }
-        $saved = ($request->id)? $user->update():$user->save();
+        $user->name      = $lastName . " " . $firstName;
 
-        if($saved){ //attach role
+        if (!empty($password)) {
+            $user->password  = Hash::make($password);
+            $user->pwd_changed = 0;
+        }
+        $saved = ($request->id) ? $user->update() : $user->save();
+
+        if ($saved) { //attach role
             $user->assignRole($roleId);
         }
 
-        $msg = (!$saved)?"Operation failed, try again":"User <b> $user->name </b> created successfuly with default password <b> $password </b>";
-       
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $msg = (!$saved) ? "Operation failed, try again" : "User <b> $user->name </b> created successfuly with default password <b> $password </b>";
+
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
         return redirect()->route('permissions.users')->with($alert);
     }
 
-    public function changePassword(Request $request){
+    public function changePassword(Request $request)
+    {
 
-        if(isset($request->password)){
+        if (isset($request->password)) {
 
             $validator = $request->validate([
                 'password' => 'required|min:6',
@@ -121,131 +127,137 @@ class PermissionController extends Controller
             $user = Auth::user();
             $password = $request->password;
             $confirm = $request->confirmpassword;
-    
-            if($password == $confirm ):
+
+            if ($password == $confirm) :
                 $user->password    = Hash::make($password);
                 $user->pwd_changed = 1;
                 $user->update();
-        
-        	   $this->logTrail('Changed Password for '.$user->name." ".$user->mobile,($this->currentUser()->id)?$this->currentUser()->id:0,[], $user);
-        
+
+                $this->logTrail('Changed Password for ' . $user->name . " " . $user->mobile, ($this->currentUser()->id) ? $this->currentUser()->id : 0, [], $user);
+
                 return redirect()->route('home');
-            else:
-                //return redirect()->route('home');
+            else :
+            //return redirect()->route('home');
             endif;
         }
-       return view('auth.changepass');
+        return view('auth.changepass');
     }
 
     /*
         Create roles
     */
-    public function createRole(Request $request){
+    public function createRole(Request $request)
+    {
 
         $role_name = $request->get('role_name');
         $role_id = $request->get('rowid'); //edits
         $role = null;
-       
-        if($role_id):
-         $role = Role::find($role_id);
-        else:
-         $role = new Role();
+
+        if ($role_id) :
+            $role = Role::find($role_id);
+        else :
+            $role = new Role();
         endif;
 
-        $role->name =$role_name;
+        $role->name = $role_name;
         $saved = $role->save();
-        $msg = (!$saved)?"Operation failed, try again":"Role saved successfuly";
+        $msg = (!$saved) ? "Operation failed, try again" : "Role saved successfuly";
         $data["message"] = $msg;
-        $data['data'] = ($saved)?$role:[];
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $data['data'] = ($saved) ? $role : [];
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
         return redirect()->route('permissions.roles')->with($alert);
     }
 
     /*
         Create permissions
     */
-    public function createPermission(Request $request){
+    public function createPermission(Request $request)
+    {
         $perm_name = $request->get('perm_name');
         $perm_id = $request->get('rowid');
         $perm = null;
-       
-        if($perm_id):
-         $perm = Permission::find($perm_id);
-        else:
-         $perm = new Permission();
+
+        if ($perm_id) :
+            $perm = Permission::find($perm_id);
+        else :
+            $perm = new Permission();
         endif;
-        $perm->name =$perm_name;
+        $perm->name = $perm_name;
         $saved = $perm->save();
-        $msg = (!$saved)?"Operation failed, try again":"Permission saved successfuly";
+        $msg = (!$saved) ? "Operation failed, try again" : "Permission saved successfuly";
         $data["message"] = $msg;
-        $data['data'] = ($saved)?$perm:[];
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $data['data'] = ($saved) ? $perm : [];
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
         return redirect()->route('permissions.permissions')->with($alert);
     }
 
     /*
         Assign permissions to roles
     */
-    public function permissionsToRole(Request $request){
+    public function permissionsToRole(Request $request)
+    {
 
         $roledId     = $request->get('role_id');
-        $permissions = ($request->get('permissions'))?$request->get('permissions'):[];
+        $permissions = ($request->get('permissions')) ? $request->get('permissions') : [];
         $role = Role::findById($roledId);
-        $new_permissions= Permission::whereIn('id',$permissions)->get();
+        $new_permissions = Permission::whereIn('id', $permissions)->get();
         $saved  = $role->syncPermissions($new_permissions);
 
-        $msg = (!$saved)?"Operation failed, try again":"Assigned successfuly";
+        $msg = (!$saved) ? "Operation failed, try again" : "Assigned successfuly";
         $data["message"] = $msg;
         $data['data'] = $permissions;
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
         return  redirect()->route('permissions.roles')->with($alert);
     }
 
     /*
         Revoke permissions from roles
     */
-    public function revokePermissions(Request $request){
+    public function revokePermissions(Request $request)
+    {
         $roleId = $request->get('role');
         $permissions = $request->get('permissions');
         $role = Role::findById($roleId);
         $saved = false;
-        foreach($permissions as $perm):
-            $permission= Permission::where_in('id',$perm)->get();
+        foreach ($permissions as $perm) :
+            $permission = Permission::where_in('id', $perm)->get();
             $saved = $role->revokePermissionTo($permission);
         endforeach;
 
-        $msg = (!$saved)?"Operation failed, try again":"Revoked successfuly";
+        $msg = (!$saved) ? "Operation failed, try again" : "Revoked successfuly";
         $data["message"] = $msg;
         $data['data'] = [];
         return response()->json($data);
     }
 
-    public function roleToUser(Request $request){
+    public function roleToUser(Request $request)
+    {
 
         $userId = $request->user_id;
         $roleId = $request->role_id;
         $user   = User::find($userId);
         $saved  = $user->assignRole($roleId);
 
-        $msg = (!$saved)?"Operation failed, try again":"Role assigned successfuly";
-    
-    	if($saved)
-        	$this->logTrail('Assigned Role to user '.$user->name." ".$user->mobile,$this->currentUser()->id,[], $user);
-    
+        $msg = (!$saved) ? "Operation failed, try again" : "Role assigned successfuly";
+
+        if ($saved)
+            $this->logTrail('Assigned Role to user ' . $user->name . " " . $user->mobile, $this->currentUser()->id, [], $user);
+
         $data["message"] = $msg;
-        $data['data'] = [$userId,$roleId];
-        $alert_class = ($saved)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $data['data'] = [$userId, $roleId];
+        $alert_class = ($saved) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
         return redirect()->route('permissions.users')->with($alert);
     }
 
     /*
         Create roles
     */
-    public function resetUser(Request $request){
+    public function resetUser(Request $request)
+    {
 
         $password = $this->generatePin(6);
         $user_id  = $request->user_id;
@@ -255,25 +267,26 @@ class PermissionController extends Controller
         $user->status         = $status;
         $user->pwd_changed    = 0;
 
-        if(in_array($status, [1,3])) //activating user or resetting
-         $user->password      = Hash::make($password);
-        
+        if (in_array($status, [1, 3])) //activating user or resetting
+            $user->password      = Hash::make($password);
+
         $saved = $user->update();
-    
-        $msg = (!$saved)?"Operation failed, try again":"User <b> $user->name </b>, with username <b>$user->mobile or $user->email</b> has been reset with default password <b> $password </b>";
-        $alert_class = ($saved)?'info':'danger';
-    	
-      // if($saved)
-      //   $this->sendSMS("Hello agent, your CASHAWO password has been reset by ADMIN, your new password is $password",$user->mobile);
-    
-        $this->logTrail('Reset User Password '.$user->name." ".$user->mobile,$this->currentUser()->id,[],[]);
-    
-        $alert = ['alert-'.$alert_class=>$msg];
+
+        $msg = (!$saved) ? "Operation failed, try again" : "User <b> $user->name </b>, with username <b>$user->mobile or $user->email</b> has been reset with default password <b> $password </b>";
+        $alert_class = ($saved) ? 'info' : 'danger';
+
+        // if($saved)
+        //   $this->sendSMS("Hello agent, your CASHAWO password has been reset by ADMIN, your new password is $password",$user->mobile);
+
+        $this->logTrail('Reset User Password ' . $user->name . " " . $user->mobile, $this->currentUser()->id, [], []);
+
+        $alert = ['alert-' . $alert_class => $msg];
         return redirect()->route('permissions.users')->with($alert);
     }
 
 
-     public function trail(Request $request){
+    public function trail(Request $request)
+    {
 
         $userId = $request->user_id;
         $start  = $request->start;
@@ -282,48 +295,114 @@ class PermissionController extends Controller
 
         $data['users'] = User::all();
 
-        $data['search'] = (Object) $request->all();
+        $data['search'] = (object) $request->all();
 
         $data['trails'] =
-                AuditTrail::when($userId, 
+            AuditTrail::when(
+                $userId,
                 function ($query, $userId) {
                     return $query->where('user_id', $userId);
-                })
-                ->when($start, 
+                }
+            )
+            ->when(
+                $start,
                 function ($query, $start) {
-                    $start = date('Y-m-d',(strtotime('+0 day',strtotime($start))));
-                    return $query->where('created_at','>=', $start);
-                })
-                ->when($end, 
+                    $start = date('Y-m-d', (strtotime('+0 day', strtotime($start))));
+                    return $query->where('created_at', '>=', $start);
+                }
+            )
+            ->when(
+                $end,
                 function ($query, $end) {
-                    $end = date('Y-m-d',(strtotime('+1 day',strtotime($end))));
-                    return $query->where('created_at','<=', $end);
-                })
-                ->when($action, 
+                    $end = date('Y-m-d', (strtotime('+1 day', strtotime($end))));
+                    return $query->where('created_at', '<=', $end);
+                }
+            )
+            ->when(
+                $action,
                 function ($query, $action) {
-                    return $query->where('action','like', "%$action%");
-                })
-                ->orderBy('id','desc')->paginate(25);
+                    return $query->where('action', 'like', "%$action%");
+                }
+            )
+            ->orderBy('id', 'desc')->paginate(25);
 
         return view('permissions.audit')->with($data);
     }
 
 
-     public function deleteUser(Request $request){
+    public function deleteUser(Request $request)
+    {
 
         $user_id = $request->user_id;
         $user    = User::find($user_id);
         $deleted = $user->delete();
 
-        if($deleted){
-            $this->logTrail('Deleted user '.$user->name,$this->currentUser()->id,[],$user);
+        if ($deleted) {
+            $this->logTrail('Deleted user ' . $user->name, $this->currentUser()->id, [], $user);
         }
-        $msg = (!$deleted)?"Operation failed, try again":"User <b> $user->name </b>, with username <b>$user->email</b> has been  <b> deleted</b>";
-        $alert_class = ($deleted)?'info':'danger';
-        $alert = ['alert-'.$alert_class=>$msg];
+        $msg = (!$deleted) ? "Operation failed, try again" : "User <b> $user->name </b>, with username <b>$user->email</b> has been  <b> deleted</b>";
+        $alert_class = ($deleted) ? 'info' : 'danger';
+        $alert = ['alert-' . $alert_class => $msg];
         return redirect()->route('permissions.users')->with($alert);
     }
 
-   
+    public function getAlerts(Request $request)
+    {
+        $emails = NotificationEmail::all();
+        $data['emails'] = $emails;
+        return view('permissions.alerts')->with($data);
+    }
 
+    public function postAlerts(Request $request)
+    {
+        // Validation
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:notification_emails,email',
+        ], [
+            'email.required' => 'An email address is required',
+            'email.email' => 'The email address must be a valid email address',
+            'email.unique' => 'This email address has already been added',
+        ]);
+
+        if ($validator->fails()) {
+            $alert_class = 'danger';
+            $msg = $validator->errors()->first();
+
+            $alert = ['alert-' . $alert_class => $msg];
+
+            return redirect()->route('permissions.alerts')->with($alert)->withInput();
+        }
+
+        $email = $request->email;
+        $saved = NotificationEmail::create(['email' => $email]);
+
+        $msg = (!$saved) ? "Operation failed, try again" : "Email <b> $email </b> has been added to the list of notification emails";
+
+        $alert_class = ($saved) ? 'success' : 'danger';
+
+        $this->logTrail('Added email ' . $email, $this->currentUser()->id, [], []);
+
+        $alert = ['alert-' . $alert_class => $msg];
+
+        return redirect()->route('permissions.alerts')->with($alert);
+    }
+
+    public function deleteAlerts(Request $request)
+    {
+        $email_id = $request->id;
+        $email    = NotificationEmail::find($email_id);
+        $deleted = $email->delete();
+
+        if ($deleted) {
+            $this->logTrail('Deleted email ' . $email->email, $this->currentUser()->id, [], $email);
+        }
+
+        $msg = (!$deleted) ? "Operation failed, try again" : "Email <b> $email->email </b> has been  <b> deleted</b>";
+
+        $alert_class = ($deleted) ? 'info' : 'danger';
+
+        $alert = ['alert-' . $alert_class => $msg];
+
+        return redirect()->route('permissions.alerts')->with($alert);
+    }
 }
