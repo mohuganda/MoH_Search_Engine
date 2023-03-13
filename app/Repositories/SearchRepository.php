@@ -22,7 +22,7 @@ class SearchRepository
 
 		if ($term) {
 
-			$query =  Item::where('title', 'like', '%' . $term . '%')
+			$query = Item::where('title', 'like', '%' . $term . '%')
 				->orWhere('description', 'like', '%' . $term . '%')
 				->orWhere('access_method', 'like', '%' . $term . '%')
 				->orWhere('url_link', 'like', '%' . $term . '%')
@@ -44,7 +44,7 @@ class SearchRepository
 				$query = $query->whereIn('id', get_area_items($area));
 
 			if (intval($type) > 0)
-				$query =  Item::where('item_type_id', $type);
+				$query = Item::where('item_type_id', $type);
 		} else {
 
 
@@ -52,11 +52,11 @@ class SearchRepository
 				$query = Item::whereIn('id', get_area_items($area));
 
 				if (intval($type) > 0)
-					$query =  Item::where('item_type_id', $type);
+					$query = Item::where('item_type_id', $type);
 			} else if (intval($type)) {
 
 				if (intval($type) > 0)
-					$query =  Item::where('item_type_id', $type);
+					$query = Item::where('item_type_id', $type);
 			} else {
 				$query = Item::where('item_type_id', 2);
 			}
@@ -84,11 +84,11 @@ class SearchRepository
 	function getAccessLog()
 	{
 
-		$accessLogs =	AccessLog::orderBy('count', 'desc')->take(50)->get();
+		$accessLogs = AccessLog::orderBy('count', 'desc')->take(50)->get();
 		$type = (isset($_GET['type'])) ? $_GET['type'] : 2;
 
 		return $accessLogs->filter(function ($row) use ($type) {
-			return ($row->item->item_type_id  == $type);
+			return ($row->item->item_type_id == $type);
 		});
 	}
 

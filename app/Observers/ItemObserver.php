@@ -17,7 +17,7 @@ class ItemObserver
     {
         $emails = NotificationEmail::all();
         foreach ($emails as $email) {
-            $item->notify(new \App\Notifications\NewDashboardSubmitted($email->email, $item));
+           // $item->notify(new \App\Notifications\NewDashboardSubmitted($email->email, $item));
         }
     }
 

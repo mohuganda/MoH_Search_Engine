@@ -43,7 +43,7 @@ class ItemsRepository
 
 
 			$items = $query->paginate(15);
-		 } elseif ($published > -1) {
+		} elseif ($published > -1) {
 
 			$query = Item::where('published', $published)
 				->orderBy('title', 'asc');
