@@ -84,11 +84,12 @@ class SearchRepository
 	function getAccessLog()
 	{
 
-		$accessLogs = AccessLog::orderBy('count', 'desc')->take(50)->get();
+		$accessLogs = AccessLog::with('item')->orderBy('count', 'desc')->take(50)->get();
 		$type = (isset($_GET['type'])) ? $_GET['type'] : 2;
 
+        dd($accessLogs);
+
 		return $accessLogs->filter(function ($row) use ($type) {
-            dd($row->item);
 			return ($row->item)?($row->item->item_type_id == $type):null;
 		});
 	}
