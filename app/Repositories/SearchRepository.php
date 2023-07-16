@@ -87,7 +87,7 @@ class SearchRepository
 		$accessLogs = AccessLog::with('item')->orderBy('count', 'desc')->take(50)->get();
 		$type = (isset($_GET['type'])) ? $_GET['type'] : 2;
 
-        dd($accessLogs);
+        dd(json_encode($accessLogs));
 
 		return $accessLogs->filter(function ($row) use ($type) {
 			return ($row->item)?($row->item->item_type_id == $type):null;
