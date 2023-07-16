@@ -88,7 +88,7 @@ class SearchRepository
 		$type = (isset($_GET['type'])) ? $_GET['type'] : 2;
 
 		return $accessLogs->filter(function ($row) use ($type) {
-			return ($row->item->item_type_id == $type);
+			return ($row->item)?($row->item->item_type_id == $type):null;
 		});
 	}
 
