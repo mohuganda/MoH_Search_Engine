@@ -31,11 +31,11 @@ class SearchRepository
 				->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
 				->orWhere('description', 'like', '%' . rephrase($term) . '%')
 				->where('published', 1)
-
-				->orderBy('title', 'asc');
-
-
-
+                ->orderByRaw("CASE 
+                      WHEN title = '$term' THEN 1 
+                      ELSE 2 
+                  END")
+                ->orderBy('title', 'asc');
 			if (intval($type) > 0)
 				$query = $query->where('item_type_id', $type);
 
