@@ -23,13 +23,13 @@ class SearchRepository
 		if ($term) {
 
 			$query = Item::where('title', 'like', '%' . $term . '%')
-				->orWhere('description', 'like', '%' . $term . '%')
-				->orWhere('access_method', 'like', '%' . $term . '%')
-				->orWhere('url_link', 'like', '%' . $term . '%')
-				->orWhere('department', 'like', '%' . $term . '%')
-				->orWhere('hosting_organiation', 'like', '%' . $term . '%')
-				->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
-				->orWhere('description', 'like', '%' . rephrase($term) . '%')
+				// ->orWhere('description', 'like', '%' . $term . '%')
+				// ->orWhere('access_method', 'like', '%' . $term . '%')
+				// ->orWhere('url_link', 'like', '%' . $term . '%')
+				// ->orWhere('department', 'like', '%' . $term . '%')
+				// ->orWhere('hosting_organiation', 'like', '%' . $term . '%')
+				// ->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
+				// ->orWhere('description', 'like', '%' . rephrase($term) . '%')
 				->where('published', 1)
 
 				->orderBy('title', 'asc');
