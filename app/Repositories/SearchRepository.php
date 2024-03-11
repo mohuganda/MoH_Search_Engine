@@ -21,20 +21,22 @@ class SearchRepository
 		$type = $request->type;
 
 		if ($term) {
-
-			$query = Item::where('title', 'like', '%' . $term . '%')
-				->orWhere('description', 'like', '%' . $term . '%')
-				// ->orWhere('access_method', 'like', '%' . $term . '%')
-				// ->orWhere('url_link', 'like', '%' . $term . '%')
-				// ->orWhere('department', 'like', '%' . $term . '%')
-				// ->orWhere('hosting_organiation', 'like', '%' . $term . '%')
-				// ->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
-				// ->orWhere('description', 'like', '%' . rephrase($term) . '%')
-				->where('published', 1)
-
-				->orderBy('title', 'asc');
-
-
+    $query = Item::where(function($query) use ($term) {
+        $query->where('title', 'like', '%' . $term . '%')
+              ->orWhere('description', 'like', '%' . $term . '%')
+              ->orWhere('access_method', 'like', '%' . $term . '%')
+              ->orWhere('url_link', 'like', '%' . $term . '%')
+              ->orWhere('department', 'like', '%' . $term . '%')
+              ->orWhere('hosting_organization', 'like', '%' . $term . '%')
+              ->orWhere('title', 'like', '%' . rephrase($term, 5) . '%')
+              ->orWhere('description', 'like', '%' . rephrase($term) . '%');
+    })
+    ->where('published', 1)
+    ->orderByRaw("CASE 
+                      WHEN title = '$term' THEN 1 
+                      ELSE 2 
+                  END")
+    ->orderBy('title', 'asc');
 
 			if (intval($type) > 0)
 				$query = $query->where('item_type_id', $type);
