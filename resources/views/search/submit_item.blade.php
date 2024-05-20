@@ -172,11 +172,14 @@
 
                     </div>
                     <div class="col-lg-6">
+                       
+                    </div>
+                    <div class="col-lg-6">
+                        
                         <div class="form-group">
                             {!!getCaptchaBox()!!}
                         </div>
-                    </div>
-                    <div class="col-lg-6">
+                        <br>
                         <div class="form-group btn-wrapper">
                             <br>
                             <input type="submit"
