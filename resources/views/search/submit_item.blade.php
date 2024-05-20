@@ -4,7 +4,7 @@
 @include('layouts.partials.common_banner')
 
 
-<form method="post" action="{{url('submissions')}}">
+<form method="post" action="{{url('send')}}">
     <div class="card radius-10">
         <div class="card-body">
             <div class="col-lg-12" style="text-align:center;">

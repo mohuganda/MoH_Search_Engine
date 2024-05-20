@@ -76,12 +76,10 @@ class PublicItemController extends Controller
     public function store(Request $request)
     {
         $request->validate(['url' => 'unique:items,url_link']);
-
+        $request->validate(['_answer' => 'required | simple_captcha']);
         $saved = $this->itemsRepo->saveItem($request, true);
 
         $msg = (!$saved) ? "Operation failed, try again" : "Item submitted succesfully";
-
-
         return back()->with('alert', $msg);
     }
 
