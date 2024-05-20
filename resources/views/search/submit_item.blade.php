@@ -34,7 +34,7 @@
                             <select name="organization" class="form-control" required>
                                 <option value="">Choose</option>
                                 @foreach($organizations as $row)
-                                <option {{ (@$item->hosting_organiation==$row->id)?'selected':'' }}
+                                <option {{ (@$item->hosting_organiation == $row->id) ? 'selected' : '' }}
                                     value="{{$row->id}}">{{$row->organization_name}}</option>
                                 @endforeach
 
@@ -45,7 +45,7 @@
                             <select name="item_type" class="form-control" required>
                                 <option value="">Choose</option>
                                 @foreach($types as $row)
-                                <option {{ (@$item->item_type_id==$row->id)?'selected':'' }} value="{{$row->id}}">
+                                <option {{ (@$item->item_type_id == $row->id) ? 'selected' : '' }} value="{{$row->id}}">
                                     {{$row->item_type_name}}
                                 </option>
                                 @endforeach
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans_choice('cms.thematic_area',1)}}</label>
+                            <label>{{ trans_choice('cms.thematic_area', 1)}}</label>
                             <select name="thematic_areas[]" class="form-control filter-multi-select" required multiple>
 
                                 @foreach($areas as $row)
@@ -67,18 +67,18 @@
                             <select name="approval_authority" class="form-control">
                                 <option value="">Choose</option>
                                 @foreach($authorities as $auth)
-                                <option {{ (@$auth->id==@$item->approval_authority_id)?'selected':'' }}
+                                <option {{ (@$auth->id == @$item->approval_authority_id) ? 'selected' : '' }}
                                     value="{{$auth->id}}">{{$auth->authority_name}}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label>{{__('cms.ui')}} {{ trans_choice('cms.tool',1)}} </label>
+                            <label>{{__('cms.ui')}} {{ trans_choice('cms.tool', 1)}} </label>
                             <select name="uitool" class="form-control">
                                 <option value="">Choose</option>
                                 @foreach($uitools as $tool)
-                                <option {{ (@$tool->id==@$item->ui_tool_id)?'selected':'' }} value="{{$tool->id}}">
+                                <option {{ (@$tool->id == @$item->ui_tool_id) ? 'selected' : '' }} value="{{$tool->id}}">
                                     {{$tool->tool_name}}
                                 </option>
                                 @endforeach
@@ -95,9 +95,9 @@
                             <label>{{__('cms.access_method')}}</label>
                             <select name="access_method" class="form-control" required>
                                 <option value="">Choose</option>
-                                <option {{ (@$item->access_method=='Restricted')?'selected':'' }} value="Restricted">
+                                <option {{ (@$item->access_method == 'Restricted') ? 'selected' : '' }} value="Restricted">
                                     Restricted</option>
-                                <option {{ (@$item->access_method=='Open')?'selected':'' }} value="Open">Open</option>
+                                <option {{ (@$item->access_method == 'Open') ? 'selected' : '' }} value="Open">Open</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -119,17 +119,17 @@
                                 placeholder="{{__('cms.db_engine')}}">
                         </div>
                         <div class="form-group">
-                            <label>{{__('cms.dev')}} {{ trans_choice('cms.entity',1)}} </label>
+                            <label>{{__('cms.dev')}} {{ trans_choice('cms.entity', 1)}} </label>
                             <select name="dev_entity" class="form-control">
                                 <option value="">Choose</option>
                                 @foreach($entities as $entity)
-                                <option {{ (@$entity->id==@$item->dev_entity_id)?'selected':'' }}
+                                <option {{ (@$entity->id == @$item->dev_entity_id) ? 'selected' : '' }}
                                     value="{{$entity->id}}">{{$entity->entity_name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>{{ trans_choice('cms.submitted_by',1)}} </label>
+                            <label>{{ trans_choice('cms.submitted_by', 1)}} </label>
 
                             <input type="text" name="submitter_name" class="form-control mb-2"
                                 placeholder="Submitted By" class="form-group" required />
@@ -140,7 +140,7 @@
                         </div>
                         <div class="form-group">
                             <label style="font-weight:bold;">{{__('general.contact')}}
-                                {{ trans_choice('general.person',1)}}</label>
+                                {{ trans_choice('general.person', 1)}}</label>
                             <div class="form-group">
 
                                 <div id="contact" style="max-height: 600px; overflow:auto;">
@@ -167,13 +167,15 @@
                             </div>
 
                         </div>
+                        
 
 
                     </div>
-
-
-
-                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            {!!getCaptchaBox()!!}
+                        </div>
+                    </div>
                     <div class="col-lg-6">
                         <div class="form-group btn-wrapper">
                             <br>
